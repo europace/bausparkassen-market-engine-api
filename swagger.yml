@@ -1,0 +1,932 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: MarketEngine-API für Privatkredite des Deutschen Rings
+basePath: /v1
+schemes:
+  - http
+  - https
+paths:
+  /ermitteln:
+    get:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ermittlung erfolgreich
+          schema:
+            $ref: '#/definitions/ermittlungsResponse'
+      parameters:      
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          $ref: '#/definitions/ermittlungsRequest'
+  /annehmen:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Annahme erfolgreich
+          schema:
+            $ref: '#/definitions/annahmeResponse'
+      parameters:      
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          $ref: '#/definitions/annahmeRequest'
+          
+definitions:
+
+  ermittlungsRequest:
+    type: object
+    properties:
+      base:
+        $ref: '#/definitions/request'
+      handelsbeziehungen:
+        type: array
+        items:
+          type: object
+          properties:
+            produktanbieter:
+              $ref: '#/definitions/produktanbieter'
+            kreditProvisionswunsch:
+              $ref: '#/definitions/prozent'
+          required:
+            - produktanbieter
+
+  annahmeRequest:
+    type: object
+    properties:
+      base:
+        $ref: '#/definitions/request'
+      angebotsvariantentyp:
+        type: string
+      bearbeiter:
+        type: object
+        properties:
+          vorname:
+            type: string
+          nachname:
+            type: string
+      beratungsart:
+        enum:
+          - PRAESENZ_GESCHAEFT
+          - FERN_ABSATZ_GESCHAEFT
+          - AUSSER_GESCHAEFTSRAUM_VERTRAG
+      kreditProvisionswunsch:
+        $ref: '#/definitions/prozent'
+    required:
+      - angebotsvariantentyp
+
+  request:
+    type: object
+    properties:
+      apiversion:
+        type: integer
+      metadaten:
+        description: Dient der Identifikation von Reqests und Vorgängen.
+        type: object
+        properties:
+          traceId:
+            type: string
+          vorgangsnummer:
+            type: string
+          teilantragsnummer:
+            description: Wird nur beim Abschluss geliefert.
+            type: string
+        required:
+          - traceId
+          - vorgangsnummer
+      featureToggles:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            aktiv:
+              type: boolean
+      kreditwunsch:
+        type: object
+        properties:
+          auszahlungsbetrag:
+            $ref: '#/definitions/euro'
+          ratenzahlungtermin:
+            enum:
+              - MEDIO
+              - ULTIMO
+          laufzeitInMonaten:
+            description: Der Client muss mindestens Laufzeit oder Rate liefern.
+            type: integer
+          rateProMonat:
+            description: Der Client muss mindestens Laufzeit oder Rate liefern.
+            $ref: '#/definitions/euro'
+          versicherungsrisiken:
+            $ref: '#/definitions/versicherungsrisiken'
+        required:
+          - auszahlungsbetrag
+      antragsteller:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            haushaltspartnerId:
+              description: Antragsteller ID des Haushaltspartners
+              type: string
+            persoenlicheAngaben:
+              type: object
+              properties:
+                anrede:
+                  $ref: '#/definitions/anrede'
+                titel:
+                  type: string
+                vorname:
+                  type: string
+                nachname:
+                  type: string
+                geburtsdatum:
+                  $ref: '#/definitions/datum'
+                geburtsort:
+                  type: string
+                geburtsname:
+                  type: string
+                staatsangehoerigkeit:
+                  $ref: '#/definitions/land'
+                familienstand:
+                  enum:
+                    - LEDIG
+                    - VERHEIRATET
+                    - GESCHIEDEN
+                    - VERWITWET
+                    - GETRENNT_LEBEND
+                    - EHEAEHNLICHE_GEMEINSCHAFT
+                    - EINGETRAGENE_LEBENSPARTNERSCHAFT
+                anzahlPersonenImHaushalt:
+                  type: integer
+            angabenZurBeschaeftigung:
+              type: object
+              properties:
+                beschaeftigungsverhaeltnis:
+                  enum:
+                    - ANGESTELLT
+                    - ARBEITER
+                    - BEAMTER
+                    - GF_GESELLSCHAFTER
+                    - SELBSTAENDIG
+                    - FREIBERUFLER
+                    - RENTNER
+                    - HAUSFRAU
+                    - ARBEITSLOS
+                befristet:
+                  enum:
+                    - UNBEFRISTET
+                    - BEFRISTET
+                    - PROBEZEIT
+                beschaeftigtSeit:
+                  $ref: '#/definitions/datum'
+                befristetBis:
+                  $ref: '#/definitions/datum'
+                beruf:
+                  type: string
+                branche:
+                  enum:
+                    - BAUGEWERBE
+                    - DIENSTLEISTUNGEN
+                    - ENERGIE_WASSERVERSORGUNG_BERGBAU
+                    - GEBIETSKOERPERSCHAFTEN
+                    - HANDEL
+                    - HOTEL_GASTRONOMIE
+                    - KREDITINSTITUTE_VERSICHERUNGEN
+                    - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+                    - OEFFENTLICHER_DIENST
+                    - GEMEINNUETZIGE_ORGANISATION
+                    - PRIVATE_HAUSHALTE
+                    - SOZIALVERSICHERUNGEN
+                    - VERARBEITENDES_GEWERBE
+                    - VERKEHR_NACHRICHTENUEBERMITTLUNG
+                    - SONSTIGE
+                anschrift:
+                  $ref: '#/definitions/adresse'
+                arbeitgebername:
+                  type: string
+            angabenZurVorherigenBeschaeftigung:
+              type: object
+              properties:
+                beschaeftigtSeit:
+                  $ref: '#/definitions/datum'
+                beschaeftigtBis:
+                  $ref: '#/definitions/datum'
+                anschrift:
+                  $ref: '#/definitions/adresse'
+                arbeitgebername:
+                  type: string
+            wohnsituation:
+              type: object
+              properties:
+                wohnart:
+                  enum:
+                    - ZUR_MIETE
+                    - ZUR_UNTERMIETE
+                    - IM_EIGENEN_HAUS
+                    - BEI_DEN_ELTERN
+                wohnhaftSeit:
+                  $ref: '#/definitions/datum'
+                anschrift:
+                  $ref: '#/definitions/adresse'
+                voranschrift:
+                  $ref: '#/definitions/adresse'
+                wohnhaftSeitDerVoranschrift:
+                  $ref: '#/definitions/datum'
+                anzahlPkw:
+                  type: integer
+            kontakt:
+              type: object
+              properties:
+                telefonPrivat:
+                  type: string
+                telefonGeschaeftlich:
+                  type: string
+                eMail:
+                  type: string
+                  format: email
+            herkunft:
+              type: object
+              properties:
+                aufenthaltstitel:
+                  type: object
+                  properties:
+                    inDeutschlandSeit:
+                      $ref: '#/definitions/datum'
+                    art:
+                      enum:
+                        - AUFENTHALTSERLAUBNIS_UNBEFRISTET
+                        - AUFENTHALTSERLAUBNIS_BEFRISTET
+                        - VISUM
+                    befristetBis:
+                      $ref: '#/definitions/datum'
+                arbeitserlaubnisBefristetBis:
+                  $ref: '#/definitions/datum'
+            ausgaben:
+              $ref: '#/definitions/ausgaben'
+            einnahmen:
+              $ref: '#/definitions/einnahmen'
+            vermoegen:
+              $ref: '#/definitions/vermoegen'
+            verbindlichkeiten:
+              $ref: '#/definitions/verbindlichkeiten'
+            anzahlKinder:
+              type: integer
+            rentenversicherung:
+              type: object
+              properties:
+                name:
+                  type: string
+                anschrift:
+                  $ref: '#/definitions/adresse'
+                rentnerSeit:
+                  $ref: '#/definitions/datum'
+            legitimation:
+              type: object
+              properties:
+                ausweisart:
+                  enum:
+                    - PERSONALAUSWEIS
+                    - REISEPASS
+                    - ANDERER_AUSWEIS
+                ausweisnummer:
+                  type: string
+                ausstellendeBehoerde:
+                  type: string
+                ausstellungsdatum:
+                  $ref: '#/definitions/datum'
+                ausstellungsort:
+                  type: string
+        maxItems: 2
+      gemeinsameAntragstellerangaben:
+        type: object
+        properties:
+          ausgaben:
+            $ref: '#/definitions/ausgaben'
+          einnahmen:
+            $ref: '#/definitions/einnahmen'
+          vermoegen:
+            $ref: '#/definitions/vermoegen'
+          verbindlichkeiten:
+            $ref: '#/definitions/verbindlichkeiten'
+          anzahlKinder:
+            type: integer
+      konto:
+        $ref: '#/definitions/konto'
+      abzuloesendeVerbindlichkeiten:
+        type: object
+        properties:
+          ratenkredite:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                monatlicheRate:
+                  $ref: '#/definitions/euro'
+                letzteRate:
+                  $ref: '#/definitions/euro'
+                datumErsteRate:
+                  $ref: '#/definitions/datum'
+                datumLetzteRate:
+                  $ref: '#/definitions/datum'
+                urspruenglicherBetrag:
+                  $ref: '#/definitions/euro'
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+          sonstigeVerbindlichkeiten:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                monatlicheRate:
+                  $ref: '#/definitions/euro'
+                letzteRate:
+                  $ref: '#/definitions/euro'
+                datumErsteRate:
+                  $ref: '#/definitions/datum'
+                datumLetzteRate:
+                  $ref: '#/definitions/datum'
+                urspruenglicherBetrag:
+                  $ref: '#/definitions/euro'
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+          kreditkarten:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                verfuegungsrahmen:
+                  $ref: '#/definitions/euro'
+                monatlicheRate:
+                  $ref: '#/definitions/euro'
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+          dispositionskredite:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                verfuegungsrahmen:
+                  $ref: '#/definitions/euro'
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+      finanzierungszweck:
+        description: Verwendungszweck
+        enum:
+          - UMSCHULDUNG
+          - SONSTIGES
+          - NEUWAGENKAUF
+          - MODERNISIERUNG_UND_WOHNEN
+      fahrzeugdaten:
+        type: object
+        properties:
+          erstzulassungsdatum:
+            $ref: '#/definitions/datum'
+          kaufpreis:
+            $ref: '#/definitions/euro'
+          beglicheneKosten:
+            $ref: '#/definitions/euro'
+          fahrzeugleistung:
+            type: object
+            properties:
+              nennleistung:
+                type: number
+              einheit:
+                enum:
+                  - PS
+                  - KW
+          laufleistung:
+            type: integer
+          marke:
+            type: string
+          modell:
+            type: string
+          verkaeuferart:
+            enum:
+              - PRIVAT
+              - HAENDLER
+      kundenbetreuer:
+        type: object
+        properties:
+          partnerId:
+            type: string
+          firmenname:
+            type: string
+          vorname:
+            type: string
+          nachname:
+            type: string
+          anschrift:
+            $ref: '#/definitions/adresse'
+          telefon:
+            type: string
+          fax:
+            type: string
+          email:
+            type: string
+            format: email
+          iban:
+            type: string
+          anrede:
+            $ref: '#/definitions/anrede'
+
+
+  ermittlungsResponse:
+    type: object
+    properties:
+      apiversion:
+        type: integer
+      supportMeldung:
+        description: 'Hinweis für den Support, um zu verstehen, was im Backend los ist. (StackTrace oder sonsiger Hinweis auf das Problem)'
+        type: string
+      angebote:
+        type: array
+        items:
+          $ref: '#/definitions/angebot'
+
+  annahmeResponse:
+    type: object
+    properties:
+      base:
+        $ref: '#/definitions/angebot'
+      apiversion:
+        type: integer
+      supportMeldung:
+        type: string
+        description: 'Hinweis für den Support, um zu verstehen, was im Backend los ist. (StackTrace oder sonsiger Hinweis auf das Problem)'
+      dokument:
+        type: object
+        properties:
+          bezeichnung:
+            type: string
+          dateiname:
+            type: string
+          base64pdf:
+            type: string
+          sichtbarkeit:
+            type: object
+            properties:
+              sichtbarFuerVertrieb:
+                type: boolean
+              sichtbarFuerProduktanbieter:
+                type: boolean
+        required:
+          - bezeichnung
+          - dateiname
+          - base64pdf
+          - sichtbarkeit
+      referenznummerProduktanbieter:
+        type: string
+
+  angebot:
+    type: object
+    properties:
+      produktanbieter:
+        type: string
+      produktbezeichnung:
+        type: string
+      angebotsvariantentyp:
+        description: 'Identifier der es dem Client ermöglicht das Angebot gezielt abzuschliessen. Nicht das konkrete Angebot wird identifiziert, sondern das konkrete Produkt eines Produktanbieters.'
+        type: string
+      kreditkonditionen:
+        type: object
+        properties:
+          effektivzinssatz:
+            $ref: '#/definitions/prozent'
+          sollzinssatz:
+            $ref: '#/definitions/prozent'
+          gesamtbetrag:
+            description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+            $ref: '#/definitions/euro'
+          nettokreditbetrag:
+            description: Auszahlungsbetrag + Versicherungsprämie
+            $ref: '#/definitions/euro'
+          auszahlungsbetrag:
+            description: Kreditbetrag
+            $ref: '#/definitions/euro'
+          laufzeitInMonaten:
+            type: integer
+          rateProMonat:
+            $ref: '#/definitions/euro'
+          letzteRate:
+            $ref: '#/definitions/euro'
+          provision:
+            $ref: '#/definitions/euro'
+          basisbetragFuerDieProvisionsermittlung:
+            $ref: '#/definitions/euro'
+          vorlaufzinsenProTag:
+            $ref: '#/definitions/euro'
+        required:
+          - effektivzinssatz
+          - sollzinssatz
+          - gesamtbetrag
+          - nettokreditbetrag
+          - auszahlungsbetrag
+          - laufzeitInMonaten
+          - rateProMonat
+          - letzteRate
+          - provision
+          - basisbetragFuerDieProvisionsermittlung
+          - vorlaufzinsenProTag
+      versicherungskonditionen:
+        type: object
+        properties:
+          basisFuerDieProvisionsermittlung:
+            enum:
+              - VERSICHERUNGS_PRAEMIE_NETTO
+              - VERSICHERUNGS_PRAEMIE_BRUTTO
+          versicherungsprovision:
+            $ref: '#/definitions/euro'
+          versicherungspraemieBrutto:
+            description: Versicherungsprämie inklusive Steuer für Arbeitslosigkeitsversicherung
+            $ref: '#/definitions/euro'
+          versicherungspraemieNetto:
+            description: Versicherungsprämie exklusive Steuer für Arbeitslosigkeitsversicherung
+            $ref: '#/definitions/euro'
+          versicherungsrisiken:
+            $ref: '#/definitions/versicherungsrisiken'
+          versicherer:
+            type: string
+        required:
+          - basisFuerDieProvisionsermittlung
+          - versicherungsprovision
+          - versicherungspraemieBrutto
+          - versicherungspraemieNetto
+          - versicherungsrisiken
+          - versicherer
+      status:
+        type: object
+        properties:
+          machbarkeitsstatus:
+            enum:
+              - MACHBAR
+              - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
+              - NICHT_MACHBAR
+          angepasst:
+            description: true wenn der Kredit- oder Versicherungswunsch des Antragstellers angepasst wurde.
+            type: boolean
+        required:
+          - machbarkeitsstatus
+          - angepasst
+      meldungen:
+        type: array
+        items:
+          type: object
+          properties:
+            kategorie:
+              enum:
+                - MACHBARKEIT
+                - VOLLSTAENDIGKEIT
+                - HINWEIS
+                - ANPASSUNG
+            text:
+              type: string
+            code:
+              type: string
+          required:
+            - kategorie
+            - text
+            - code
+      erforderlicheUnterlagen:
+        type: array
+        items:
+          type: string
+      bonitaetscheck:
+        type: object
+        properties:
+          einnahmen:
+            $ref: '#/definitions/bonitaetscheckPosition'
+          ausgaben:
+            $ref: '#/definitions/bonitaetscheckPosition'
+          ueberschuss:
+            $ref: '#/definitions/euro'
+        required:
+          - einnahmen
+          - ausgaben
+          - ueberschuss
+      maximalerAuszahlungsbetrag:
+        $ref: '#/definitions/euro'
+    required:
+      - produktanbieter
+      - produktbezeichnung
+      - angebotsvariantentyp
+      - kreditkonditionen
+      - status
+      - bonitaetscheck
+  bonitaetscheckPosition:
+    type: object
+    properties:
+      positionen:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              type: string
+            wert:
+              $ref: '#/definitions/euro'
+          required:
+            - label
+            - wert
+      summe:
+        $ref: '#/definitions/euro'
+    required:
+      - positionen
+      - summe
+
+
+
+  adresse:
+    type: object
+    properties:
+      strasse:
+        type: string
+      hausnummer:
+        type: string
+      postleitzahl:
+        type: string
+      ort:
+        type: string
+      land:
+        $ref: '#/definitions/land'
+    
+  ausgaben:
+    type: object
+    properties:
+      krankenversicherungsbeitraege:
+        $ref: '#/definitions/euro'
+      eigenmieteInklusiveNebenkosten:
+        $ref: '#/definitions/euro'
+      unterhalt:
+        $ref: '#/definitions/euro'
+      lebensversicherungsbeitraege:
+        $ref: '#/definitions/euro'
+      bauspardarlehensrate:
+        $ref: '#/definitions/euro'
+      sonstigeAusgaben:
+        $ref: '#/definitions/euro'
+
+  einnahmen:
+    type: object
+    properties:
+      monatlicheEinnahmen:
+        type: object
+        properties:
+          regelmaessigesUnselbstaendigesEinkommenMonatlich:
+            $ref: '#/definitions/euro'
+          rente:
+            $ref: '#/definitions/euro'
+          kindesunterhalt:
+            $ref: '#/definitions/euro'
+          ehegattenunterhalt:
+            $ref: '#/definitions/euro'
+          kindergeld:
+            $ref: '#/definitions/euro'
+          nebentaetigkeit:
+            $ref: '#/definitions/euro'
+          mietUndPachteinnahmen:
+            type: object
+            properties:
+              warm:
+                $ref: '#/definitions/euro'
+              kalt:
+                $ref: '#/definitions/euro'
+          sonstige:
+            $ref: '#/definitions/euro'
+      jaehrlicheEinnahmen:
+        type: object
+        properties:
+          einkommenAusSelbstaendigkeit:
+            type: object
+            properties:
+              nettoeinkommenJaehrlich:
+                $ref: '#/definitions/euro'
+              zuVersteuerndesJahreseinkommen:
+                $ref: '#/definitions/jaehrlicheAngaben'
+              einkommenssteuer:
+                $ref: '#/definitions/jaehrlicheAngaben'
+              abschreibungen:
+                $ref: '#/definitions/jaehrlicheAngaben'
+              bruttoeinkommenJaehrlichErwartet:
+                $ref: '#/definitions/euro'
+
+  vermoegen:
+    type: object
+    properties:
+      rueckkaufswertLebensversicherung:
+        $ref: '#/definitions/euro'
+      bausparguthaben:
+        $ref: '#/definitions/euro'
+      eigengenutzteImmobilien:
+        $ref: '#/definitions/euro'
+      vermieteteImmobilien:
+        $ref: '#/definitions/euro'
+      immobilie:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            art:
+              type: string
+            verkehrswert:
+              $ref: '#/definitions/euro'
+            wohnflaeche:
+              type: integer
+            vermieteteWohnflaeche:
+              type: integer
+            nutzungsart:
+              enum:
+                - VERMIETET
+                - EIGENGENUTZT
+                - EIGENGENUTZT_UND_VERMIETET
+      wohnflaecheEigengenutzterImmobilieInQm:
+        type: integer
+
+  verbindlichkeiten:
+    type: object
+    properties:
+      ratenkredite:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            monatlicheRate:
+              $ref: '#/definitions/euro'
+            letzteRate:
+              $ref: '#/definitions/euro'
+            datumLetzteRate:
+              $ref: '#/definitions/datum'
+            restschuld:
+              $ref: '#/definitions/euro'
+      sonstigeVerbindlichkeiten:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            monatlicheRate:
+              $ref: '#/definitions/euro'
+            letzteRate:
+              $ref: '#/definitions/euro'
+            datumLetzteRate:
+              $ref: '#/definitions/datum'
+            restschuld:
+              $ref: '#/definitions/euro'
+      leasings:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            monatlicheRate:
+              $ref: '#/definitions/euro'
+            letzteRate:
+              $ref: '#/definitions/euro'
+            datumLetzteRate:
+              $ref: '#/definitions/datum'
+      kreditkarten:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            verfuegungsrahmen:
+              $ref: '#/definitions/euro'
+            monatlicheRate:
+              $ref: '#/definitions/euro'
+            beanspruchterBetrag:
+              $ref: '#/definitions/euro'
+      dispositionskredite:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            verfuegungsrahmen:
+              $ref: '#/definitions/euro'
+            beanspruchterBetrag:
+              $ref: '#/definitions/euro'
+      immobiliendarlehen:
+        type: array
+        items:
+          type: object
+          properties:
+            immobilieId:
+              type: string
+            monatlicheRate:
+              $ref: '#/definitions/euro'
+            restschuld:
+              $ref: '#/definitions/euro'
+      summeImmobiliendarlehen:
+        $ref: '#/definitions/euro'
+  konto:
+    type: object
+    properties:
+      kreditinstitut:
+        type: string
+      kontoinhaberIds:
+        type: array
+        items:
+          type: string
+        maxItems: 2
+      iban:
+        type: string
+      bic:
+        type: string
+  anrede:
+    enum:
+      - HERR
+      - FRAU
+  versicherungsrisiken:
+    type: array
+    items:
+      type: object
+      properties:
+        antragstellerId:
+          type: string
+        tod:
+          type: boolean
+        arbeitsunfaehigkeit:
+          type: boolean
+        arbeitslosigkeit:
+          type: boolean
+      required:
+        - antragstellerId
+        - tod
+        - arbeitsunfaehigkeit
+        - arbeitslosigkeit
+  jaehrlicheAngaben:
+    type: object
+    properties:
+      laufendesJahr:
+        $ref: '#/definitions/euro'
+      vorEinemJahr:
+        $ref: '#/definitions/euro'
+      vorZweiJahren:
+        $ref: '#/definitions/euro'
+      vorDreiJahren:
+        $ref: '#/definitions/euro'
+
+  produktanbieter:
+    enum:
+      - SPK_MEISSEN
+      - SPK_BARNIM
+      - KSK_ANH_BITTER
+      - SPK_VOGTLAND
+      - SPK_WITTENBERG
+      - SPK_CHEMNITZ
+
+  euro:
+    type: number
+    format: 'xxx.xx'
+    description: Euro-Betrag mit bis zu 2 Nachkommastellen
+
+  prozent:
+    type: number
+    format: 'xxx.xx'
+    description: 100 basierter Prozentwert mit bis zu 2 Nachkommastellen
+
+  datum:
+    type: string
+    format: date-time
+
+  land:
+    type: string
+    description: Land als ISO 3166-1 alpha-2 Code (nur Grossbuchstaben)
