@@ -649,11 +649,8 @@ definitions:
           required:
             - label
             - wert
-      summe:
-        $ref: '#/definitions/euro'
     required:
       - positionen
-      - summe
 
   adresse:
     type: object
@@ -844,8 +841,6 @@ definitions:
               $ref: '#/definitions/euro'
             restschuld:
               $ref: '#/definitions/euro'
-      summeImmobiliendarlehen:
-        $ref: '#/definitions/euro'
 
   konto:
     type: object
