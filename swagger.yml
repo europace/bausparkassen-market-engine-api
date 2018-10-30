@@ -47,18 +47,39 @@ definitions:
   ermittlungsRequest:
     type: object
     properties:
-      base:
-        $ref: '#/definitions/request'
+      stammdaten:
+        $ref: '#/definitions/stammdaten'
+      finanzierungswunsch:
+          $ref: '#/definitions/finanzierungswunsch'
+      kundenbetreuer:
+        $ref: '#/definitions/kundenbetreuer'
       handelsbeziehungen:
         type: array
         items:
           $ref: '#/definitions/handelsbeziehung'
+      metadaten:
+          $ref: '#/definitions/metadaten'
+      featureToggles:
+          $ref: '#/definitions/featureToggles'
+    required:
+      - metadaten
+      - finanzierungswunsch
 
   annahmeRequest:
     type: object
     properties:
-      base:
-        $ref: '#/definitions/request'
+      stammdaten:
+        $ref: '#/definitions/stammdaten'
+      finanzierungswunsch:
+          $ref: '#/definitions/finanzierungswunsch'
+      kundenbetreuer:
+        $ref: '#/definitions/kundenbetreuer'
+      handelsbeziehung:
+          $ref: '#/definitions/handelsbeziehung'
+      metadaten:
+          $ref: '#/definitions/metadaten'
+      featureToggles:
+          $ref: '#/definitions/featureToggles'
       angebotsvariantentyp:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
@@ -74,59 +95,14 @@ definitions:
           - PRAESENZ_GESCHAEFT
           - FERN_ABSATZ_GESCHAEFT
           - AUSSER_GESCHAEFTSRAUM_VERTRAG
-      handelsbeziehung:
-          $ref: '#/definitions/handelsbeziehung'
     required:
+      - metadaten
+      - finanzierungswunsch
       - angebotsvariantentyp
 
-  request:
+  stammdaten:
     type: object
     properties:
-      metadaten:
-        description: Dient der Identifikation von Reqests und Vorgängen.
-        type: object
-        properties:
-          traceId:
-            description: zur Nachverfolgung von Anfragen über mehrere Services hinweg - bitte in Ihre Log-Einträge aufnehmen.
-            type: string
-          vorgangsnummer:
-            description: Identifiziert einen Europace-Vorgang.
-            type: string
-          teilantragsnummer:
-            description: Identifiziert einen Europace-Antrag - wird nur bei der Annahme mitgeliefert.
-            type: string
-        required:
-          - traceId
-          - vorgangsnummer
-      featureToggles:
-        description: Zur Steuerung von Featuren abhängig vom Request.
-        type: array
-        items:
-          type: object
-          properties:
-            id:
-              type: string
-            aktiv:
-              type: boolean
-      kreditwunsch:
-        type: object
-        properties:
-          auszahlungsbetrag:
-            $ref: '#/definitions/euro'
-          ratenzahlungtermin:
-            enum:
-              - MEDIO
-              - ULTIMO
-          laufzeitInMonaten:
-            description: Der Client muss mindestens Laufzeit oder Rate liefern.
-            type: integer
-          rateProMonat:
-            description: Der Client muss mindestens Laufzeit oder Rate liefern.
-            $ref: '#/definitions/euro'
-          versicherungsrisiken:
-            $ref: '#/definitions/versicherungsrisiken'
-        required:
-          - auszahlungsbetrag
       antragsteller:
         type: array
         items:
@@ -321,86 +297,6 @@ definitions:
             type: integer
       konto:
         $ref: '#/definitions/konto'
-      abzuloesendeVerbindlichkeiten:
-        type: object
-        properties:
-          ratenkredite:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: string
-                monatlicheRate:
-                  $ref: '#/definitions/euro'
-                letzteRate:
-                  $ref: '#/definitions/euro'
-                datumErsteRate:
-                  $ref: '#/definitions/datum'
-                datumLetzteRate:
-                  $ref: '#/definitions/datum'
-                urspruenglicherBetrag:
-                  $ref: '#/definitions/euro'
-                abloesebetrag:
-                  $ref: '#/definitions/euro'
-                konto:
-                  $ref: '#/definitions/konto'
-          sonstigeVerbindlichkeiten:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: string
-                monatlicheRate:
-                  $ref: '#/definitions/euro'
-                letzteRate:
-                  $ref: '#/definitions/euro'
-                datumErsteRate:
-                  $ref: '#/definitions/datum'
-                datumLetzteRate:
-                  $ref: '#/definitions/datum'
-                urspruenglicherBetrag:
-                  $ref: '#/definitions/euro'
-                abloesebetrag:
-                  $ref: '#/definitions/euro'
-                konto:
-                  $ref: '#/definitions/konto'
-          kreditkarten:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: string
-                verfuegungsrahmen:
-                  $ref: '#/definitions/euro'
-                monatlicheRate:
-                  $ref: '#/definitions/euro'
-                abloesebetrag:
-                  $ref: '#/definitions/euro'
-                konto:
-                  $ref: '#/definitions/konto'
-          dispositionskredite:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: string
-                verfuegungsrahmen:
-                  $ref: '#/definitions/euro'
-                abloesebetrag:
-                  $ref: '#/definitions/euro'
-                konto:
-                  $ref: '#/definitions/konto'
-      finanzierungszweck:
-        description: Verwendungszweck
-        enum:
-          - UMSCHULDUNG
-          - SONSTIGES
-          - NEUWAGENKAUF
-          - MODERNISIERUNG_UND_WOHNEN
       fahrzeugdaten:
         type: object
         properties:
@@ -429,30 +325,148 @@ definitions:
             enum:
               - PRIVAT
               - HAENDLER
-      kundenbetreuer:
+
+  metadaten:
+    description: Dient der Identifikation von Reqests und Vorgängen.
+    type: object
+    properties:
+      traceId:
+        description: zur Nachverfolgung von Anfragen über mehrere Services hinweg - bitte in Ihre Log-Einträge aufnehmen.
+        type: string
+      vorgangsnummer:
+        description: Identifiziert einen Europace-Vorgang.
+        type: string
+      antragsnummer:
+        description: Identifiziert einen Europace-Antrag - wird nur bei der Annahme mitgeliefert.
+        type: string
+    required:
+      - traceId
+      - vorgangsnummer
+
+  featureToggles:
+    description: Zur Steuerung von Featuren abhängig vom Request.
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        aktiv:
+          type: boolean
+
+  kundenbetreuer:
+    type: object
+    properties:
+      partnerId:
+        type: string
+      firmenname:
+        type: string
+      vorname:
+        type: string
+      nachname:
+        type: string
+      anschrift:
+        $ref: '#/definitions/adresse'
+      telefon:
+        type: string
+      fax:
+        type: string
+      email:
+        type: string
+        format: email
+      iban:
+        type: string
+      anrede:
+        $ref: '#/definitions/anrede'
+
+  finanzierungswunsch:
+    type: object
+    properties:
+      kreditwunsch:
         type: object
         properties:
-          partnerId:
-            type: string
-          firmenname:
-            type: string
-          vorname:
-            type: string
-          nachname:
-            type: string
-          anschrift:
-            $ref: '#/definitions/adresse'
-          telefon:
-            type: string
-          fax:
-            type: string
-          email:
-            type: string
-            format: email
-          iban:
-            type: string
-          anrede:
-            $ref: '#/definitions/anrede'
+          finanzierungszweck:
+            description: Verwendungszweck
+            enum:
+              - UMSCHULDUNG
+              - SONSTIGES
+              - NEUWAGENKAUF
+              - MODERNISIERUNG_UND_WOHNEN
+          auszahlungsbetrag:
+            $ref: '#/definitions/euro'
+          ratenzahlungtermin:
+            enum:
+              - MEDIO
+              - ULTIMO
+          laufzeitInMonaten:
+            description: laufzeitInMonaten oder rateProMonat wird übermittelt
+            type: integer
+          rateProMonat:
+            description: laufzeitInMonaten oder rateProMonat wird übermittelt
+            $ref: '#/definitions/euro'
+        required:
+          - auszahlungsbetrag
+      versicherungsWunsch:
+        type: array
+        items:
+          $ref: '#/definitions/versicherungsrisiken'
+      abzuloesendeVerbindlichkeiten:
+        type: object
+        properties:
+          ratenkredite:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                datumErsteRate:
+                  $ref: '#/definitions/datum'
+                urspruenglicherBetrag:
+                  $ref: '#/definitions/euro'
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+          sonstigeVerbindlichkeiten:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                datumErsteRate:
+                  $ref: '#/definitions/datum'
+                urspruenglicherBetrag:
+                  $ref: '#/definitions/euro'
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+          kreditkarten:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+          dispositionskredite:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                abloesebetrag:
+                  $ref: '#/definitions/euro'
+                konto:
+                  $ref: '#/definitions/konto'
+    required:
+      - kredit
 
 
   ermittlungsResponse:
@@ -564,7 +578,9 @@ definitions:
             description: Versicherungsprämie exklusive Steuer für Arbeitslosigkeitsversicherung
             $ref: '#/definitions/euro'
           versicherungsrisiken:
-            $ref: '#/definitions/versicherungsrisiken'
+            type: array
+            items:
+              $ref: '#/definitions/versicherungsrisiken'
           versicherer:
             type: string
         required:
@@ -688,7 +704,7 @@ definitions:
       monatlicheEinnahmen:
         type: object
         properties:
-          regelmaessigesUnselbstaendigesEinkommenMonatlich:
+          regelmaessigesUnselbstaendigesEinkommen:
             $ref: '#/definitions/euro'
           rente:
             $ref: '#/definitions/euro'
@@ -715,15 +731,15 @@ definitions:
           einkommenAusSelbstaendigkeit:
             type: object
             properties:
-              nettoeinkommenJaehrlich:
+              nettoeinkommen:
                 $ref: '#/definitions/euro'
-              zuVersteuerndesJahreseinkommen:
+              zuVersteuerndesEinkommen:
                 $ref: '#/definitions/jaehrlicheAngaben'
               einkommenssteuer:
                 $ref: '#/definitions/jaehrlicheAngaben'
               abschreibungen:
                 $ref: '#/definitions/jaehrlicheAngaben'
-              bruttoeinkommenJaehrlichErwartet:
+              bruttoEinkommenErwartet:
                 $ref: '#/definitions/euro'
 
   vermoegen:
@@ -863,23 +879,21 @@ definitions:
       - FRAU
 
   versicherungsrisiken:
-    type: array
-    items:
-      type: object
-      properties:
-        antragstellerId:
-          type: string
-        tod:
-          type: boolean
-        arbeitsunfaehigkeit:
-          type: boolean
-        arbeitslosigkeit:
-          type: boolean
-      required:
-        - antragstellerId
-        - tod
-        - arbeitsunfaehigkeit
-        - arbeitslosigkeit
+    type: object
+    properties:
+      antragstellerId:
+        type: string
+      tod:
+        type: boolean
+      arbeitsunfaehigkeit:
+        type: boolean
+      arbeitslosigkeit:
+        type: boolean
+    required:
+      - antragstellerId
+      - tod
+      - arbeitsunfaehigkeit
+      - arbeitslosigkeit
 
   jaehrlicheAngaben:
     type: object
@@ -900,6 +914,17 @@ definitions:
         type: string
       kreditProvisionswunsch:
         $ref: '#/definitions/prozent'
+      vertriebsgruppe:
+        type: string
+      partnerKennzeichen:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value:
+              type: string
     required:
       - produktanbieter
 
