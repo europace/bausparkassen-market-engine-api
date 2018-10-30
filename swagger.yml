@@ -792,8 +792,6 @@ definitions:
               $ref: '#/definitions/euro'
             datumLetzteRate:
               $ref: '#/definitions/datum'
-            restschuld:
-              $ref: '#/definitions/euro'
       sonstigeVerbindlichkeiten:
         type: array
         items:
@@ -807,8 +805,6 @@ definitions:
               $ref: '#/definitions/euro'
             datumLetzteRate:
               $ref: '#/definitions/datum'
-            restschuld:
-              $ref: '#/definitions/euro'
       leasings:
         type: array
         items:
@@ -833,8 +829,6 @@ definitions:
               $ref: '#/definitions/euro'
             monatlicheRate:
               $ref: '#/definitions/euro'
-            beanspruchterBetrag:
-              $ref: '#/definitions/euro'
       dispositionskredite:
         type: array
         items:
@@ -843,8 +837,6 @@ definitions:
             id:
               type: string
             verfuegungsrahmen:
-              $ref: '#/definitions/euro'
-            beanspruchterBetrag:
               $ref: '#/definitions/euro'
       immobiliendarlehen:
         type: array
