@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 0.0.1
-  title: MarketEngine-API für Privatkredite des Deutschen Rings
+  title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
   - http
