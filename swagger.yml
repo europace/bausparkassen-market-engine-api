@@ -301,15 +301,15 @@ definitions:
             $ref: '#/definitions/vermoegen'
           verbindlichkeiten:
             $ref: '#/definitions/verbindlichkeiten'
-            kinder:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  kindergeldBerechtigt:
-                    type: boolean
+          kinder:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                kindergeldBerechtigt:
+                  type: boolean
       konto:
         $ref: '#/definitions/konto'
       fahrzeugdaten:
