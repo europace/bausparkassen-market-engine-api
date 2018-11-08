@@ -498,27 +498,10 @@ definitions:
       supportMeldung:
         type: string
         description: Hinweis für den Support, um zu verstehen, was im Backend los ist. (StackTrace oder sonsiger Hinweis auf das Problem)
-      dokument:
-        type: object
-        properties:
-          bezeichnung:
-            type: string
-          dateiname:
-            type: string
-          base64pdf:
-            type: string
-          sichtbarkeit:
-            type: object
-            properties:
-              sichtbarFuerVertrieb:
-                type: boolean
-              sichtbarFuerProduktanbieter:
-                type: boolean
-        required:
-          - bezeichnung
-          - dateiname
-          - base64pdf
-          - sichtbarkeit
+      dokumente:
+        type: array
+        items:
+          $ref: '#/definitions/dokument'
       referenznummerProduktanbieter:
         type: string
 
@@ -533,73 +516,9 @@ definitions:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
       kreditkonditionen:
-        type: object
-        properties:
-          effektivzinssatz:
-            $ref: '#/definitions/prozent'
-          sollzinssatz:
-            $ref: '#/definitions/prozent'
-          gesamtbetrag:
-            description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
-            $ref: '#/definitions/euro'
-          nettokreditbetrag:
-            description: Auszahlungsbetrag + Versicherungsprämie
-            $ref: '#/definitions/euro'
-          auszahlungsbetrag:
-            description: Kreditbetrag
-            $ref: '#/definitions/euro'
-          laufzeitInMonaten:
-            type: integer
-          rateProMonat:
-            $ref: '#/definitions/euro'
-          letzteRate:
-            $ref: '#/definitions/euro'
-          provision:
-            $ref: '#/definitions/euro'
-          basisbetragFuerDieProvisionsermittlung:
-            $ref: '#/definitions/euro'
-          vorlaufzinsenProTag:
-            $ref: '#/definitions/euro'
-        required:
-          - effektivzinssatz
-          - sollzinssatz
-          - gesamtbetrag
-          - nettokreditbetrag
-          - auszahlungsbetrag
-          - laufzeitInMonaten
-          - rateProMonat
-          - letzteRate
-          - provision
-          - basisbetragFuerDieProvisionsermittlung
-          - vorlaufzinsenProTag
+        $ref: '#/definitions/kreditkonditionen'
       versicherungskonditionen:
-        type: object
-        properties:
-          basisFuerDieProvisionsermittlung:
-            enum:
-              - VERSICHERUNGS_PRAEMIE_NETTO
-              - VERSICHERUNGS_PRAEMIE_BRUTTO
-          versicherungsprovision:
-            $ref: '#/definitions/euro'
-          versicherungspraemieBrutto:
-            description: Versicherungsprämie inklusive Steuer für Arbeitslosigkeitsversicherung
-            $ref: '#/definitions/euro'
-          versicherungspraemieNetto:
-            description: Versicherungsprämie exklusive Steuer für Arbeitslosigkeitsversicherung
-            $ref: '#/definitions/euro'
-          versicherungsrisiken:
-            type: array
-            items:
-              $ref: '#/definitions/versicherungsrisiken'
-          versicherer:
-            type: string
-        required:
-          - basisFuerDieProvisionsermittlung
-          - versicherungsprovision
-          - versicherungspraemieBrutto
-          - versicherungspraemieNetto
-          - versicherungsrisiken
-          - versicherer
+        $ref: '#/definitions/versicherungskonditionen'
       status:
         type: object
         properties:
@@ -617,22 +536,7 @@ definitions:
       meldungen:
         type: array
         items:
-          type: object
-          properties:
-            kategorie:
-              enum:
-                - MACHBARKEIT
-                - VOLLSTAENDIGKEIT
-                - HINWEIS
-                - ANPASSUNG
-            text:
-              type: string
-            code:
-              type: string
-          required:
-            - kategorie
-            - text
-            - code
+          $ref: '#/definitions/meldung'
       erforderlicheUnterlagen:
         type: array
         items:
@@ -660,6 +564,94 @@ definitions:
       - status
       - bonitaetscheck
 
+  meldung:
+    type: object
+    properties:
+      kategorie:
+        enum:
+          - MACHBARKEIT
+          - VOLLSTAENDIGKEIT
+          - HINWEIS
+          - ANPASSUNG
+      text:
+        type: string
+      code:
+        type: string
+    required:
+      - kategorie
+      - text
+      - code
+
+  versicherungskonditionen:
+    type: object
+    properties:
+      basisFuerDieProvisionsermittlung:
+        enum:
+          - VERSICHERUNGS_PRAEMIE_NETTO
+          - VERSICHERUNGS_PRAEMIE_BRUTTO
+      versicherungsprovision:
+        $ref: '#/definitions/euro'
+      versicherungspraemieBrutto:
+        description: Versicherungsprämie inklusive Steuer für Arbeitslosigkeitsversicherung
+        $ref: '#/definitions/euro'
+      versicherungspraemieNetto:
+        description: Versicherungsprämie exklusive Steuer für Arbeitslosigkeitsversicherung
+        $ref: '#/definitions/euro'
+      versicherungsrisiken:
+        type: array
+        items:
+          $ref: '#/definitions/versicherungsrisiken'
+      versicherer:
+        type: string
+    required:
+      - basisFuerDieProvisionsermittlung
+      - versicherungsprovision
+      - versicherungspraemieBrutto
+      - versicherungspraemieNetto
+      - versicherungsrisiken
+      - versicherer
+
+  kreditkonditionen:
+    type: object
+    properties:
+      effektivzinssatz:
+        $ref: '#/definitions/prozent'
+      sollzinssatz:
+        $ref: '#/definitions/prozent'
+      gesamtbetrag:
+        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+        $ref: '#/definitions/euro'
+      nettokreditbetrag:
+        description: Auszahlungsbetrag + Versicherungsprämie
+        $ref: '#/definitions/euro'
+      auszahlungsbetrag:
+        description: Kreditbetrag
+        $ref: '#/definitions/euro'
+      laufzeitInMonaten:
+        type: integer
+      rateProMonat:
+        $ref: '#/definitions/euro'
+      letzteRate:
+        $ref: '#/definitions/euro'
+      provision:
+        $ref: '#/definitions/euro'
+      basisbetragFuerDieProvisionsermittlung:
+        $ref: '#/definitions/euro'
+      vorlaufzinsenProTag:
+        $ref: '#/definitions/euro'
+    required:
+      - effektivzinssatz
+      - sollzinssatz
+      - gesamtbetrag
+      - nettokreditbetrag
+      - auszahlungsbetrag
+      - laufzeitInMonaten
+      - rateProMonat
+      - letzteRate
+      - provision
+      - basisbetragFuerDieProvisionsermittlung
+      - vorlaufzinsenProTag
+
   bonitaetscheckPosition:
     type: object
     properties:
@@ -677,6 +669,28 @@ definitions:
             - wert
     required:
       - positionen
+
+  dokument:
+    type: object
+    properties:
+      bezeichnung:
+        type: string
+      dateiname:
+        type: string
+      base64pdf:
+        type: string
+      sichtbarkeit:
+        type: object
+        properties:
+          sichtbarFuerVertrieb:
+            type: boolean
+          sichtbarFuerProduktanbieter:
+            type: boolean
+    required:
+      - bezeichnung
+      - dateiname
+      - base64pdf
+      - sichtbarkeit
 
   adresse:
     type: object
