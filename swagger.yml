@@ -47,8 +47,8 @@ definitions:
   ermittlungsRequest:
     type: object
     properties:
-      stammdaten:
-        $ref: '#/definitions/stammdaten'
+      haushalt:
+        $ref: '#/definitions/haushalt'
       finanzierungswunsch:
           $ref: '#/definitions/finanzierungswunsch'
       kundenbetreuer:
@@ -68,8 +68,8 @@ definitions:
   annahmeRequest:
     type: object
     properties:
-      stammdaten:
-        $ref: '#/definitions/stammdaten'
+      haushalt:
+        $ref: '#/definitions/haushalt'
       finanzierungswunsch:
           $ref: '#/definitions/finanzierungswunsch'
       kundenbetreuer:
@@ -84,12 +84,7 @@ definitions:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
       bearbeiter:
-        type: object
-        properties:
-          vorname:
-            type: string
-          nachname:
-            type: string
+          $ref: '#/definitions/bearbeiter'
       beratungsart:
         enum:
           - PRAESENZ_GESCHAEFT
@@ -100,231 +95,25 @@ definitions:
       - finanzierungswunsch
       - angebotsvariantentyp
 
-  stammdaten:
+  haushalt:
     type: object
     properties:
       antragsteller:
         type: array
         items:
-          type: object
-          properties:
-            id:
-              type: string
-            haushaltspartnerId:
-              description: Antragsteller ID des Haushaltspartners
-              type: string
-            persoenlicheAngaben:
-              type: object
-              properties:
-                anrede:
-                  $ref: '#/definitions/anrede'
-                titel:
-                  type: string
-                vorname:
-                  type: string
-                nachname:
-                  type: string
-                geburtsdatum:
-                  $ref: '#/definitions/datum'
-                geburtsort:
-                  type: string
-                geburtsname:
-                  type: string
-                staatsangehoerigkeit:
-                  $ref: '#/definitions/land'
-                familienstand:
-                  enum:
-                    - LEDIG
-                    - VERHEIRATET
-                    - GESCHIEDEN
-                    - VERWITWET
-                    - GETRENNT_LEBEND
-                    - EHEAEHNLICHE_GEMEINSCHAFT
-                    - EINGETRAGENE_LEBENSPARTNERSCHAFT
-                anzahlPersonenImHaushalt:
-                  type: integer
-            angabenZurBeschaeftigung:
-              type: object
-              properties:
-                beschaeftigungsverhaeltnis:
-                  enum:
-                    - ANGESTELLT
-                    - ARBEITER
-                    - BEAMTER
-                    - GF_GESELLSCHAFTER
-                    - SELBSTAENDIG
-                    - FREIBERUFLER
-                    - RENTNER
-                    - HAUSFRAU
-                    - ARBEITSLOS
-                befristet:
-                  enum:
-                    - UNBEFRISTET
-                    - BEFRISTET
-                    - PROBEZEIT
-                beschaeftigtSeit:
-                  $ref: '#/definitions/datum'
-                befristetBis:
-                  $ref: '#/definitions/datum'
-                beruf:
-                  type: string
-                branche:
-                  enum:
-                    - BAUGEWERBE
-                    - DIENSTLEISTUNGEN
-                    - ENERGIE_WASSERVERSORGUNG_BERGBAU
-                    - GEBIETSKOERPERSCHAFTEN
-                    - HANDEL
-                    - HOTEL_GASTRONOMIE
-                    - KREDITINSTITUTE_VERSICHERUNGEN
-                    - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
-                    - OEFFENTLICHER_DIENST
-                    - GEMEINNUETZIGE_ORGANISATION
-                    - PRIVATE_HAUSHALTE
-                    - SOZIALVERSICHERUNGEN
-                    - VERARBEITENDES_GEWERBE
-                    - VERKEHR_NACHRICHTENUEBERMITTLUNG
-                    - SONSTIGE
-                anschrift:
-                  $ref: '#/definitions/adresse'
-                arbeitgebername:
-                  type: string
-            angabenZurVorherigenBeschaeftigung:
-              type: object
-              properties:
-                beschaeftigtSeit:
-                  $ref: '#/definitions/datum'
-                beschaeftigtBis:
-                  $ref: '#/definitions/datum'
-                anschrift:
-                  $ref: '#/definitions/adresse'
-                arbeitgebername:
-                  type: string
-            wohnsituation:
-              type: object
-              properties:
-                wohnart:
-                  enum:
-                    - ZUR_MIETE
-                    - ZUR_UNTERMIETE
-                    - IM_EIGENEN_HAUS
-                    - BEI_DEN_ELTERN
-                wohnhaftSeit:
-                  $ref: '#/definitions/datum'
-                anschrift:
-                  $ref: '#/definitions/adresse'
-                voranschrift:
-                  $ref: '#/definitions/adresse'
-                wohnhaftSeitDerVoranschrift:
-                  $ref: '#/definitions/datum'
-                anzahlPkw:
-                  type: integer
-            kontakt:
-              type: object
-              properties:
-                telefonPrivat:
-                  type: string
-                telefonGeschaeftlich:
-                  type: string
-                eMail:
-                  type: string
-                  format: email
-            herkunft:
-              type: object
-              properties:
-                aufenthaltstitel:
-                  type: object
-                  properties:
-                    inDeutschlandSeit:
-                      $ref: '#/definitions/datum'
-                    art:
-                      enum:
-                        - AUFENTHALTSERLAUBNIS_UNBEFRISTET
-                        - AUFENTHALTSERLAUBNIS_BEFRISTET
-                        - VISUM
-                    befristetBis:
-                      $ref: '#/definitions/datum'
-                arbeitserlaubnisBefristetBis:
-                  $ref: '#/definitions/datum'
-            ausgaben:
-              $ref: '#/definitions/ausgaben'
-            einnahmen:
-              $ref: '#/definitions/einnahmen'
-            vermoegen:
-              $ref: '#/definitions/vermoegen'
-            verbindlichkeiten:
-              $ref: '#/definitions/verbindlichkeiten'
-            anzahlKinder:
-              type: integer
-            rentenversicherung:
-              type: object
-              properties:
-                name:
-                  type: string
-                anschrift:
-                  $ref: '#/definitions/adresse'
-                rentnerSeit:
-                  $ref: '#/definitions/datum'
-            legitimation:
-              type: object
-              properties:
-                ausweisart:
-                  enum:
-                    - PERSONALAUSWEIS
-                    - REISEPASS
-                    - ANDERER_AUSWEIS
-                ausweisnummer:
-                  type: string
-                ausstellendeBehoerde:
-                  type: string
-                ausstellungsdatum:
-                  $ref: '#/definitions/datum'
-                ausstellungsort:
-                  type: string
+          $ref: '#/definitions/antragsteller'
         maxItems: 2
       gemeinsameAntragstellerangaben:
         type: object
         properties:
-          ausgaben:
-            $ref: '#/definitions/ausgaben'
-          einnahmen:
-            $ref: '#/definitions/einnahmen'
-          vermoegen:
-            $ref: '#/definitions/vermoegen'
-          verbindlichkeiten:
-            $ref: '#/definitions/verbindlichkeiten'
+          finanzielleSituation:
+            $ref: '#/definitions/finanzielleSituation'
           anzahlKinder:
             type: integer
       konto:
         $ref: '#/definitions/konto'
-      fahrzeugdaten:
-        type: object
-        properties:
-          erstzulassungsdatum:
-            $ref: '#/definitions/datum'
-          kaufpreis:
-            $ref: '#/definitions/euro'
-          beglicheneKosten:
-            $ref: '#/definitions/euro'
-          fahrzeugleistung:
-            type: object
-            properties:
-              nennleistung:
-                type: number
-              einheit:
-                enum:
-                  - PS
-                  - KW
-          laufleistung:
-            type: integer
-          marke:
-            type: string
-          modell:
-            type: string
-          verkaeuferart:
-            enum:
-              - PRIVAT
-              - HAENDLER
+      fahrzeug:
+        $ref: '#/definitions/fahrzeug'
 
   metadaten:
     description: Dient der Identifikation von Reqests und Vorgängen.
@@ -354,6 +143,219 @@ definitions:
         aktiv:
           type: boolean
 
+  fahrzeug:
+    type: object
+    properties:
+      erstzulassungsdatum:
+        $ref: '#/definitions/datum'
+      kaufpreis:
+        $ref: '#/definitions/euro'
+      beglicheneKosten:
+        $ref: '#/definitions/euro'
+      fahrzeugleistung:
+        type: object
+        properties:
+          nennleistung:
+            type: number
+          einheit:
+            enum:
+              - PS
+              - KW
+      laufleistung:
+        type: integer
+      marke:
+        type: string
+      modell:
+        type: string
+      verkaeuferart:
+        enum:
+          - PRIVAT
+          - HAENDLER
+
+  antragsteller:
+    type: object
+    properties:
+      id:
+        type: string
+      haushaltspartnerId:
+        description: Antragsteller ID des Haushaltspartners
+        type: string
+      persoenlicheAngaben:
+        type: object
+        properties:
+          anrede:
+            $ref: '#/definitions/anrede'
+          titel:
+            type: string
+          vorname:
+            type: string
+          nachname:
+            type: string
+          geburtsdatum:
+            $ref: '#/definitions/datum'
+          geburtsort:
+            type: string
+          geburtsname:
+            type: string
+          staatsangehoerigkeit:
+            $ref: '#/definitions/land'
+          familienstand:
+            enum:
+              - LEDIG
+              - VERHEIRATET
+              - GESCHIEDEN
+              - VERWITWET
+              - GETRENNT_LEBEND
+              - EHEAEHNLICHE_GEMEINSCHAFT
+              - EINGETRAGENE_LEBENSPARTNERSCHAFT
+          anzahlPersonenImHaushalt:
+            type: integer
+      angabenZurBeschaeftigung:
+        type: object
+        properties:
+          beschaeftigungsverhaeltnis:
+            enum:
+              - ANGESTELLT
+              - ARBEITER
+              - BEAMTER
+              - GF_GESELLSCHAFTER
+              - SELBSTAENDIG
+              - FREIBERUFLER
+              - RENTNER
+              - HAUSFRAU
+              - ARBEITSLOS
+          befristet:
+            enum:
+              - UNBEFRISTET
+              - BEFRISTET
+              - PROBEZEIT
+          beschaeftigtSeit:
+            $ref: '#/definitions/datum'
+          befristetBis:
+            $ref: '#/definitions/datum'
+          beruf:
+            type: string
+          branche:
+            enum:
+              - BAUGEWERBE
+              - DIENSTLEISTUNGEN
+              - ENERGIE_WASSERVERSORGUNG_BERGBAU
+              - GEBIETSKOERPERSCHAFTEN
+              - HANDEL
+              - HOTEL_GASTRONOMIE
+              - KREDITINSTITUTE_VERSICHERUNGEN
+              - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+              - OEFFENTLICHER_DIENST
+              - GEMEINNUETZIGE_ORGANISATION
+              - PRIVATE_HAUSHALTE
+              - SOZIALVERSICHERUNGEN
+              - VERARBEITENDES_GEWERBE
+              - VERKEHR_NACHRICHTENUEBERMITTLUNG
+              - SONSTIGE
+          anschrift:
+            $ref: '#/definitions/adresse'
+          arbeitgebername:
+            type: string
+      angabenZurVorherigenBeschaeftigung:
+        type: object
+        properties:
+          beschaeftigtSeit:
+            $ref: '#/definitions/datum'
+          beschaeftigtBis:
+            $ref: '#/definitions/datum'
+          anschrift:
+            $ref: '#/definitions/adresse'
+          arbeitgebername:
+            type: string
+      wohnsituation:
+        type: object
+        properties:
+          wohnart:
+            enum:
+              - ZUR_MIETE
+              - ZUR_UNTERMIETE
+              - IM_EIGENEN_HAUS
+              - BEI_DEN_ELTERN
+          wohnhaftSeit:
+            $ref: '#/definitions/datum'
+          anschrift:
+            $ref: '#/definitions/adresse'
+          voranschrift:
+            $ref: '#/definitions/adresse'
+          wohnhaftSeitDerVoranschrift:
+            $ref: '#/definitions/datum'
+          anzahlPkw:
+            type: integer
+      kontakt:
+        type: object
+        properties:
+          telefonPrivat:
+            type: string
+          telefonGeschaeftlich:
+            type: string
+          eMail:
+            type: string
+            format: email
+      herkunft:
+        type: object
+        properties:
+          aufenthaltstitel:
+            type: object
+            properties:
+              inDeutschlandSeit:
+                $ref: '#/definitions/datum'
+              art:
+                enum:
+                  - AUFENTHALTSERLAUBNIS_UNBEFRISTET
+                  - AUFENTHALTSERLAUBNIS_BEFRISTET
+                  - VISUM
+              befristetBis:
+                $ref: '#/definitions/datum'
+          arbeitserlaubnisBefristetBis:
+            $ref: '#/definitions/datum'
+      finanzielleSituation:
+        $ref: '#/definitions/finanzielleSituation'
+      anzahlKinder:
+        type: integer
+      rentenversicherung:
+        type: object
+        properties:
+          name:
+            type: string
+          anschrift:
+            $ref: '#/definitions/adresse'
+          rentnerSeit:
+            $ref: '#/definitions/datum'
+      legitimation:
+        type: object
+        properties:
+          ausweisart:
+            enum:
+              - PERSONALAUSWEIS
+              - REISEPASS
+              - ANDERER_AUSWEIS
+          ausweisnummer:
+            type: string
+          ausstellendeBehoerde:
+            type: string
+          ausstellungsdatum:
+            $ref: '#/definitions/datum'
+          ausstellungsort:
+            type: string
+
+
+  finanzielleSituation:
+    type: object
+    properties:
+      ausgaben:
+        $ref: '#/definitions/ausgaben'
+      einnahmen:
+        $ref: '#/definitions/einnahmen'
+      vermoegen:
+        $ref: '#/definitions/vermoegen'
+      verbindlichkeiten:
+        $ref: '#/definitions/verbindlichkeiten'
+
   kundenbetreuer:
     type: object
     properties:
@@ -378,6 +380,14 @@ definitions:
         type: string
       anrede:
         $ref: '#/definitions/anrede'
+
+  bearbeiter:
+    type: object
+    properties:
+      vorname:
+        type: string
+      nachname:
+        type: string
 
   finanzierungswunsch:
     type: object
