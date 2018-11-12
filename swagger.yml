@@ -266,7 +266,8 @@ definitions:
       nachname:
         type: string
       geburtsdatum:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       geburtsort:
         type: string
       geburtsname:
@@ -308,9 +309,11 @@ definitions:
           - BEFRISTET
           - PROBEZEIT
       beschaeftigtSeit:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       befristetBis:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       beruf:
         type: string
       branche:
@@ -341,9 +344,11 @@ definitions:
   vorherigeBeschaeftigung:
     properties:
       beschaeftigtSeit:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       beschaeftigtBis:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       anschrift:
         $ref: '#/definitions/adresse'
       arbeitgebername:
@@ -360,7 +365,8 @@ definitions:
           - IM_EIGENEN_HAUS
           - BEI_DEN_ELTERN
       wohnhaftSeit:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       anschrift:
         $ref: '#/definitions/adresse'
       anzahlPkw:
@@ -370,7 +376,8 @@ definitions:
     type: object
     properties:
       wohnhaftSeit:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       anschrift:
         $ref: '#/definitions/adresse'
 
@@ -381,7 +388,8 @@ definitions:
         type: object
         properties:
           inDeutschlandSeit:
-            $ref: '#/definitions/datum'
+            type: string
+            format: date
           art:
             type: string
             enum:
@@ -389,9 +397,11 @@ definitions:
               - AUFENTHALTSERLAUBNIS_BEFRISTET
               - VISUM
           befristetBis:
-            $ref: '#/definitions/datum'
+            type: string
+            format: date
       arbeitserlaubnisBefristetBis:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
 
   rentenversicherung:
     type: object
@@ -401,7 +411,8 @@ definitions:
       anschrift:
         $ref: '#/definitions/adresse'
       rentnerSeit:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
 
   legitimation:
     type: object
@@ -417,7 +428,8 @@ definitions:
       ausstellendeBehoerde:
         type: string
       ausstellungsdatum:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       ausstellungsort:
         type: string
 
@@ -425,7 +437,8 @@ definitions:
     type: object
     properties:
       erstzulassungsdatum:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       kaufpreis:
         $ref: '#/definitions/euro'
       beglicheneKosten:
@@ -612,7 +625,8 @@ definitions:
       letzteRate:
         $ref: '#/definitions/euro'
       datumLetzteRate:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
 
   sonstigeVerbindlichkeit:
     type: object
@@ -624,7 +638,8 @@ definitions:
       letzteRate:
         $ref: '#/definitions/euro'
       datumLetzteRate:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
 
   leasing:
     type: object
@@ -636,7 +651,8 @@ definitions:
       letzteRate:
         $ref: '#/definitions/euro'
       datumLetzteRate:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
 
   kreditkarte:
     type: object
@@ -732,7 +748,8 @@ definitions:
       id:
         type: string
       datumErsteRate:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       urspruenglicherBetrag:
         $ref: '#/definitions/euro'
       abloesebetrag:
@@ -746,7 +763,8 @@ definitions:
       id:
         type: string
       datumErsteRate:
-        $ref: '#/definitions/datum'
+        type: string
+        format: date
       urspruenglicherBetrag:
         $ref: '#/definitions/euro'
       abloesebetrag:
@@ -1066,10 +1084,6 @@ definitions:
     type: number
     format: 'xxx.xx'
     description: 100 basierter Prozentwert mit bis zu 2 Nachkommastellen
-
-  datum:
-    type: string
-    format: date-time
 
   land:
     type: string
