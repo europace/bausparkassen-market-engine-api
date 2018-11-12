@@ -8,7 +8,7 @@ schemes:
   - https
 paths:
   /ermitteln:
-    get:
+    post:
       consumes:
         - application/json
       produces:
