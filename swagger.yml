@@ -1076,14 +1076,20 @@ definitions:
       - arbeitslosigkeit
 
   euro:
-    type: number
-    format: 'xxx.xx'
+    type: object
     description: Euro-Betrag mit bis zu 2 Nachkommastellen
+    properties:
+      value:
+        type: string
+        format: 'xxx.xx'
 
   prozent:
-    type: number
-    format: 'xxx.xx'
+    type: object
     description: 100 basierter Prozentwert mit bis zu 2 Nachkommastellen
+    properties:
+      value:
+        type: string
+        format: 'xxx.xx'
 
   land:
     type: string
