@@ -1080,7 +1080,7 @@ definitions:
     description: Euro-Betrag mit bis zu 2 Nachkommastellen
     properties:
       value:
-        type: string
+        type: number
         format: 'xxx.xx'
 
   prozent:
@@ -1088,7 +1088,7 @@ definitions:
     description: 100 basierter Prozentwert mit bis zu 2 Nachkommastellen
     properties:
       value:
-        type: string
+        type: number
         format: 'xxx.xx'
 
   land:
