@@ -9,6 +9,7 @@ schemes:
 paths:
   /ermitteln:
     post:
+      operationId: "ermitteln"
       consumes:
         - application/json
       produces:
@@ -26,6 +27,7 @@ paths:
           $ref: '#/definitions/ermittlungsRequest'
   /annehmen:
     post:
+      operationId: "annehmen"
       consumes:
         - application/json
       produces:
