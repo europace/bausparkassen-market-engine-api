@@ -50,7 +50,7 @@ definitions:
 ###    Request    ###
 #####################
 
-  ermittlungsRequest:
+  request:
     type: object
     properties:
       haushalte:
@@ -58,48 +58,42 @@ definitions:
         items:
           $ref: '#/definitions/haushalt'
       finanzierungswunsch:
-          $ref: '#/definitions/finanzierungswunsch'
+        $ref: '#/definitions/finanzierungswunsch'
       kundenbetreuer:
         $ref: '#/definitions/kundenbetreuer'
-      handelsbeziehungen:
-        type: array
-        items:
-          $ref: '#/definitions/handelsbeziehung'
       metadaten:
-          $ref: '#/definitions/metadaten'
+        $ref: '#/definitions/metadaten'
       featureToggles:
-          $ref: '#/definitions/featureToggles'
+        $ref: '#/definitions/featureToggles'
     required:
-      - metadaten
-      - finanzierungswunsch
+    - metadaten
+    - finanzierungswunsch
+
+  ermittlungsRequest:
+    allOf:
+    - $ref: '#/definitions/request'
+    - type: object
+      properties:
+        handelsbeziehungen:
+          type: array
+          items:
+            $ref: '#/definitions/handelsbeziehung'
 
   annahmeRequest:
-    type: object
-    properties:
-      haushalte:
-        type: array
-        items:
-          $ref: '#/definitions/haushalt'
-      finanzierungswunsch:
-          $ref: '#/definitions/finanzierungswunsch'
-      kundenbetreuer:
-        $ref: '#/definitions/kundenbetreuer'
-      bearbeiter:
+    allOf:
+    - $ref: '#/definitions/request'
+    - type: object
+      properties:
+        bearbeiter:
           $ref: '#/definitions/bearbeiter'
-      handelsbeziehung:
+        handelsbeziehung:
           $ref: '#/definitions/handelsbeziehung'
-      featureToggles:
-          $ref: '#/definitions/featureToggles'
-      angebotsvariantentyp:
-        description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
-        type: string
-      beratungsart:
-        $ref: '#/definitions/beratungsart'
-      metadaten:
-          $ref: '#/definitions/metadaten'
-    required:
-      - metadaten
-      - finanzierungswunsch
+        angebotsvariantentyp:
+          description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
+          type: string
+        beratungsart:
+          $ref: '#/definitions/beratungsart'
+      required:
       - angebotsvariantentyp
 
   beratungsart:
