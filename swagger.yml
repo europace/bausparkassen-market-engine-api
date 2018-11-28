@@ -74,8 +74,10 @@ definitions:
   annahmeRequest:
     type: object
     properties:
-      haushalt:
-        $ref: '#/definitions/haushalt'
+      haushalte:
+        type: array
+        items:
+          $ref: '#/definitions/haushalt'
       finanzierungswunsch:
           $ref: '#/definitions/finanzierungswunsch'
       kundenbetreuer:
