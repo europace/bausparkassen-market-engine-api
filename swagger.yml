@@ -90,17 +90,20 @@ definitions:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
       beratungsart:
-        type: string
-        enum:
-          - PRAESENZ_GESCHAEFT
-          - FERN_ABSATZ_GESCHAEFT
-          - AUSSER_GESCHAEFTSRAUM_VERTRAG
+        $ref: '#/definitions/beratungsart'
       metadaten:
           $ref: '#/definitions/metadaten'
     required:
       - metadaten
       - finanzierungswunsch
       - angebotsvariantentyp
+
+  beratungsart:
+    type: string
+    enum:
+    - PRAESENZ_GESCHAEFT
+    - FERN_ABSATZ_GESCHAEFT
+    - AUSSER_GESCHAEFTSRAUM_VERTRAG
 
 ###
 ### Meta
@@ -277,39 +280,28 @@ definitions:
       staatsangehoerigkeit:
         $ref: '#/definitions/land'
       familienstand:
-        type: string
-        enum:
-          - LEDIG
-          - VERHEIRATET
-          - GESCHIEDEN
-          - VERWITWET
-          - GETRENNT_LEBEND
-          - EHEAEHNLICHE_GEMEINSCHAFT
-          - EINGETRAGENE_LEBENSPARTNERSCHAFT
+        $ref: '#/definitions/familienstand'
       anzahlPersonenImHaushalt:
         type: integer
+
+  familienstand:
+    type: string
+    enum:
+    - LEDIG
+    - VERHEIRATET
+    - GESCHIEDEN
+    - VERWITWET
+    - GETRENNT_LEBEND
+    - EHEAEHNLICHE_GEMEINSCHAFT
+    - EINGETRAGENE_LEBENSPARTNERSCHAFT
 
   derzeitigeBeschaeftigung:
     type: object
     properties:
       beschaeftigungsverhaeltnis:
-        type: string
-        enum:
-          - ANGESTELLT
-          - ARBEITER
-          - BEAMTER
-          - GF_GESELLSCHAFTER
-          - SELBSTAENDIG
-          - FREIBERUFLER
-          - RENTNER
-          - HAUSFRAU
-          - ARBEITSLOS
+        $ref: '#/definitions/beschaeftigungsverhaeltnis'
       befristet:
-        type: string
-        enum:
-          - UNBEFRISTET
-          - BEFRISTET
-          - PROBEZEIT
+        $ref: '#/definitions/beschaeftigungsbefristung'
       beschaeftigtSeit:
         type: string
         format: date
@@ -319,29 +311,52 @@ definitions:
       beruf:
         type: string
       branche:
-        type: string
-        enum:
-          - BAUGEWERBE
-          - DIENSTLEISTUNGEN
-          - ENERGIE_WASSERVERSORGUNG_BERGBAU
-          - ERZIEHUNG_UNTERRICHT
-          - GEBIETSKOERPERSCHAFTEN
-          - GEMEINNUETZIGE_ORGANISATION
-          - GESUNDHEIT_SOZIALWESEN
-          - HANDEL
-          - HOTEL_GASTRONOMIE
-          - INFORMATION_KOMMUNIKATION
-          - KREDITINSTITUTE_VERSICHERUNGEN
-          - KULTUR_SPORT_UNTERHALTUNG
-          - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
-          - OEFFENTLICHER_DIENST
-          - PRIVATE_HAUSHALTE
-          - VERARBEITENDES_GEWERBE
-          - VERKEHR_LOGISTIK
+        $ref: '#/definitions/branche'
       anschrift:
         $ref: '#/definitions/adresse'
       arbeitgebername:
         type: string
+
+  beschaeftigungsverhaeltnis:
+    type: string
+    enum:
+    - ANGESTELLT
+    - ARBEITER
+    - BEAMTER
+    - GF_GESELLSCHAFTER
+    - SELBSTAENDIG
+    - FREIBERUFLER
+    - RENTNER
+    - HAUSFRAU
+    - ARBEITSLOS
+
+  branche:
+    type: string
+    enum:
+    - BAUGEWERBE
+    - DIENSTLEISTUNGEN
+    - ENERGIE_WASSERVERSORGUNG_BERGBAU
+    - ERZIEHUNG_UNTERRICHT
+    - GEBIETSKOERPERSCHAFTEN
+    - GEMEINNUETZIGE_ORGANISATION
+    - GESUNDHEIT_SOZIALWESEN
+    - HANDEL
+    - HOTEL_GASTRONOMIE
+    - INFORMATION_KOMMUNIKATION
+    - KREDITINSTITUTE_VERSICHERUNGEN
+    - KULTUR_SPORT_UNTERHALTUNG
+    - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+    - OEFFENTLICHER_DIENST
+    - PRIVATE_HAUSHALTE
+    - VERARBEITENDES_GEWERBE
+    - VERKEHR_LOGISTIK
+
+  beschaeftigungsbefristung:
+    type: string
+    enum:
+    - UNBEFRISTET
+    - BEFRISTET
+    - PROBEZEIT
 
   vorherigeBeschaeftigung:
     properties:
@@ -360,12 +375,7 @@ definitions:
     type: object
     properties:
       wohnart:
-        type: string
-        enum:
-          - ZUR_MIETE
-          - ZUR_UNTERMIETE
-          - IM_EIGENEN_HAUS
-          - BEI_DEN_ELTERN
+        $ref: '#/definitions/wohnart'
       wohnhaftSeit:
         type: string
         format: date
@@ -373,6 +383,14 @@ definitions:
         $ref: '#/definitions/adresse'
       anzahlPkw:
         type: integer
+
+  wohnart:
+    type: string
+    enum:
+    - ZUR_MIETE
+    - ZUR_UNTERMIETE
+    - IM_EIGENEN_HAUS
+    - BEI_DEN_ELTERN
 
   vorherigeWohnsituation:
     type: object
@@ -393,17 +411,20 @@ definitions:
             type: string
             format: date
           art:
-            type: string
-            enum:
-              - AUFENTHALTSERLAUBNIS_UNBEFRISTET
-              - AUFENTHALTSERLAUBNIS_BEFRISTET
-              - VISUM
+            $ref: '#/definitions/aufenthaltsart'
           befristetBis:
             type: string
             format: date
       arbeitserlaubnisBefristetBis:
         type: string
         format: date
+
+  aufenthaltsart:
+    type: string
+    enum:
+    - AUFENTHALTSERLAUBNIS_UNBEFRISTET
+    - AUFENTHALTSERLAUBNIS_BEFRISTET
+    - VISUM
 
   rentenversicherung:
     type: object
@@ -420,11 +441,7 @@ definitions:
     type: object
     properties:
       ausweisart:
-        type: string
-        enum:
-          - PERSONALAUSWEIS
-          - REISEPASS
-          - ANDERER_AUSWEIS
+        $ref: '#/definitions/ausweisart'
       ausweisnummer:
         type: string
       ausstellendeBehoerde:
@@ -434,6 +451,13 @@ definitions:
         format: date
       ausstellungsort:
         type: string
+
+  ausweisart:
+    type: string
+    enum:
+    - PERSONALAUSWEIS
+    - REISEPASS
+    - ANDERER_AUSWEIS
 
   fahrzeug:
     type: object
@@ -451,10 +475,7 @@ definitions:
           nennleistung:
             type: number
           einheit:
-            type: string
-            enum:
-              - PS
-              - KW
+            $ref: '#/definitions/leistungseinheit'
       laufleistung:
         type: integer
       marke:
@@ -462,10 +483,19 @@ definitions:
       modell:
         type: string
       verkaeuferart:
-        type: string
-        enum:
-          - PRIVAT
-          - HAENDLER
+        $ref: '#/definitions/fahrzeugverkaeuferart'
+
+  leistungseinheit:
+    type: string
+    enum:
+    - PS
+    - KW
+
+  fahrzeugverkaeuferart:
+    type: string
+    enum:
+    - PRIVAT
+    - HAENDLER
 
   finanzielleSituation:
     type: object
@@ -583,11 +613,14 @@ definitions:
       vermieteteWohnflaeche:
         type: integer
       nutzungsart:
-        type: string
-        enum:
-          - VERMIETET
-          - EIGENGENUTZT
-          - EIGENGENUTZT_UND_VERMIETET
+        $ref: '#/definitions/immobiliennutzungsart'
+
+  immobiliennutzungsart:
+    type: string
+    enum:
+    - VERMIETET
+    - EIGENGENUTZT
+    - EIGENGENUTZT_UND_VERMIETET
 
   verbindlichkeiten:
     type: object
@@ -696,20 +729,11 @@ definitions:
         type: object
         properties:
           finanzierungszweck:
-            description: Verwendungszweck
-            type: string
-            enum:
-              - UMSCHULDUNG
-              - SONSTIGES
-              - NEUWAGENKAUF
-              - MODERNISIERUNG_UND_WOHNEN
+            $ref: '#/definitions/finanzierungszweck'
           auszahlungsbetrag:
             $ref: '#/definitions/euro'
-          ratenzahlungtermin:
-            type: string
-            enum:
-              - MEDIO
-              - ULTIMO
+          ratenzahlungstermin:
+            $ref: '#/definitions/ratenzahlungstermin'
           laufzeitInMonaten:
             description: laufzeitInMonaten oder rateProMonat wird übermittelt
             type: integer
@@ -743,6 +767,21 @@ definitions:
               $ref: '#/definitions/abzuloesenderDispositionskredit'
     required:
       - kreditwunsch
+
+  finanzierungszweck:
+    description: Verwendungszweck
+    type: string
+    enum:
+    - UMSCHULDUNG
+    - SONSTIGES
+    - NEUWAGENKAUF
+    - MODERNISIERUNG_UND_WOHNEN
+
+  ratenzahlungstermin:
+    type: string
+    enum:
+    - MEDIO
+    - ULTIMO
 
   abzuloesenderRatenkredit:
     type: object
@@ -882,11 +921,7 @@ definitions:
         type: object
         properties:
           machbarkeitsstatus:
-            type: string
-            enum:
-              - MACHBAR
-              - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
-              - NICHT_MACHBAR
+            $ref: '#/definitions/machbarkeitsstatus'
           angepasst:
             description: true wenn der Kredit- oder Versicherungswunsch des Antragstellers angepasst wurde.
             type: boolean
@@ -923,6 +958,13 @@ definitions:
       - kreditkonditionen
       - status
       - bonitaetscheck
+
+  machbarkeitsstatus:
+    type: string
+    enum:
+    - MACHBAR
+    - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
+    - NICHT_MACHBAR
 
   kreditkonditionen:
     type: object
@@ -969,10 +1011,7 @@ definitions:
     type: object
     properties:
       basisFuerDieProvisionsermittlung:
-        type: string
-        enum:
-          - VERSICHERUNGS_PRAEMIE_NETTO
-          - VERSICHERUNGS_PRAEMIE_BRUTTO
+        $ref: '#/definitions/basisFuerDieVersicherungsprovisionsermittlung'
       versicherungsprovision:
         $ref: '#/definitions/euro'
       versicherungspraemieBrutto:
@@ -995,16 +1034,17 @@ definitions:
       - versicherungsrisiken
       - versicherer
 
+  basisFuerDieVersicherungsprovisionsermittlung:
+    type: string
+    enum:
+    - VERSICHERUNGS_PRAEMIE_NETTO
+    - VERSICHERUNGS_PRAEMIE_BRUTTO
+
   meldung:
     type: object
     properties:
       kategorie:
-        type: string
-        enum:
-          - MACHBARKEIT
-          - VOLLSTAENDIGKEIT
-          - HINWEIS
-          - ANPASSUNG
+        $ref: '#/definitions/meldungskategorie'
       text:
         type: string
       code:
@@ -1014,6 +1054,13 @@ definitions:
       - text
       - code
 
+  meldungskategorie:
+    type: string
+    enum:
+    - MACHBARKEIT
+    - VOLLSTAENDIGKEIT
+    - HINWEIS
+    - ANPASSUNG
 
   bonitaetscheckPosition:
     type: object
