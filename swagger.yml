@@ -64,7 +64,10 @@ definitions:
       metadaten:
         $ref: '#/definitions/metadaten'
       featureToggles:
-        $ref: '#/definitions/featureToggles'
+        description: Zur Steuerung von Features abhängig vom Request.
+        type: array
+        items:
+          $ref: '#/definitions/featureToggle'
     required:
     - metadaten
     - finanzierungswunsch
@@ -124,16 +127,13 @@ definitions:
       - traceId
       - vorgangsnummer
 
-  featureToggles:
-    description: Zur Steuerung von Featuren abhängig vom Request.
-    type: array
-    items:
-      type: object
-      properties:
-        id:
-          type: string
-        aktiv:
-          type: boolean
+  featureToggle:
+    type: object
+    properties:
+      id:
+        type: string
+      aktiv:
+        type: boolean
 
 ###
 ### Kundenbetreuer, Bearbeiter und Handelsbeziehung
@@ -182,19 +182,19 @@ definitions:
         $ref: '#/definitions/prozent'
       vertriebsgruppe:
         type: string
-      partnerKennzeichen:
+      produktanbieterParameter:
         type: array
         items:
-          type: object
-          properties:
-            key:
-              type: string
-            value:
-              type: string
+          $ref: '#/definitions/produktanbieterParameter'
     required:
       - produktanbieter
 
-###
+  produktanbieterParameter:
+    type: object
+    additionalProperties:
+      type: object
+
+  ###
 ### Haushalt
 ###
 
@@ -207,16 +207,19 @@ definitions:
           $ref: '#/definitions/antragsteller'
         maxItems: 2
       gemeinsameAntragstellerangaben:
-        type: object
-        properties:
-          finanzielleSituation:
-            $ref: '#/definitions/finanzielleSituation'
-          anzahlKinder:
-            type: integer
+        $ref: '#/definitions/gemeinsameAntragstellerangaben'
       konto:
         $ref: '#/definitions/konto'
       fahrzeug:
         $ref: '#/definitions/fahrzeug'
+
+  gemeinsameAntragstellerangaben:
+    type: object
+    properties:
+      finanzielleSituation:
+        $ref: '#/definitions/finanzielleSituation'
+      anzahlKinder:
+        type: integer
 
   antragsteller:
     type: object
@@ -237,15 +240,7 @@ definitions:
       vorherigeWohnsituation:
         $ref: '#/definitions/vorherigeWohnsituation'
       kontakt:
-        type: object
-        properties:
-          telefonPrivat:
-            type: string
-          telefonGeschaeftlich:
-            type: string
-          eMail:
-            type: string
-            format: email
+        $ref: '#/definitions/kontakt'
       herkunft:
         $ref: '#/definitions/herkunft'
       anzahlKinder:
@@ -256,6 +251,17 @@ definitions:
         $ref: '#/definitions/legitimation'
       finanzielleSituation:
         $ref: '#/definitions/finanzielleSituation'
+
+  kontakt:
+    type: object
+    properties:
+      telefonPrivat:
+        type: string
+      telefonGeschaeftlich:
+        type: string
+      eMail:
+        type: string
+        format: email
 
   persoenlicheAngaben:
     type: object
@@ -403,17 +409,20 @@ definitions:
     type: object
     properties:
       aufenthaltstitel:
-        type: object
-        properties:
-          inDeutschlandSeit:
-            type: string
-            format: date
-          art:
-            $ref: '#/definitions/aufenthaltsart'
-          befristetBis:
-            type: string
-            format: date
+        $ref: '#/definitions/aufenthaltstitel'
       arbeitserlaubnisBefristetBis:
+        type: string
+        format: date
+
+  aufenthaltstitel:
+    type: object
+    properties:
+      inDeutschlandSeit:
+        type: string
+        format: date
+      art:
+        $ref: '#/definitions/aufenthaltsart'
+      befristetBis:
         type: string
         format: date
 
@@ -468,12 +477,7 @@ definitions:
       beglicheneKosten:
         $ref: '#/definitions/euro'
       fahrzeugleistung:
-        type: object
-        properties:
-          nennleistung:
-            type: number
-          einheit:
-            $ref: '#/definitions/leistungseinheit'
+        $ref: '#/definitions/fahrzeugleistung'
       laufleistung:
         type: integer
       marke:
@@ -482,6 +486,14 @@ definitions:
         type: string
       verkaeuferart:
         $ref: '#/definitions/fahrzeugverkaeuferart'
+
+  fahrzeugleistung:
+    type: object
+    properties:
+      nennleistung:
+        type: number
+      einheit:
+        $ref: '#/definitions/leistungseinheit'
 
   leistungseinheit:
     type: string
@@ -527,45 +539,57 @@ definitions:
     type: object
     properties:
       monatlicheEinnahmen:
-        type: object
-        properties:
-          regelmaessigesUnselbstaendigesEinkommen:
-            $ref: '#/definitions/euro'
-          rente:
-            $ref: '#/definitions/euro'
-          kindesunterhalt:
-            $ref: '#/definitions/euro'
-          ehegattenunterhalt:
-            $ref: '#/definitions/euro'
-          kindergeld:
-            $ref: '#/definitions/euro'
-          nebentaetigkeit:
-            $ref: '#/definitions/euro'
-          mietUndPachteinnahmen:
-            type: object
-            properties:
-              warm:
-                $ref: '#/definitions/euro'
-              kalt:
-                $ref: '#/definitions/euro'
-          sonstige:
-            $ref: '#/definitions/euro'
+        $ref: '#/definitions/monatlicheEinnahmen'
       jaehrlicheEinnahmen:
-        type: object
-        properties:
-          einkommenAusSelbstaendigkeit:
-            type: object
-            properties:
-              nettoeinkommen:
-                $ref: '#/definitions/euro'
-              zuVersteuerndesEinkommen:
-                $ref: '#/definitions/jaehrlicheAngaben'
-              einkommenssteuer:
-                $ref: '#/definitions/jaehrlicheAngaben'
-              abschreibungen:
-                $ref: '#/definitions/jaehrlicheAngaben'
-              bruttoEinkommenErwartet:
-                $ref: '#/definitions/euro'
+        $ref: '#/definitions/jaehrlicheEinnahmen'
+
+  monatlicheEinnahmen:
+    type: object
+    properties:
+      regelmaessigesUnselbstaendigesEinkommen:
+        $ref: '#/definitions/euro'
+      rente:
+        $ref: '#/definitions/euro'
+      kindesunterhalt:
+        $ref: '#/definitions/euro'
+      ehegattenunterhalt:
+        $ref: '#/definitions/euro'
+      kindergeld:
+        $ref: '#/definitions/euro'
+      nebentaetigkeit:
+        $ref: '#/definitions/euro'
+      mietUndPachteinnahmen:
+        $ref: '#/definitions/mietUndPachteinnahmen'
+      sonstige:
+        $ref: '#/definitions/euro'
+
+  mietUndPachteinnahmen:
+    type: object
+    properties:
+      warm:
+        $ref: '#/definitions/euro'
+      kalt:
+        $ref: '#/definitions/euro'
+
+  jaehrlicheEinnahmen:
+    type: object
+    properties:
+      einkommenAusSelbstaendigkeit:
+        $ref: '#/definitions/einkommenAusSelbstaendigkeit'
+
+  einkommenAusSelbstaendigkeit:
+    type: object
+    properties:
+      nettoeinkommen:
+        $ref: '#/definitions/euro'
+      zuVersteuerndesEinkommen:
+        $ref: '#/definitions/jaehrlicheAngaben'
+      einkommenssteuer:
+        $ref: '#/definitions/jaehrlicheAngaben'
+      abschreibungen:
+        $ref: '#/definitions/jaehrlicheAngaben'
+      bruttoEinkommenErwartet:
+        $ref: '#/definitions/euro'
 
   jaehrlicheAngaben:
     type: object
@@ -724,47 +748,53 @@ definitions:
     type: object
     properties:
       kreditwunsch:
-        type: object
-        properties:
-          finanzierungszweck:
-            $ref: '#/definitions/finanzierungszweck'
-          auszahlungsbetrag:
-            $ref: '#/definitions/euro'
-          ratenzahlungstermin:
-            $ref: '#/definitions/ratenzahlungstermin'
-          laufzeitInMonaten:
-            description: laufzeitInMonaten oder rateProMonat wird übermittelt
-            type: integer
-          rateProMonat:
-            description: laufzeitInMonaten oder rateProMonat wird übermittelt
-            $ref: '#/definitions/euro'
-        required:
-          - auszahlungsbetrag
+        $ref: '#/definitions/kreditwunsch'
       versicherungsWunsch:
         type: array
         items:
           $ref: '#/definitions/versicherungsrisiken'
       abzuloesendeVerbindlichkeiten:
-        type: object
-        properties:
-          ratenkredite:
-            type: array
-            items:
-              $ref: '#/definitions/abzuloesenderRatenkredit'
-          sonstigeVerbindlichkeiten:
-            type: array
-            items:
-              $ref: '#/definitions/abzuloesendeSonstigeVerbindlichkeit'
-          kreditkarten:
-            type: array
-            items:
-              $ref: '#/definitions/abzuloesendeKreditkarte'
-          dispositionskredite:
-            type: array
-            items:
-              $ref: '#/definitions/abzuloesenderDispositionskredit'
+        $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
     required:
       - kreditwunsch
+
+  kreditwunsch:
+    type: object
+    properties:
+      finanzierungszweck:
+        $ref: '#/definitions/finanzierungszweck'
+      auszahlungsbetrag:
+        $ref: '#/definitions/euro'
+      ratenzahlungstermin:
+        $ref: '#/definitions/ratenzahlungstermin'
+      laufzeitInMonaten:
+        description: laufzeitInMonaten oder rateProMonat wird übermittelt
+        type: integer
+      rateProMonat:
+        description: laufzeitInMonaten oder rateProMonat wird übermittelt
+        $ref: '#/definitions/euro'
+    required:
+    - auszahlungsbetrag
+
+  abzuloesendeVerbindlichkeiten:
+    type: object
+    properties:
+      ratenkredite:
+        type: array
+        items:
+          $ref: '#/definitions/abzuloesenderRatenkredit'
+      sonstigeVerbindlichkeiten:
+        type: array
+        items:
+          $ref: '#/definitions/abzuloesendeSonstigeVerbindlichkeit'
+      kreditkarten:
+        type: array
+        items:
+          $ref: '#/definitions/abzuloesendeKreditkarte'
+      dispositionskredite:
+        type: array
+        items:
+          $ref: '#/definitions/abzuloesenderDispositionskredit'
 
   finanzierungszweck:
     description: Verwendungszweck
@@ -916,16 +946,7 @@ definitions:
       versicherungskonditionen:
         $ref: '#/definitions/versicherungskonditionen'
       status:
-        type: object
-        properties:
-          machbarkeitsstatus:
-            $ref: '#/definitions/machbarkeitsstatus'
-          angepasst:
-            description: true wenn der Kredit- oder Versicherungswunsch des Antragstellers angepasst wurde.
-            type: boolean
-        required:
-          - machbarkeitsstatus
-          - angepasst
+        $ref: '#/definitions/angebotsstatus'
       meldungen:
         type: array
         items:
@@ -935,18 +956,7 @@ definitions:
         items:
           type: string
       bonitaetscheck:
-        type: object
-        properties:
-          einnahmen:
-            $ref: '#/definitions/bonitaetscheckPosition'
-          ausgaben:
-            $ref: '#/definitions/bonitaetscheckPosition'
-          ueberschuss:
-            $ref: '#/definitions/euro'
-        required:
-          - einnahmen
-          - ausgaben
-          - ueberschuss
+        $ref: '#/definitions/bonitaetscheck'
       maximalerAuszahlungsbetrag:
         $ref: '#/definitions/euro'
     required:
@@ -957,12 +967,38 @@ definitions:
       - status
       - bonitaetscheck
 
+  angebotsstatus:
+    type: object
+    properties:
+      machbarkeitsstatus:
+        $ref: '#/definitions/machbarkeitsstatus'
+      angepasst:
+        description: true wenn der Kredit- oder Versicherungswunsch des Antragstellers angepasst wurde.
+        type: boolean
+    required:
+    - machbarkeitsstatus
+    - angepasst
+
   machbarkeitsstatus:
     type: string
     enum:
     - MACHBAR
     - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
     - NICHT_MACHBAR
+
+  bonitaetscheck:
+    type: object
+    properties:
+      einnahmen:
+        $ref: '#/definitions/bonitaetscheckPosition'
+      ausgaben:
+        $ref: '#/definitions/bonitaetscheckPosition'
+      ueberschuss:
+        $ref: '#/definitions/euro'
+    required:
+    - einnahmen
+    - ausgaben
+    - ueberschuss
 
   kreditkonditionen:
     type: object
@@ -1089,17 +1125,20 @@ definitions:
         type: string
         format: byte
       sichtbarkeit:
-        type: object
-        properties:
-          sichtbarFuerVertrieb:
-            type: boolean
-          sichtbarFuerProduktanbieter:
-            type: boolean
+        $ref: '#/definitions/dokumentsichtbarkeit'
     required:
       - bezeichnung
       - dateiname
       - base64pdf
       - sichtbarkeit
+
+  dokumentsichtbarkeit:
+    type: object
+    properties:
+      sichtbarFuerVertrieb:
+        type: boolean
+      sichtbarFuerProduktanbieter:
+        type: boolean
 
 ###########################################
 ### Globale Typen fuer Request+Response ###
