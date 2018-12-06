@@ -989,16 +989,57 @@ definitions:
   bonitaetscheck:
     type: object
     properties:
-      einnahmen:
-        $ref: '#/definitions/bonitaetscheckPosition'
-      ausgaben:
-        $ref: '#/definitions/bonitaetscheckPosition'
+      name:
+        type: string
+      ueberschrift:
+        type: string
       ueberschuss:
         $ref: '#/definitions/euro'
+      bloecke:
+        type: array
+        items:
+          $ref: '#/definitions/titelBlock'
     required:
-    - einnahmen
-    - ausgaben
-    - ueberschuss
+    - name
+
+  block:
+    type: object
+    properties:
+      zeilen:
+        type: array
+        items:
+          $ref: '#/definitions/zeile'
+
+  titelBlock:
+    allOf:
+    - $ref: '#/definitions/block'
+    - type: object
+      properties:
+        titel:
+          type: string
+        innerBlock:
+          $ref: '#/definitions/innerBlock'
+
+  innerBlock:
+    allOf:
+    - $ref: '#/definitions/block'
+    - type: object
+      properties:
+        hervorgehoben:
+          type: boolean
+
+  zeile:
+    type: object
+    properties:
+      hervorgehoben:
+        type: boolean
+      label:
+        type: string
+      wert:
+        $ref: '#/definitions/euro'
+    required:
+    - label
+    - wert
 
   kreditkonditionen:
     type: object
@@ -1095,24 +1136,6 @@ definitions:
     - VOLLSTAENDIGKEIT
     - HINWEIS
     - ANPASSUNG
-
-  bonitaetscheckPosition:
-    type: object
-    properties:
-      positionen:
-        type: array
-        items:
-          type: object
-          properties:
-            label:
-              type: string
-            wert:
-              $ref: '#/definitions/euro'
-          required:
-            - label
-            - wert
-    required:
-      - positionen
 
   dokument:
     type: object
