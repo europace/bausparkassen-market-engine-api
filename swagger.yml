@@ -53,10 +53,13 @@ definitions:
   request:
     type: object
     properties:
-      haushalte:
+      antragsteller:
         type: array
         items:
-          $ref: '#/definitions/haushalt'
+          $ref: '#/definitions/antragsteller'
+        maxItems: 2
+      gemeinsameAntragstellerangaben:
+        $ref: '#/definitions/gemeinsameAntragstellerangaben'
       finanzierungswunsch:
         $ref: '#/definitions/finanzierungswunsch'
       kundenbetreuer:
@@ -194,24 +197,9 @@ definitions:
     additionalProperties:
       type: object
 
-  ###
+###
 ### Haushalt
 ###
-
-  haushalt:
-    type: object
-    properties:
-      antragsteller:
-        type: array
-        items:
-          $ref: '#/definitions/antragsteller'
-        maxItems: 2
-      gemeinsameAntragstellerangaben:
-        $ref: '#/definitions/gemeinsameAntragstellerangaben'
-      konto:
-        $ref: '#/definitions/konto'
-      fahrzeug:
-        $ref: '#/definitions/fahrzeug'
 
   gemeinsameAntragstellerangaben:
     type: object
@@ -753,8 +741,12 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/versicherungsrisiken'
+      konto:
+        $ref: '#/definitions/konto'
       abzuloesendeVerbindlichkeiten:
-        $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
+          $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
+      fahrzeug:
+        $ref: '#/definitions/fahrzeug'
     required:
       - kreditwunsch
 
