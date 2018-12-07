@@ -198,7 +198,7 @@ definitions:
       type: object
 
 ###
-### Haushalt
+### Antragsteller
 ###
 
   gemeinsameAntragstellerangaben:
@@ -206,8 +206,10 @@ definitions:
     properties:
       finanzielleSituation:
         $ref: '#/definitions/finanzielleSituation'
-      anzahlKinder:
-        type: integer
+      kinder:
+        type: array
+        items:
+          $ref: '#/definitions/kind'
 
   antragsteller:
     type: object
@@ -231,8 +233,10 @@ definitions:
         $ref: '#/definitions/kontakt'
       herkunft:
         $ref: '#/definitions/herkunft'
-      anzahlKinder:
-        type: integer
+      kinder:
+        type: array
+        items:
+          $ref: '#/definitions/kind'
       rentenversicherung:
         $ref: '#/definitions/rentenversicherung'
       legitimation:
@@ -250,6 +254,14 @@ definitions:
       eMail:
         type: string
         format: email
+
+  kind:
+    type: object
+    properties:
+      id:
+        type: string
+      kindergeldBerechtigt:
+        type: boolean
 
   persoenlicheAngaben:
     type: object
@@ -853,17 +865,6 @@ definitions:
       konto:
         $ref: '#/definitions/konto'
 
-
-###
-### Globale Typen innerhalb Request
-###
-
-  anrede:
-    type: string
-    enum:
-      - HERR
-      - FRAU
-
   konto:
     type: object
     properties:
@@ -878,6 +879,16 @@ definitions:
         type: string
       bic:
         type: string
+
+###
+### Globale Typen innerhalb Request
+###
+
+  anrede:
+    type: string
+    enum:
+      - HERR
+      - FRAU
 
   adresse:
     type: object
