@@ -19,12 +19,12 @@ paths:
           description: Ermittlung erfolgreich
           schema:
             $ref: '#/definitions/ermittlungsResponse'
-      parameters:      
-      - in: 'body'
-        name: 'body'
-        required: true
-        schema:
-          $ref: '#/definitions/ermittlungsRequest'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            $ref: '#/definitions/ermittlungsRequest'
   /annehmen:
     post:
       operationId: "annehmen"
@@ -37,18 +37,18 @@ paths:
           description: Annahme erfolgreich
           schema:
             $ref: '#/definitions/annahmeResponse'
-      parameters:      
-      - in: 'body'
-        name: 'body'
-        required: true
-        schema:
-          $ref: '#/definitions/annahmeRequest'
-          
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            $ref: '#/definitions/annahmeRequest'
+
 definitions:
 
-#####################
-###    Request    ###
-#####################
+  #####################
+  ###    Request    ###
+  #####################
 
   request:
     type: object
@@ -72,46 +72,46 @@ definitions:
         items:
           $ref: '#/definitions/featureToggle'
     required:
-    - metadaten
-    - finanzierungswunsch
+      - metadaten
+      - finanzierungswunsch
 
   ermittlungsRequest:
     allOf:
-    - $ref: '#/definitions/request'
-    - type: object
-      properties:
-        handelsbeziehungen:
-          type: array
-          items:
-            $ref: '#/definitions/handelsbeziehung'
+      - $ref: '#/definitions/request'
+      - type: object
+        properties:
+          handelsbeziehungen:
+            type: array
+            items:
+              $ref: '#/definitions/handelsbeziehung'
 
   annahmeRequest:
     allOf:
-    - $ref: '#/definitions/request'
-    - type: object
-      properties:
-        bearbeiter:
-          $ref: '#/definitions/bearbeiter'
-        handelsbeziehung:
-          $ref: '#/definitions/handelsbeziehung'
-        angebotsvariantentyp:
-          description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
-          type: string
-        beratungsart:
-          $ref: '#/definitions/beratungsart'
-      required:
-      - angebotsvariantentyp
+      - $ref: '#/definitions/request'
+      - type: object
+        properties:
+          bearbeiter:
+            $ref: '#/definitions/bearbeiter'
+          handelsbeziehung:
+            $ref: '#/definitions/handelsbeziehung'
+          angebotsvariantentyp:
+            description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
+            type: string
+          beratungsart:
+            $ref: '#/definitions/beratungsart'
+        required:
+          - angebotsvariantentyp
 
   beratungsart:
     type: string
     enum:
-    - PRAESENZ_GESCHAEFT
-    - FERN_ABSATZ_GESCHAEFT
-    - AUSSER_GESCHAEFTSRAUM_VERTRAG
+      - PRAESENZ_GESCHAEFT
+      - FERN_ABSATZ_GESCHAEFT
+      - AUSSER_GESCHAEFTSRAUM_VERTRAG
 
-###
-### Meta
-###
+  ###
+  ### Meta
+  ###
 
   metadaten:
     description: Dient der Identifikation von Reqests und Vorgängen.
@@ -138,9 +138,9 @@ definitions:
       aktiv:
         type: boolean
 
-###
-### Kundenbetreuer, Bearbeiter und Handelsbeziehung
-###
+  ###
+  ### Kundenbetreuer, Bearbeiter und Handelsbeziehung
+  ###
 
   kundenbetreuer:
     type: object
@@ -197,9 +197,9 @@ definitions:
     additionalProperties:
       type: object
 
-###
-### Antragsteller
-###
+  ###
+  ### Antragsteller
+  ###
 
   gemeinsameAntragstellerangaben:
     type: object
@@ -291,13 +291,13 @@ definitions:
   familienstand:
     type: string
     enum:
-    - LEDIG
-    - VERHEIRATET
-    - GESCHIEDEN
-    - VERWITWET
-    - GETRENNT_LEBEND
-    - EHEAEHNLICHE_GEMEINSCHAFT
-    - EINGETRAGENE_LEBENSPARTNERSCHAFT
+      - LEDIG
+      - VERHEIRATET
+      - GESCHIEDEN
+      - VERWITWET
+      - GETRENNT_LEBEND
+      - EHEAEHNLICHE_GEMEINSCHAFT
+      - EINGETRAGENE_LEBENSPARTNERSCHAFT
 
   derzeitigeBeschaeftigung:
     type: object
@@ -324,43 +324,43 @@ definitions:
   beschaeftigungsverhaeltnis:
     type: string
     enum:
-    - ANGESTELLT
-    - ARBEITER
-    - BEAMTER
-    - GF_GESELLSCHAFTER
-    - SELBSTAENDIG
-    - FREIBERUFLER
-    - RENTNER
-    - HAUSFRAU
-    - ARBEITSLOS
+      - ANGESTELLT
+      - ARBEITER
+      - BEAMTER
+      - GF_GESELLSCHAFTER
+      - SELBSTAENDIG
+      - FREIBERUFLER
+      - RENTNER
+      - HAUSFRAU
+      - ARBEITSLOS
 
   branche:
     type: string
     enum:
-    - BAUGEWERBE
-    - DIENSTLEISTUNGEN
-    - ENERGIE_WASSERVERSORGUNG_BERGBAU
-    - ERZIEHUNG_UNTERRICHT
-    - GEBIETSKOERPERSCHAFTEN
-    - GEMEINNUETZIGE_ORGANISATION
-    - GESUNDHEIT_SOZIALWESEN
-    - HANDEL
-    - HOTEL_GASTRONOMIE
-    - INFORMATION_KOMMUNIKATION
-    - KREDITINSTITUTE_VERSICHERUNGEN
-    - KULTUR_SPORT_UNTERHALTUNG
-    - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
-    - OEFFENTLICHER_DIENST
-    - PRIVATE_HAUSHALTE
-    - VERARBEITENDES_GEWERBE
-    - VERKEHR_LOGISTIK
+      - BAUGEWERBE
+      - DIENSTLEISTUNGEN
+      - ENERGIE_WASSERVERSORGUNG_BERGBAU
+      - ERZIEHUNG_UNTERRICHT
+      - GEBIETSKOERPERSCHAFTEN
+      - GEMEINNUETZIGE_ORGANISATION
+      - GESUNDHEIT_SOZIALWESEN
+      - HANDEL
+      - HOTEL_GASTRONOMIE
+      - INFORMATION_KOMMUNIKATION
+      - KREDITINSTITUTE_VERSICHERUNGEN
+      - KULTUR_SPORT_UNTERHALTUNG
+      - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+      - OEFFENTLICHER_DIENST
+      - PRIVATE_HAUSHALTE
+      - VERARBEITENDES_GEWERBE
+      - VERKEHR_LOGISTIK
 
   beschaeftigungsbefristung:
     type: string
     enum:
-    - UNBEFRISTET
-    - BEFRISTET
-    - PROBEZEIT
+      - UNBEFRISTET
+      - BEFRISTET
+      - PROBEZEIT
 
   vorherigeBeschaeftigung:
     properties:
@@ -391,10 +391,10 @@ definitions:
   wohnart:
     type: string
     enum:
-    - ZUR_MIETE
-    - ZUR_UNTERMIETE
-    - IM_EIGENEN_HAUS
-    - BEI_DEN_ELTERN
+      - ZUR_MIETE
+      - ZUR_UNTERMIETE
+      - IM_EIGENEN_HAUS
+      - BEI_DEN_ELTERN
 
   vorherigeWohnsituation:
     type: object
@@ -429,9 +429,9 @@ definitions:
   aufenthaltsart:
     type: string
     enum:
-    - AUFENTHALTSERLAUBNIS_UNBEFRISTET
-    - AUFENTHALTSERLAUBNIS_BEFRISTET
-    - VISUM
+      - AUFENTHALTSERLAUBNIS_UNBEFRISTET
+      - AUFENTHALTSERLAUBNIS_BEFRISTET
+      - VISUM
 
   rentenversicherung:
     type: object
@@ -462,9 +462,9 @@ definitions:
   ausweisart:
     type: string
     enum:
-    - PERSONALAUSWEIS
-    - REISEPASS
-    - ANDERER_AUSWEIS
+      - PERSONALAUSWEIS
+      - REISEPASS
+      - ANDERER_AUSWEIS
 
   fahrzeug:
     type: object
@@ -498,14 +498,14 @@ definitions:
   leistungseinheit:
     type: string
     enum:
-    - PS
-    - KW
+      - PS
+      - KW
 
   fahrzeugverkaeuferart:
     type: string
     enum:
-    - PRIVAT
-    - HAENDLER
+      - PRIVAT
+      - HAENDLER
 
   finanzielleSituation:
     type: object
@@ -640,9 +640,9 @@ definitions:
   immobiliennutzungsart:
     type: string
     enum:
-    - VERMIETET
-    - EIGENGENUTZT
-    - EIGENGENUTZT_UND_VERMIETET
+      - VERMIETET
+      - EIGENGENUTZT
+      - EIGENGENUTZT_UND_VERMIETET
 
   verbindlichkeiten:
     type: object
@@ -740,9 +740,9 @@ definitions:
         $ref: '#/definitions/euro'
 
 
-###
-### Finanzierungswunsch
-###
+  ###
+  ### Finanzierungswunsch
+  ###
 
   finanzierungswunsch:
     type: object
@@ -756,7 +756,7 @@ definitions:
       konto:
         $ref: '#/definitions/konto'
       abzuloesendeVerbindlichkeiten:
-          $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
+        $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
       fahrzeug:
         $ref: '#/definitions/fahrzeug'
     required:
@@ -778,7 +778,7 @@ definitions:
         description: laufzeitInMonaten oder rateProMonat wird übermittelt
         $ref: '#/definitions/euro'
     required:
-    - auszahlungsbetrag
+      - auszahlungsbetrag
 
   abzuloesendeVerbindlichkeiten:
     type: object
@@ -804,16 +804,16 @@ definitions:
     description: Verwendungszweck
     type: string
     enum:
-    - UMSCHULDUNG
-    - SONSTIGES
-    - NEUWAGENKAUF
-    - MODERNISIERUNG_UND_WOHNEN
+      - UMSCHULDUNG
+      - SONSTIGES
+      - NEUWAGENKAUF
+      - MODERNISIERUNG_UND_WOHNEN
 
   ratenzahlungstermin:
     type: string
     enum:
-    - MEDIO
-    - ULTIMO
+      - MEDIO
+      - ULTIMO
 
   abzuloesenderRatenkredit:
     type: object
@@ -880,9 +880,9 @@ definitions:
       bic:
         type: string
 
-###
-### Globale Typen innerhalb Request
-###
+  ###
+  ### Globale Typen innerhalb Request
+  ###
 
   anrede:
     type: string
@@ -904,9 +904,9 @@ definitions:
       land:
         $ref: '#/definitions/land'
 
-#####################
-###    Response   ###
-#####################
+  #####################
+  ###    Response   ###
+  #####################
 
   ermittlungsResponse:
     type: object
@@ -944,10 +944,14 @@ definitions:
       angebotsvariantentyp:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
-      kreditkonditionen:
-        $ref: '#/definitions/kreditkonditionen'
-      versicherungskonditionen:
-        $ref: '#/definitions/versicherungskonditionen'
+      gesamtkonstrukt:
+        $ref: '#/definitions/gesamtkonstrukt'
+      kredit:
+        $ref: '#/definitions/kredit'
+      versicherung:
+        $ref: '#/definitions/versicherung'
+      bausparvertrag:
+        $ref: '#/definitions/bausparvertrag'
       status:
         $ref: '#/definitions/angebotsstatus'
       meldungen:
@@ -966,7 +970,8 @@ definitions:
       - produktanbieter
       - produktbezeichnung
       - angebotsvariantentyp
-      - kreditkonditionen
+      - gesamtkonstrukt
+      - kredit
       - status
       - bonitaetscheck
 
@@ -979,15 +984,15 @@ definitions:
         description: true wenn der Kredit- oder Versicherungswunsch des Antragstellers angepasst wurde.
         type: boolean
     required:
-    - machbarkeitsstatus
-    - angepasst
+      - machbarkeitsstatus
+      - angepasst
 
   machbarkeitsstatus:
     type: string
     enum:
-    - MACHBAR
-    - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
-    - NICHT_MACHBAR
+      - MACHBAR
+      - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
+      - NICHT_MACHBAR
 
   bonitaetscheck:
     type: object
@@ -1003,7 +1008,7 @@ definitions:
         items:
           $ref: '#/definitions/titelBlock'
     required:
-    - name
+      - name
 
   block:
     type: object
@@ -1015,21 +1020,21 @@ definitions:
 
   titelBlock:
     allOf:
-    - $ref: '#/definitions/block'
-    - type: object
-      properties:
-        titel:
-          type: string
-        innerBlock:
-          $ref: '#/definitions/innerBlock'
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          titel:
+            type: string
+          innerBlock:
+            $ref: '#/definitions/innerBlock'
 
   innerBlock:
     allOf:
-    - $ref: '#/definitions/block'
-    - type: object
-      properties:
-        hervorgehoben:
-          type: boolean
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          hervorgehoben:
+            type: boolean
 
   zeile:
     type: object
@@ -1041,10 +1046,10 @@ definitions:
       wert:
         $ref: '#/definitions/euro'
     required:
-    - label
-    - wert
+      - label
+      - wert
 
-  kreditkonditionen:
+  kredit:
     type: object
     properties:
       effektivzinssatz:
@@ -1066,7 +1071,7 @@ definitions:
         $ref: '#/definitions/euro'
       letzteRate:
         $ref: '#/definitions/euro'
-      provision:
+      provisionsbetrag:
         $ref: '#/definitions/euro'
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
@@ -1081,11 +1086,35 @@ definitions:
       - laufzeitInMonaten
       - rateProMonat
       - letzteRate
-      - provision
+      - provisionsbetrag
       - basisbetragFuerDieProvisionsermittlung
       - vorlaufzinsenProTag
 
-  versicherungskonditionen:
+  gesamtkonstrukt:
+    type: object
+    properties:
+      effektivzinssatz:
+        $ref: '#/definitions/prozent'
+      sollzinssatz:
+        $ref: '#/definitions/prozent'
+      gesamtbetrag:
+        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+        $ref: '#/definitions/euro'
+      laufzeitInMonaten:
+        type: integer
+      rateProMonat:
+        $ref: '#/definitions/euro'
+      provisionsbetrag:
+        $ref: '#/definitions/euro'
+    required:
+      - effektivzinssatz
+      - sollzinssatz
+      - gesamtbetrag
+      - laufzeitInMonaten
+      - rateProMonat
+      - provisionsbetrag
+
+  versicherung:
     type: object
     properties:
       basisFuerDieProvisionsermittlung:
@@ -1115,8 +1144,46 @@ definitions:
   basisFuerDieVersicherungsprovisionsermittlung:
     type: string
     enum:
-    - VERSICHERUNGS_PRAEMIE_NETTO
-    - VERSICHERUNGS_PRAEMIE_BRUTTO
+      - VERSICHERUNGS_PRAEMIE_NETTO
+      - VERSICHERUNGS_PRAEMIE_BRUTTO
+
+  bausparvertrag:
+    type: object
+    properties:
+      bausparsumme:
+        $ref: '#/definitions/euro'
+      tarifname:
+        $ref: '#/definitions/euro'
+      provision:
+        $ref: '#/definitions/euro'
+      gesamtlaufzeit (ca.):
+        $ref: '#/definitions/euro'
+      abschlussgebuehr:
+        $ref: '#/definitions/euro'
+      effektivzins des Bauspardarlehens nach Zuteilung:
+        $ref: '#/definitions/euro'
+      sollzins des Bauspardarlehens nach Zuteilung:
+        $ref: '#/definitions/euro'
+      habenzins:
+        $ref: '#/definitions/euro'
+      sparbeitrag:
+        $ref: '#/definitions/euro'
+      voraussichtliche Zuteilung (Datum oder Text)?:
+        $ref: '#/definitions/euro'
+      rueckzahlrate:
+        $ref: '#/definitions/euro'
+      jahresentgeld (wenn es sowas gibt):
+        $ref: '#/definitions/euro'
+      sparphase:
+        $ref: '#/definitions/euro'
+      guthaben bei Zuteilung:
+        $ref: '#/definitions/euro'
+      bauspardarlehenssumme:
+        $ref: '#/definitions/euro'
+      tilgungsphase (Ca.):
+        $ref: '#/definitions/euro'
+    required:
+      - bausparsumme
 
   meldung:
     type: object
@@ -1135,10 +1202,10 @@ definitions:
   meldungskategorie:
     type: string
     enum:
-    - MACHBARKEIT
-    - VOLLSTAENDIGKEIT
-    - HINWEIS
-    - ANPASSUNG
+      - MACHBARKEIT
+      - VOLLSTAENDIGKEIT
+      - HINWEIS
+      - ANPASSUNG
 
   dokument:
     type: object
@@ -1166,9 +1233,9 @@ definitions:
       sichtbarFuerProduktanbieter:
         type: boolean
 
-###########################################
-### Globale Typen fuer Request+Response ###
-###########################################
+  ###########################################
+  ### Globale Typen fuer Request+Response ###
+  ###########################################
 
 
   versicherungsrisiken:
