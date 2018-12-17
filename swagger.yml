@@ -1049,6 +1049,33 @@ definitions:
       - label
       - wert
 
+  gesamtkonstrukt:
+    type: object
+    properties:
+      effektivzinssatz:
+        $ref: '#/definitions/prozent'
+      sollzinssatz:
+        $ref: '#/definitions/prozent'
+      gesamtbetrag:
+        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+        $ref: '#/definitions/euro'
+      laufzeitInMonaten:
+        type: integer
+      rateProMonat:
+        $ref: '#/definitions/euro'
+      provisionsbetrag:
+        $ref: '#/definitions/euro'
+      basisbetragFuerDieProvisionsermittlung:
+        $ref: '#/definitions/euro'
+    required:
+      - effektivzinssatz
+      - sollzinssatz
+      - gesamtbetrag
+      - laufzeitInMonaten
+      - rateProMonat
+      - provisionsbetrag
+      - basisbetragFuerDieProvisionsermittlung
+
   kredit:
     type: object
     properties:
@@ -1090,30 +1117,6 @@ definitions:
       - basisbetragFuerDieProvisionsermittlung
       - vorlaufzinsenProTag
 
-  gesamtkonstrukt:
-    type: object
-    properties:
-      effektivzinssatz:
-        $ref: '#/definitions/prozent'
-      sollzinssatz:
-        $ref: '#/definitions/prozent'
-      gesamtbetrag:
-        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
-        $ref: '#/definitions/euro'
-      laufzeitInMonaten:
-        type: integer
-      rateProMonat:
-        $ref: '#/definitions/euro'
-      provisionsbetrag:
-        $ref: '#/definitions/euro'
-    required:
-      - effektivzinssatz
-      - sollzinssatz
-      - gesamtbetrag
-      - laufzeitInMonaten
-      - rateProMonat
-      - provisionsbetrag
-
   versicherung:
     type: object
     properties:
@@ -1150,38 +1153,50 @@ definitions:
   bausparvertrag:
     type: object
     properties:
+      tarifname:
+        type: string
       bausparsumme:
         $ref: '#/definitions/euro'
-      tarifname:
-        $ref: '#/definitions/euro'
+      gesamtlaufzeitInMonaten:
+        type: integer
+      zuteilungsZeitraum:
+        type: string
       provision:
         $ref: '#/definitions/euro'
-      gesamtlaufzeit (ca.):
+      basisbetragFuerDieProvisionsermittlung:
+        $ref: '#/definitions/euro'
+      jahresentgeld:
         $ref: '#/definitions/euro'
       abschlussgebuehr:
         $ref: '#/definitions/euro'
-      effektivzins des Bauspardarlehens nach Zuteilung:
-        $ref: '#/definitions/euro'
-      sollzins des Bauspardarlehens nach Zuteilung:
-        $ref: '#/definitions/euro'
-      habenzins:
-        $ref: '#/definitions/euro'
-      sparbeitrag:
-        $ref: '#/definitions/euro'
-      voraussichtliche Zuteilung (Datum oder Text)?:
-        $ref: '#/definitions/euro'
-      rueckzahlrate:
-        $ref: '#/definitions/euro'
-      jahresentgeld (wenn es sowas gibt):
-        $ref: '#/definitions/euro'
       sparphase:
-        $ref: '#/definitions/euro'
-      guthaben bei Zuteilung:
-        $ref: '#/definitions/euro'
-      bauspardarlehenssumme:
-        $ref: '#/definitions/euro'
-      tilgungsphase (Ca.):
-        $ref: '#/definitions/euro'
+        type: object
+        properties:
+          habenzinsSatz:
+            $ref: '#/definitions/prozent'
+          effektivzinsSatz:
+            $ref: '#/definitions/prozent'
+          sparbeitragMonatlich:
+            $ref: '#/definitions/euro'
+          dauerInMonaten:
+            type: integer
+          guthabenBeiZuteilung:
+            $ref: '#/definitions/euro'
+
+      darlehensphase:
+        type: object
+        properties:
+          bauspardarlehenssumme:
+            $ref: '#/definitions/euro'
+          rateMonatlich:
+            $ref: '#/definitions/euro'
+          dauerInMonaten:
+            type: integer
+          sollzinsSatz:
+            $ref: '#/definitions/prozent'
+          effektivzinsSatz:
+            $ref: '#/definitions/prozent'
+
     required:
       - bausparsumme
 
