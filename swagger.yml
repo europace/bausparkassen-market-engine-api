@@ -1055,7 +1055,7 @@ definitions:
       sollzinssatz:
         $ref: '#/definitions/prozent'
       gesamtbetrag:
-        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen (Darlehen + ggf Bausparer)
+        description: Auszahlungsbetrag + Versicherungsprämie + Kreditzinsen + ggf Bausparzinsen
         $ref: '#/definitions/euro'
       laufzeitInMonaten:
         type: integer
@@ -1171,36 +1171,40 @@ definitions:
       abschlussgebuehr:
         $ref: '#/definitions/euro'
       sparphase:
-        type: object
-        properties:
-# todo asc - klären warum baufi die Zinsen nicht hat und ggf entfernen
-          habenzinsSatz:
-            $ref: '#/definitions/prozent'
-          effektivzinsSatz:
-            $ref: '#/definitions/prozent'
-          sparbeitragMonatlich:
-            $ref: '#/definitions/euro'
-          dauerInMonaten:
-            type: integer
-          guthabenBeiZuteilung:
-            $ref: '#/definitions/euro'
-
+        $ref: '#/definitions/sparphase'
       darlehensphase:
-        type: object
-        properties:
-          darlehenssumme:
-            $ref: '#/definitions/euro'
-          rateMonatlich:
-            $ref: '#/definitions/euro'
-          dauerInMonaten:
-            type: integer
-          sollzinsSatz:
-            $ref: '#/definitions/prozent'
-          effektivzinsSatz:
-            $ref: '#/definitions/prozent'
-
+        $ref: '#/definitions/darlehensphase'
     required:
       - bausparsumme
+
+  sparphase:
+    type: object
+    properties:
+      # todo asc - klären warum baufi die Zinsen nicht hat und ggf entfernen
+      habenzinsSatz:
+        $ref: '#/definitions/prozent'
+      effektivzinsSatz:
+        $ref: '#/definitions/prozent'
+      sparbeitragMonatlich:
+        $ref: '#/definitions/euro'
+      dauerInMonaten:
+        type: integer
+      guthabenBeiZuteilung:
+        $ref: '#/definitions/euro'
+
+  darlehensphase:
+    type: object
+    properties:
+      darlehenssumme:
+        $ref: '#/definitions/euro'
+      rateMonatlich:
+        $ref: '#/definitions/euro'
+      dauerInMonaten:
+        type: integer
+      sollzinsSatz:
+        $ref: '#/definitions/prozent'
+      effektivzinsSatz:
+        $ref: '#/definitions/prozent'
 
   meldung:
     type: object
