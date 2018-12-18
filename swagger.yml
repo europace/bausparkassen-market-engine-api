@@ -944,8 +944,8 @@ definitions:
       angebotsvariantentyp:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
-      gesamtkonstrukt:
-        $ref: '#/definitions/gesamtkonstrukt'
+      gesamtkonditionen:
+        $ref: '#/definitions/gesamtkonditionen'
       kredit:
         $ref: '#/definitions/kredit'
       versicherung:
@@ -1049,7 +1049,7 @@ definitions:
       - label
       - wert
 
-  gesamtkonstrukt:
+  gesamtkonditionen:
     type: object
     properties:
       effektivzinssatz:
