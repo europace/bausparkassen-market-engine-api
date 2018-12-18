@@ -948,8 +948,6 @@ definitions:
         $ref: '#/definitions/gesamtkonditionen'
       kredit:
         $ref: '#/definitions/kredit'
-      versicherung:
-        $ref: '#/definitions/versicherung'
       bausparvertrag:
         $ref: '#/definitions/bausparvertrag'
       status:
@@ -1057,7 +1055,7 @@ definitions:
       sollzinssatz:
         $ref: '#/definitions/prozent'
       gesamtbetrag:
-        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen (Darlehen + ggf Bausparer)
         $ref: '#/definitions/euro'
       laufzeitInMonaten:
         type: integer
@@ -1084,7 +1082,7 @@ definitions:
       sollzinssatz:
         $ref: '#/definitions/prozent'
       gesamtbetrag:
-        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+        description: Auszahlungsbetrag + Versicherungsprämie + Kreditzinsen
         $ref: '#/definitions/euro'
       nettokreditbetrag:
         description: Auszahlungsbetrag + Versicherungsprämie
@@ -1104,6 +1102,8 @@ definitions:
         $ref: '#/definitions/euro'
       vorlaufzinsenProTag:
         $ref: '#/definitions/euro'
+      versicherung:
+        $ref: '#/definitions/versicherung'
     required:
       - effektivzinssatz
       - sollzinssatz
@@ -1122,7 +1122,7 @@ definitions:
     properties:
       basisFuerDieProvisionsermittlung:
         $ref: '#/definitions/basisFuerDieVersicherungsprovisionsermittlung'
-      versicherungsprovision:
+      provisionsbetrag:
         $ref: '#/definitions/euro'
       versicherungspraemieBrutto:
         description: Versicherungsprämie inklusive Steuer für Arbeitslosigkeitsversicherung
@@ -1159,10 +1159,11 @@ definitions:
         $ref: '#/definitions/euro'
       gesamtlaufzeitInMonaten:
         type: integer
-      zuteilungsZeitraum:
+      zuteilungsZeitpunkt:
         type: string
       provision:
         $ref: '#/definitions/euro'
+      # todo asc klären, ob das bei Bausparverträgen immer die Bausparsumme ist, wenn ja dann basisbetrag rauslassen
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
       jahresentgeld:
@@ -1172,6 +1173,7 @@ definitions:
       sparphase:
         type: object
         properties:
+# todo asc - klären warum baufi die Zinsen nicht hat und ggf entfernen
           habenzinsSatz:
             $ref: '#/definitions/prozent'
           effektivzinsSatz:
@@ -1186,7 +1188,7 @@ definitions:
       darlehensphase:
         type: object
         properties:
-          bauspardarlehenssumme:
+          darlehenssumme:
             $ref: '#/definitions/euro'
           rateMonatlich:
             $ref: '#/definitions/euro'
