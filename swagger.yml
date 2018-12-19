@@ -968,7 +968,7 @@ definitions:
       - produktanbieter
       - produktbezeichnung
       - angebotsvariantentyp
-      - gesamtkonstrukt
+      - gesamtkonditionen
       - kredit
       - status
       - bonitaetscheck
@@ -991,61 +991,6 @@ definitions:
       - MACHBAR
       - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
       - NICHT_MACHBAR
-
-  bonitaetscheck:
-    type: object
-    properties:
-      name:
-        type: string
-      ueberschrift:
-        type: string
-      ueberschuss:
-        $ref: '#/definitions/euro'
-      bloecke:
-        type: array
-        items:
-          $ref: '#/definitions/titelBlock'
-    required:
-      - name
-
-  block:
-    type: object
-    properties:
-      zeilen:
-        type: array
-        items:
-          $ref: '#/definitions/zeile'
-
-  titelBlock:
-    allOf:
-      - $ref: '#/definitions/block'
-      - type: object
-        properties:
-          titel:
-            type: string
-          innerBlock:
-            $ref: '#/definitions/innerBlock'
-
-  innerBlock:
-    allOf:
-      - $ref: '#/definitions/block'
-      - type: object
-        properties:
-          hervorgehoben:
-            type: boolean
-
-  zeile:
-    type: object
-    properties:
-      hervorgehoben:
-        type: boolean
-      label:
-        type: string
-      wert:
-        $ref: '#/definitions/euro'
-    required:
-      - label
-      - wert
 
   gesamtkonditionen:
     type: object
@@ -1124,13 +1069,13 @@ definitions:
         $ref: '#/definitions/basisFuerDieVersicherungsprovisionsermittlung'
       provisionsbetrag:
         $ref: '#/definitions/euro'
-      versicherungspraemieBrutto:
+      praemieBrutto:
         description: Versicherungsprämie inklusive Steuer für Arbeitslosigkeitsversicherung
         $ref: '#/definitions/euro'
-      versicherungspraemieNetto:
+      praemieNetto:
         description: Versicherungsprämie exklusive Steuer für Arbeitslosigkeitsversicherung
         $ref: '#/definitions/euro'
-      versicherungsrisiken:
+      risiken:
         type: array
         items:
           $ref: '#/definitions/versicherungsrisiken'
@@ -1138,10 +1083,10 @@ definitions:
         type: string
     required:
       - basisFuerDieProvisionsermittlung
-      - versicherungsprovision
-      - versicherungspraemieBrutto
-      - versicherungspraemieNetto
-      - versicherungsrisiken
+      - provisionsbetrag
+      - praemieBrutto
+      - praemieNetto
+      - risiken
       - versicherer
 
   basisFuerDieVersicherungsprovisionsermittlung:
@@ -1175,7 +1120,16 @@ definitions:
       darlehensphase:
         $ref: '#/definitions/darlehensphase'
     required:
+      - tarifname
       - bausparsumme
+      - gesamtlaufzeitInMonaten
+      - zuteilungsZeitpunkt
+      - provision
+      - basisbetragFuerDieProvisionsermittlung
+      - jahresentgeld
+      - abschlussgebuehr
+      - sparphase
+      - darlehensphase
 
   sparphase:
     type: object
@@ -1191,6 +1145,12 @@ definitions:
         type: integer
       guthabenBeiZuteilung:
         $ref: '#/definitions/euro'
+    required:
+      - habenzinsSatz
+      - effektivzinsSatz
+      - sparbeitragMonatlich
+      - dauerInMonaten
+      - guthabenBeiZuteilung
 
   darlehensphase:
     type: object
@@ -1205,6 +1165,12 @@ definitions:
         $ref: '#/definitions/prozent'
       effektivzinsSatz:
         $ref: '#/definitions/prozent'
+    required:
+      - darlehenssumme
+      - rateMonatlich
+      - dauerInMonaten
+      - sollzinsSatz
+      - effektivzinsSatz
 
   meldung:
     type: object
@@ -1253,6 +1219,61 @@ definitions:
         type: boolean
       sichtbarFuerProduktanbieter:
         type: boolean
+
+  bonitaetscheck:
+    type: object
+    properties:
+      name:
+        type: string
+      ueberschrift:
+        type: string
+      ueberschuss:
+        $ref: '#/definitions/euro'
+      bloecke:
+        type: array
+        items:
+          $ref: '#/definitions/titelBlock'
+    required:
+      - name
+
+  block:
+    type: object
+    properties:
+      zeilen:
+        type: array
+        items:
+          $ref: '#/definitions/zeile'
+
+  titelBlock:
+    allOf:
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          titel:
+            type: string
+          innerBlock:
+            $ref: '#/definitions/innerBlock'
+
+  innerBlock:
+    allOf:
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          hervorgehoben:
+            type: boolean
+
+  zeile:
+    type: object
+    properties:
+      hervorgehoben:
+        type: boolean
+      label:
+        type: string
+      wert:
+        $ref: '#/definitions/euro'
+    required:
+      - label
+      - wert
 
   ###########################################
   ### Globale Typen fuer Request+Response ###
