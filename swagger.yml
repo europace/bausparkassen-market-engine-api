@@ -1134,11 +1134,6 @@ definitions:
   sparphase:
     type: object
     properties:
-      # todo asc - klären warum baufi die Zinsen nicht hat und ggf entfernen
-      habenzinsSatz:
-        $ref: '#/definitions/prozent'
-      effektivzinsSatz:
-        $ref: '#/definitions/prozent'
       sparbeitragMonatlich:
         $ref: '#/definitions/euro'
       dauerInMonaten:
@@ -1146,8 +1141,6 @@ definitions:
       guthabenBeiZuteilung:
         $ref: '#/definitions/euro'
     required:
-      - habenzinsSatz
-      - effektivzinsSatz
       - sparbeitragMonatlich
       - dauerInMonaten
       - guthabenBeiZuteilung
