@@ -74,6 +74,7 @@ definitions:
     required:
       - metadaten
       - finanzierungswunsch
+      - kundenbetreuer
 
   ermittlungsRequest:
     allOf:
@@ -101,6 +102,8 @@ definitions:
             $ref: '#/definitions/beratungsart'
         required:
           - angebotsvariantentyp
+          - handelsbeziehung
+          - beratungsart
 
   beratungsart:
     type: string
@@ -204,8 +207,8 @@ definitions:
   gemeinsameAntragstellerangaben:
     type: object
     properties:
-      finanzielleSituation:
-        $ref: '#/definitions/finanzielleSituation'
+      bonitaetsangaben:
+        $ref: '#/definitions/bonitaetsangaben'
       kinder:
         type: array
         items:
@@ -241,8 +244,8 @@ definitions:
         $ref: '#/definitions/rentenversicherung'
       legitimation:
         $ref: '#/definitions/legitimation'
-      finanzielleSituation:
-        $ref: '#/definitions/finanzielleSituation'
+      bonitaetsangaben:
+        $ref: '#/definitions/bonitaetsangaben'
 
   kontakt:
     type: object
@@ -507,7 +510,7 @@ definitions:
       - PRIVAT
       - HAENDLER
 
-  finanzielleSituation:
+  bonitaetsangaben:
     type: object
     properties:
       ausgaben:
@@ -931,13 +934,15 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/dokument'
-      referenznummerProduktanbieter:
-        type: string
 
   angebot:
     type: object
     properties:
       produktanbieter:
+        type: string
+      referenznummerProduktanbieter:
+        type: string
+      referenznummerDienstleister:
         type: string
       produktbezeichnung:
         type: string
@@ -1108,7 +1113,6 @@ definitions:
         type: string
       provision:
         $ref: '#/definitions/euro'
-      # todo asc klären, ob das bei Bausparverträgen immer die Bausparsumme ist, wenn ja dann basisbetrag rauslassen
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
       jahresentgeld:
