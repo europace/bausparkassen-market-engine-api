@@ -290,6 +290,8 @@ definitions:
         $ref: '#/definitions/familienstand'
       anzahlPersonenImHaushalt:
         type: integer
+      steuerId:
+        type: string
 
   familienstand:
     type: string
