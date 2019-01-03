@@ -961,10 +961,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/meldung'
-      erforderlicheUnterlagen:
+      unterlagen:
         type: array
         items:
-          type: string
+          $ref: '#/definitions/unterlage'
       bonitaetscheck:
         $ref: '#/definitions/bonitaetscheck'
       maximalerAuszahlungsbetrag:
@@ -978,6 +978,34 @@ definitions:
       - status
       - bonitaetscheck
 
+  unterlage:
+    type: object
+    properties:
+      code:
+        type: string
+      text:
+        type: string
+      referenz:
+        $ref: '#/definitions/unterlageReferenz'
+    required:
+      - text
+  
+  unterlageReferenz:
+    type: object
+    properties:
+      id:
+        type: string
+      art:
+        $ref: '#/definitions/unterlageReferenzArt'
+    required:
+      - art
+
+  unterlageReferenzArt:
+    type: string
+    enum:
+      - ANTRAGSTELLER
+      - FINANZIERUNG
+      
   angebotsstatus:
     type: object
     properties:
