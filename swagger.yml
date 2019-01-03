@@ -19,12 +19,12 @@ paths:
           description: Ermittlung erfolgreich
           schema:
             $ref: '#/definitions/ermittlungsResponse'
-      parameters:      
-      - in: 'body'
-        name: 'body'
-        required: true
-        schema:
-          $ref: '#/definitions/ermittlungsRequest'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            $ref: '#/definitions/ermittlungsRequest'
   /annehmen:
     post:
       operationId: "annehmen"
@@ -37,18 +37,18 @@ paths:
           description: Annahme erfolgreich
           schema:
             $ref: '#/definitions/annahmeResponse'
-      parameters:      
-      - in: 'body'
-        name: 'body'
-        required: true
-        schema:
-          $ref: '#/definitions/annahmeRequest'
-          
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            $ref: '#/definitions/annahmeRequest'
+
 definitions:
 
-#####################
-###    Request    ###
-#####################
+  #####################
+  ###    Request    ###
+  #####################
 
   request:
     type: object
@@ -72,46 +72,49 @@ definitions:
         items:
           $ref: '#/definitions/featureToggle'
     required:
-    - metadaten
-    - finanzierungswunsch
+      - metadaten
+      - finanzierungswunsch
+      - kundenbetreuer
 
   ermittlungsRequest:
     allOf:
-    - $ref: '#/definitions/request'
-    - type: object
-      properties:
-        handelsbeziehungen:
-          type: array
-          items:
-            $ref: '#/definitions/handelsbeziehung'
+      - $ref: '#/definitions/request'
+      - type: object
+        properties:
+          handelsbeziehungen:
+            type: array
+            items:
+              $ref: '#/definitions/handelsbeziehung'
 
   annahmeRequest:
     allOf:
-    - $ref: '#/definitions/request'
-    - type: object
-      properties:
-        bearbeiter:
-          $ref: '#/definitions/bearbeiter'
-        handelsbeziehung:
-          $ref: '#/definitions/handelsbeziehung'
-        angebotsvariantentyp:
-          description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
-          type: string
-        beratungsart:
-          $ref: '#/definitions/beratungsart'
-      required:
-      - angebotsvariantentyp
+      - $ref: '#/definitions/request'
+      - type: object
+        properties:
+          bearbeiter:
+            $ref: '#/definitions/bearbeiter'
+          handelsbeziehung:
+            $ref: '#/definitions/handelsbeziehung'
+          angebotsvariantentyp:
+            description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
+            type: string
+          beratungsart:
+            $ref: '#/definitions/beratungsart'
+        required:
+          - angebotsvariantentyp
+          - handelsbeziehung
+          - beratungsart
 
   beratungsart:
     type: string
     enum:
-    - PRAESENZ_GESCHAEFT
-    - FERN_ABSATZ_GESCHAEFT
-    - AUSSER_GESCHAEFTSRAUM_VERTRAG
+      - PRAESENZ_GESCHAEFT
+      - FERN_ABSATZ_GESCHAEFT
+      - AUSSER_GESCHAEFTSRAUM_VERTRAG
 
-###
-### Meta
-###
+  ###
+  ### Meta
+  ###
 
   metadaten:
     description: Dient der Identifikation von Reqests und Vorgängen.
@@ -138,9 +141,9 @@ definitions:
       aktiv:
         type: boolean
 
-###
-### Kundenbetreuer, Bearbeiter und Handelsbeziehung
-###
+  ###
+  ### Kundenbetreuer, Bearbeiter und Handelsbeziehung
+  ###
 
   kundenbetreuer:
     type: object
@@ -197,15 +200,15 @@ definitions:
     additionalProperties:
       type: object
 
-###
-### Antragsteller
-###
+  ###
+  ### Antragsteller
+  ###
 
   gemeinsameAntragstellerangaben:
     type: object
     properties:
-      finanzielleSituation:
-        $ref: '#/definitions/finanzielleSituation'
+      bonitaetsangaben:
+        $ref: '#/definitions/bonitaetsangaben'
       kinder:
         type: array
         items:
@@ -241,8 +244,8 @@ definitions:
         $ref: '#/definitions/rentenversicherung'
       legitimation:
         $ref: '#/definitions/legitimation'
-      finanzielleSituation:
-        $ref: '#/definitions/finanzielleSituation'
+      bonitaetsangaben:
+        $ref: '#/definitions/bonitaetsangaben'
 
   kontakt:
     type: object
@@ -291,13 +294,13 @@ definitions:
   familienstand:
     type: string
     enum:
-    - LEDIG
-    - VERHEIRATET
-    - GESCHIEDEN
-    - VERWITWET
-    - GETRENNT_LEBEND
-    - EHEAEHNLICHE_GEMEINSCHAFT
-    - EINGETRAGENE_LEBENSPARTNERSCHAFT
+      - LEDIG
+      - VERHEIRATET
+      - GESCHIEDEN
+      - VERWITWET
+      - GETRENNT_LEBEND
+      - EHEAEHNLICHE_GEMEINSCHAFT
+      - EINGETRAGENE_LEBENSPARTNERSCHAFT
 
   derzeitigeBeschaeftigung:
     type: object
@@ -324,43 +327,43 @@ definitions:
   beschaeftigungsverhaeltnis:
     type: string
     enum:
-    - ANGESTELLT
-    - ARBEITER
-    - BEAMTER
-    - GF_GESELLSCHAFTER
-    - SELBSTAENDIG
-    - FREIBERUFLER
-    - RENTNER
-    - HAUSFRAU
-    - ARBEITSLOS
+      - ANGESTELLT
+      - ARBEITER
+      - BEAMTER
+      - GF_GESELLSCHAFTER
+      - SELBSTAENDIG
+      - FREIBERUFLER
+      - RENTNER
+      - HAUSFRAU
+      - ARBEITSLOS
 
   branche:
     type: string
     enum:
-    - BAUGEWERBE
-    - DIENSTLEISTUNGEN
-    - ENERGIE_WASSERVERSORGUNG_BERGBAU
-    - ERZIEHUNG_UNTERRICHT
-    - GEBIETSKOERPERSCHAFTEN
-    - GEMEINNUETZIGE_ORGANISATION
-    - GESUNDHEIT_SOZIALWESEN
-    - HANDEL
-    - HOTEL_GASTRONOMIE
-    - INFORMATION_KOMMUNIKATION
-    - KREDITINSTITUTE_VERSICHERUNGEN
-    - KULTUR_SPORT_UNTERHALTUNG
-    - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
-    - OEFFENTLICHER_DIENST
-    - PRIVATE_HAUSHALTE
-    - VERARBEITENDES_GEWERBE
-    - VERKEHR_LOGISTIK
+      - BAUGEWERBE
+      - DIENSTLEISTUNGEN
+      - ENERGIE_WASSERVERSORGUNG_BERGBAU
+      - ERZIEHUNG_UNTERRICHT
+      - GEBIETSKOERPERSCHAFTEN
+      - GEMEINNUETZIGE_ORGANISATION
+      - GESUNDHEIT_SOZIALWESEN
+      - HANDEL
+      - HOTEL_GASTRONOMIE
+      - INFORMATION_KOMMUNIKATION
+      - KREDITINSTITUTE_VERSICHERUNGEN
+      - KULTUR_SPORT_UNTERHALTUNG
+      - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+      - OEFFENTLICHER_DIENST
+      - PRIVATE_HAUSHALTE
+      - VERARBEITENDES_GEWERBE
+      - VERKEHR_LOGISTIK
 
   beschaeftigungsbefristung:
     type: string
     enum:
-    - UNBEFRISTET
-    - BEFRISTET
-    - PROBEZEIT
+      - UNBEFRISTET
+      - BEFRISTET
+      - PROBEZEIT
 
   vorherigeBeschaeftigung:
     properties:
@@ -391,10 +394,10 @@ definitions:
   wohnart:
     type: string
     enum:
-    - ZUR_MIETE
-    - ZUR_UNTERMIETE
-    - IM_EIGENEN_HAUS
-    - BEI_DEN_ELTERN
+      - ZUR_MIETE
+      - ZUR_UNTERMIETE
+      - IM_EIGENEN_HAUS
+      - BEI_DEN_ELTERN
 
   vorherigeWohnsituation:
     type: object
@@ -429,9 +432,9 @@ definitions:
   aufenthaltsart:
     type: string
     enum:
-    - AUFENTHALTSERLAUBNIS_UNBEFRISTET
-    - AUFENTHALTSERLAUBNIS_BEFRISTET
-    - VISUM
+      - AUFENTHALTSERLAUBNIS_UNBEFRISTET
+      - AUFENTHALTSERLAUBNIS_BEFRISTET
+      - VISUM
 
   rentenversicherung:
     type: object
@@ -462,9 +465,9 @@ definitions:
   ausweisart:
     type: string
     enum:
-    - PERSONALAUSWEIS
-    - REISEPASS
-    - ANDERER_AUSWEIS
+      - PERSONALAUSWEIS
+      - REISEPASS
+      - ANDERER_AUSWEIS
 
   fahrzeug:
     type: object
@@ -498,16 +501,16 @@ definitions:
   leistungseinheit:
     type: string
     enum:
-    - PS
-    - KW
+      - PS
+      - KW
 
   fahrzeugverkaeuferart:
     type: string
     enum:
-    - PRIVAT
-    - HAENDLER
+      - PRIVAT
+      - HAENDLER
 
-  finanzielleSituation:
+  bonitaetsangaben:
     type: object
     properties:
       ausgaben:
@@ -640,9 +643,9 @@ definitions:
   immobiliennutzungsart:
     type: string
     enum:
-    - VERMIETET
-    - EIGENGENUTZT
-    - EIGENGENUTZT_UND_VERMIETET
+      - VERMIETET
+      - EIGENGENUTZT
+      - EIGENGENUTZT_UND_VERMIETET
 
   verbindlichkeiten:
     type: object
@@ -740,9 +743,9 @@ definitions:
         $ref: '#/definitions/euro'
 
 
-###
-### Finanzierungswunsch
-###
+  ###
+  ### Finanzierungswunsch
+  ###
 
   finanzierungswunsch:
     type: object
@@ -756,7 +759,7 @@ definitions:
       konto:
         $ref: '#/definitions/konto'
       abzuloesendeVerbindlichkeiten:
-          $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
+        $ref: '#/definitions/abzuloesendeVerbindlichkeiten'
       fahrzeug:
         $ref: '#/definitions/fahrzeug'
     required:
@@ -778,7 +781,7 @@ definitions:
         description: laufzeitInMonaten oder rateProMonat wird übermittelt
         $ref: '#/definitions/euro'
     required:
-    - auszahlungsbetrag
+      - auszahlungsbetrag
 
   abzuloesendeVerbindlichkeiten:
     type: object
@@ -804,16 +807,16 @@ definitions:
     description: Verwendungszweck
     type: string
     enum:
-    - UMSCHULDUNG
-    - SONSTIGES
-    - NEUWAGENKAUF
-    - MODERNISIERUNG_UND_WOHNEN
+      - UMSCHULDUNG
+      - SONSTIGES
+      - NEUWAGENKAUF
+      - MODERNISIERUNG_UND_WOHNEN
 
   ratenzahlungstermin:
     type: string
     enum:
-    - MEDIO
-    - ULTIMO
+      - MEDIO
+      - ULTIMO
 
   abzuloesenderRatenkredit:
     type: object
@@ -880,9 +883,9 @@ definitions:
       bic:
         type: string
 
-###
-### Globale Typen innerhalb Request
-###
+  ###
+  ### Globale Typen innerhalb Request
+  ###
 
   anrede:
     type: string
@@ -904,9 +907,9 @@ definitions:
       land:
         $ref: '#/definitions/land'
 
-#####################
-###    Response   ###
-#####################
+  #####################
+  ###    Response   ###
+  #####################
 
   ermittlungsResponse:
     type: object
@@ -931,23 +934,27 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/dokument'
-      referenznummerProduktanbieter:
-        type: string
 
   angebot:
     type: object
     properties:
       produktanbieter:
         type: string
+      referenznummerProduktanbieter:
+        type: string
+      referenznummerDienstleister:
+        type: string
       produktbezeichnung:
         type: string
       angebotsvariantentyp:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
-      kreditkonditionen:
-        $ref: '#/definitions/kreditkonditionen'
-      versicherungskonditionen:
-        $ref: '#/definitions/versicherungskonditionen'
+      gesamtkonditionen:
+        $ref: '#/definitions/gesamtkonditionen'
+      kredit:
+        $ref: '#/definitions/kredit'
+      bausparvertrag:
+        $ref: '#/definitions/bausparvertrag'
       status:
         $ref: '#/definitions/angebotsstatus'
       meldungen:
@@ -966,7 +973,8 @@ definitions:
       - produktanbieter
       - produktbezeichnung
       - angebotsvariantentyp
-      - kreditkonditionen
+      - gesamtkonditionen
+      - kredit
       - status
       - bonitaetscheck
 
@@ -979,72 +987,17 @@ definitions:
         description: true wenn der Kredit- oder Versicherungswunsch des Antragstellers angepasst wurde.
         type: boolean
     required:
-    - machbarkeitsstatus
-    - angepasst
+      - machbarkeitsstatus
+      - angepasst
 
   machbarkeitsstatus:
     type: string
     enum:
-    - MACHBAR
-    - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
-    - NICHT_MACHBAR
+      - MACHBAR
+      - MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER
+      - NICHT_MACHBAR
 
-  bonitaetscheck:
-    type: object
-    properties:
-      name:
-        type: string
-      ueberschrift:
-        type: string
-      ueberschuss:
-        $ref: '#/definitions/euro'
-      bloecke:
-        type: array
-        items:
-          $ref: '#/definitions/titelBlock'
-    required:
-    - name
-
-  block:
-    type: object
-    properties:
-      zeilen:
-        type: array
-        items:
-          $ref: '#/definitions/zeile'
-
-  titelBlock:
-    allOf:
-    - $ref: '#/definitions/block'
-    - type: object
-      properties:
-        titel:
-          type: string
-        innerBlock:
-          $ref: '#/definitions/innerBlock'
-
-  innerBlock:
-    allOf:
-    - $ref: '#/definitions/block'
-    - type: object
-      properties:
-        hervorgehoben:
-          type: boolean
-
-  zeile:
-    type: object
-    properties:
-      hervorgehoben:
-        type: boolean
-      label:
-        type: string
-      wert:
-        $ref: '#/definitions/euro'
-    required:
-    - label
-    - wert
-
-  kreditkonditionen:
+  gesamtkonditionen:
     type: object
     properties:
       effektivzinssatz:
@@ -1052,7 +1005,34 @@ definitions:
       sollzinssatz:
         $ref: '#/definitions/prozent'
       gesamtbetrag:
-        description: Auszahlungsbetrag + Versicherungsprämie + Zinsen
+        description: Auszahlungsbetrag + Versicherungsprämie + Kreditzinsen + ggf Bausparzinsen
+        $ref: '#/definitions/euro'
+      laufzeitInMonaten:
+        type: integer
+      rateProMonat:
+        $ref: '#/definitions/euro'
+      provisionsbetrag:
+        $ref: '#/definitions/euro'
+      basisbetragFuerDieProvisionsermittlung:
+        $ref: '#/definitions/euro'
+    required:
+      - effektivzinssatz
+      - sollzinssatz
+      - gesamtbetrag
+      - laufzeitInMonaten
+      - rateProMonat
+      - provisionsbetrag
+      - basisbetragFuerDieProvisionsermittlung
+
+  kredit:
+    type: object
+    properties:
+      effektivzinssatz:
+        $ref: '#/definitions/prozent'
+      sollzinssatz:
+        $ref: '#/definitions/prozent'
+      gesamtbetrag:
+        description: Auszahlungsbetrag + Versicherungsprämie + Kreditzinsen
         $ref: '#/definitions/euro'
       nettokreditbetrag:
         description: Auszahlungsbetrag + Versicherungsprämie
@@ -1066,12 +1046,14 @@ definitions:
         $ref: '#/definitions/euro'
       letzteRate:
         $ref: '#/definitions/euro'
-      provision:
+      provisionsbetrag:
         $ref: '#/definitions/euro'
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
       vorlaufzinsenProTag:
         $ref: '#/definitions/euro'
+      versicherung:
+        $ref: '#/definitions/versicherung'
     required:
       - effektivzinssatz
       - sollzinssatz
@@ -1081,24 +1063,24 @@ definitions:
       - laufzeitInMonaten
       - rateProMonat
       - letzteRate
-      - provision
+      - provisionsbetrag
       - basisbetragFuerDieProvisionsermittlung
       - vorlaufzinsenProTag
 
-  versicherungskonditionen:
+  versicherung:
     type: object
     properties:
       basisFuerDieProvisionsermittlung:
         $ref: '#/definitions/basisFuerDieVersicherungsprovisionsermittlung'
-      versicherungsprovision:
+      provisionsbetrag:
         $ref: '#/definitions/euro'
-      versicherungspraemieBrutto:
+      praemieBrutto:
         description: Versicherungsprämie inklusive Steuer für Arbeitslosigkeitsversicherung
         $ref: '#/definitions/euro'
-      versicherungspraemieNetto:
+      praemieNetto:
         description: Versicherungsprämie exklusive Steuer für Arbeitslosigkeitsversicherung
         $ref: '#/definitions/euro'
-      versicherungsrisiken:
+      risiken:
         type: array
         items:
           $ref: '#/definitions/versicherungsrisiken'
@@ -1106,17 +1088,86 @@ definitions:
         type: string
     required:
       - basisFuerDieProvisionsermittlung
-      - versicherungsprovision
-      - versicherungspraemieBrutto
-      - versicherungspraemieNetto
-      - versicherungsrisiken
+      - provisionsbetrag
+      - praemieBrutto
+      - praemieNetto
+      - risiken
       - versicherer
 
   basisFuerDieVersicherungsprovisionsermittlung:
     type: string
     enum:
-    - VERSICHERUNGS_PRAEMIE_NETTO
-    - VERSICHERUNGS_PRAEMIE_BRUTTO
+      - VERSICHERUNGS_PRAEMIE_NETTO
+      - VERSICHERUNGS_PRAEMIE_BRUTTO
+
+  bausparvertrag:
+    type: object
+    properties:
+      tarifname:
+        type: string
+      bausparsumme:
+        $ref: '#/definitions/euro'
+      gesamtlaufzeitInMonaten:
+        type: integer
+      zuteilungsZeitpunkt:
+        type: string
+      provision:
+        $ref: '#/definitions/euro'
+      basisbetragFuerDieProvisionsermittlung:
+        $ref: '#/definitions/euro'
+      jahresentgeld:
+        $ref: '#/definitions/euro'
+      abschlussgebuehr:
+        $ref: '#/definitions/euro'
+      sparphase:
+        $ref: '#/definitions/sparphase'
+      darlehensphase:
+        $ref: '#/definitions/darlehensphase'
+    required:
+      - tarifname
+      - bausparsumme
+      - gesamtlaufzeitInMonaten
+      - zuteilungsZeitpunkt
+      - provision
+      - basisbetragFuerDieProvisionsermittlung
+      - jahresentgeld
+      - abschlussgebuehr
+      - sparphase
+      - darlehensphase
+
+  sparphase:
+    type: object
+    properties:
+      sparbeitragMonatlich:
+        $ref: '#/definitions/euro'
+      dauerInMonaten:
+        type: integer
+      guthabenBeiZuteilung:
+        $ref: '#/definitions/euro'
+    required:
+      - sparbeitragMonatlich
+      - dauerInMonaten
+      - guthabenBeiZuteilung
+
+  darlehensphase:
+    type: object
+    properties:
+      darlehenssumme:
+        $ref: '#/definitions/euro'
+      rateMonatlich:
+        $ref: '#/definitions/euro'
+      dauerInMonaten:
+        type: integer
+      sollzinsSatz:
+        $ref: '#/definitions/prozent'
+      effektivzinsSatz:
+        $ref: '#/definitions/prozent'
+    required:
+      - darlehenssumme
+      - rateMonatlich
+      - dauerInMonaten
+      - sollzinsSatz
+      - effektivzinsSatz
 
   meldung:
     type: object
@@ -1135,10 +1186,10 @@ definitions:
   meldungskategorie:
     type: string
     enum:
-    - MACHBARKEIT
-    - VOLLSTAENDIGKEIT
-    - HINWEIS
-    - ANPASSUNG
+      - MACHBARKEIT
+      - VOLLSTAENDIGKEIT
+      - HINWEIS
+      - ANPASSUNG
 
   dokument:
     type: object
@@ -1166,9 +1217,64 @@ definitions:
       sichtbarFuerProduktanbieter:
         type: boolean
 
-###########################################
-### Globale Typen fuer Request+Response ###
-###########################################
+  bonitaetscheck:
+    type: object
+    properties:
+      name:
+        type: string
+      ueberschrift:
+        type: string
+      ueberschuss:
+        $ref: '#/definitions/euro'
+      bloecke:
+        type: array
+        items:
+          $ref: '#/definitions/titelBlock'
+    required:
+      - name
+
+  block:
+    type: object
+    properties:
+      zeilen:
+        type: array
+        items:
+          $ref: '#/definitions/zeile'
+
+  titelBlock:
+    allOf:
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          titel:
+            type: string
+          innerBlock:
+            $ref: '#/definitions/innerBlock'
+
+  innerBlock:
+    allOf:
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          hervorgehoben:
+            type: boolean
+
+  zeile:
+    type: object
+    properties:
+      hervorgehoben:
+        type: boolean
+      label:
+        type: string
+      wert:
+        $ref: '#/definitions/euro'
+    required:
+      - label
+      - wert
+
+  ###########################################
+  ### Globale Typen fuer Request+Response ###
+  ###########################################
 
 
   versicherungsrisiken:
