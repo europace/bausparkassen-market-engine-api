@@ -770,6 +770,8 @@ definitions:
     properties:
       finanzierungszweck:
         $ref: '#/definitions/finanzierungszweck'
+      verwendung:
+        type: string
       auszahlungsbetrag:
         $ref: '#/definitions/euro'
       ratenzahlungstermin:
