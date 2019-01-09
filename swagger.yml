@@ -567,6 +567,8 @@ definitions:
         $ref: '#/definitions/mietUndPachteinnahmen'
       sonstige:
         $ref: '#/definitions/euro'
+      kapitalvermoegen:
+        $ref: '#/definitions/euro'
 
   mietUndPachteinnahmen:
     type: object
@@ -595,6 +597,8 @@ definitions:
         $ref: '#/definitions/jaehrlicheAngaben'
       bruttoEinkommenErwartet:
         $ref: '#/definitions/euro'
+      bilanzierend:
+        type: boolean
 
   jaehrlicheAngaben:
     type: object
@@ -625,6 +629,12 @@ definitions:
           $ref: '#/definitions/immobilie'
       wohnflaecheEigengenutzterImmobilieInQm:
         type: integer
+      depot:
+        $ref: '#/definitions/euro'
+      bankUndSparguthaben:
+        $ref: '#/definitions/euro'
+      sonstiges:
+        $ref: '#/definitions/euro'
 
   immobilie:
     type: object
