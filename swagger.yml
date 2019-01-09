@@ -998,13 +998,13 @@ definitions:
       art:
         $ref: '#/definitions/unterlageReferenzArt'
     required:
+      - id
       - art
 
   unterlageReferenzArt:
     type: string
     enum:
       - ANTRAGSTELLER
-      - FINANZIERUNG
       
   angebotsstatus:
     type: object
