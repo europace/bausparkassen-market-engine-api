@@ -619,16 +619,10 @@ definitions:
         $ref: '#/definitions/euro'
       bausparguthaben:
         $ref: '#/definitions/euro'
-      eigengenutzteImmobilien:
-        $ref: '#/definitions/euro'
-      vermieteteImmobilien:
-        $ref: '#/definitions/euro'
       immobilien:
         type: array
         items:
           $ref: '#/definitions/immobilie'
-      wohnflaecheEigengenutzterImmobilieInQm:
-        type: integer
       depot:
         $ref: '#/definitions/euro'
       bankUndSparguthaben:
