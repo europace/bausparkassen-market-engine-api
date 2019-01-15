@@ -567,6 +567,8 @@ definitions:
         $ref: '#/definitions/mietUndPachteinnahmen'
       sonstige:
         $ref: '#/definitions/euro'
+      kapitalvermoegen:
+        $ref: '#/definitions/euro'
 
   mietUndPachteinnahmen:
     type: object
@@ -595,6 +597,8 @@ definitions:
         $ref: '#/definitions/jaehrlicheAngaben'
       bruttoEinkommenErwartet:
         $ref: '#/definitions/euro'
+      bilanzierend:
+        type: boolean
 
   jaehrlicheAngaben:
     type: object
@@ -615,16 +619,16 @@ definitions:
         $ref: '#/definitions/euro'
       bausparguthaben:
         $ref: '#/definitions/euro'
-      eigengenutzteImmobilien:
-        $ref: '#/definitions/euro'
-      vermieteteImmobilien:
-        $ref: '#/definitions/euro'
       immobilien:
         type: array
         items:
           $ref: '#/definitions/immobilie'
-      wohnflaecheEigengenutzterImmobilieInQm:
-        type: integer
+      depot:
+        $ref: '#/definitions/euro'
+      bankUndSparguthaben:
+        $ref: '#/definitions/euro'
+      sonstiges:
+        $ref: '#/definitions/euro'
 
   immobilie:
     type: object
@@ -676,6 +680,14 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/immobiliendarlehen'
+      geschaeftskredite:
+        type: array
+        items:
+          $ref: '#/definitions/geschaeftskredit'
+      kontokorrentkredite:
+        type: array
+        items:
+          $ref: '#/definitions/kontokorrentkredit'
 
   ratenkredit:
     type: object
@@ -689,6 +701,10 @@ definitions:
       datumLetzteRate:
         type: string
         format: date
+      restschuld:
+        $ref: '#/definitions/euro'
+      glaeubiger:
+        type: string
 
   sonstigeVerbindlichkeit:
     type: object
@@ -702,6 +718,10 @@ definitions:
       datumLetzteRate:
         type: string
         format: date
+      restschuld:
+        $ref: '#/definitions/euro'
+      glaeubiger:
+        type: string
 
   leasing:
     type: object
@@ -715,6 +735,8 @@ definitions:
       datumLetzteRate:
         type: string
         format: date
+      glaeubiger:
+        type: string
 
   kreditkarte:
     type: object
@@ -725,6 +747,12 @@ definitions:
         $ref: '#/definitions/euro'
       monatlicheRate:
         $ref: '#/definitions/euro'
+      beanspruchterBetrag:
+        $ref: '#/definitions/euro'
+      zinssatz:
+        $ref: '#/definitions/prozent'
+      glaeubiger:
+        type: string
 
   dispositionskredit:
     type: object
@@ -733,6 +761,12 @@ definitions:
         type: string
       verfuegungsrahmen:
         $ref: '#/definitions/euro'
+      beanspruchterBetrag:
+        $ref: '#/definitions/euro'
+      zinssatz:
+        $ref: '#/definitions/prozent'
+      glaeubiger:
+        type: string
 
   immobiliendarlehen:
     type: object
@@ -744,6 +778,36 @@ definitions:
       restschuld:
         $ref: '#/definitions/euro'
 
+  geschaeftskredit:
+    type: object
+    properties:
+      id:
+        type: string
+      monatlicheRate:
+        $ref: '#/definitions/euro'
+      letzteRate:
+        $ref: '#/definitions/euro'
+      datumLetzteRate:
+        type: string
+        format: date
+      restschuld:
+        $ref: '#/definitions/euro'
+      glaeubiger:
+        type: string
+
+  kontokorrentkredit:
+    type: object
+    properties:
+      id:
+        type: string
+      verfuegungsrahmen:
+        $ref: '#/definitions/euro'
+      beanspruchterBetrag:
+        $ref: '#/definitions/euro'
+      zinssatz:
+        $ref: '#/definitions/prozent'
+      glaeubiger:
+        type: string
 
   ###
   ### Finanzierungswunsch
@@ -806,6 +870,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/abzuloesenderDispositionskredit'
+      geschaeftskredite:
+        type: array
+        items:
+          $ref: '#/definitions/abzuloesenderGeschaeftskredit'
 
   finanzierungszweck:
     description: Verwendungszweck
@@ -832,8 +900,6 @@ definitions:
         format: date
       urspruenglicherBetrag:
         $ref: '#/definitions/euro'
-      abloesebetrag:
-        $ref: '#/definitions/euro'
       konto:
         $ref: '#/definitions/konto'
 
@@ -847,8 +913,6 @@ definitions:
         format: date
       urspruenglicherBetrag:
         $ref: '#/definitions/euro'
-      abloesebetrag:
-        $ref: '#/definitions/euro'
       konto:
         $ref: '#/definitions/konto'
 
@@ -857,8 +921,6 @@ definitions:
     properties:
       id:
         type: string
-      abloesebetrag:
-        $ref: '#/definitions/euro'
       konto:
         $ref: '#/definitions/konto'
 
@@ -867,7 +929,18 @@ definitions:
     properties:
       id:
         type: string
-      abloesebetrag:
+      konto:
+        $ref: '#/definitions/konto'
+
+  abzuloesenderGeschaeftskredit:
+    type: object
+    properties:
+      id:
+        type: string
+      datumErsteRate:
+        type: string
+        format: date
+      urspruenglicherBetrag:
         $ref: '#/definitions/euro'
       konto:
         $ref: '#/definitions/konto'
