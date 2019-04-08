@@ -1,2 +1,2 @@
-# deutscherring-me-api
-Market Engine-API des Deutschen Rings
+# bausparkassen-me-api
+Market Engine-API für Bausparkassen
