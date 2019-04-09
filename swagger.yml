@@ -561,15 +561,26 @@ definitions:
         $ref: '#/definitions/euro'
       kindergeld:
         $ref: '#/definitions/euro'
-      nebentaetigkeit:
-        $ref: '#/definitions/euro'
+      nebentaetigkeiten:
+        type: array
+        items:
+          $ref: '#/definitions/nebentaetigkeit'
       mietUndPachteinnahmen:
         $ref: '#/definitions/mietUndPachteinnahmen'
       sonstige:
         $ref: '#/definitions/euro'
       kapitalvermoegen:
         $ref: '#/definitions/euro'
-
+        
+  nebentaetigkeit:
+    type: object
+    properties:
+      betrag:
+        $ref: '#/definitions/euro'
+      beginn:
+        type: string
+        format: date
+        
   mietUndPachteinnahmen:
     type: object
     properties:
