@@ -571,7 +571,7 @@ definitions:
         $ref: '#/definitions/euro'
       kapitalvermoegen:
         $ref: '#/definitions/euro'
-        
+
   nebentaetigkeit:
     type: object
     properties:
@@ -580,7 +580,7 @@ definitions:
       beginn:
         type: string
         format: date
-        
+
   mietUndPachteinnahmen:
     type: object
     properties:
@@ -1077,7 +1077,7 @@ definitions:
         $ref: '#/definitions/unterlageReferenz'
     required:
       - text
-  
+
   unterlageReferenz:
     type: object
     properties:
@@ -1093,7 +1093,7 @@ definitions:
     type: string
     enum:
       - ANTRAGSTELLER
-      
+
   angebotsstatus:
     type: object
     properties:
@@ -1380,13 +1380,23 @@ definitions:
     properties:
       hervorgehoben:
         type: boolean
+      zellen:
+        type: array
+        items:
+          $ref: '#/definitions/zelle'
+    required:
+      - zellen
+
+  zelle:
+    type: object
+    properties:
+      typ:
+        type: string
+        enum: [LABEL, EURO]
       label:
         type: string
-      wert:
+      euro:
         $ref: '#/definitions/euro'
-    required:
-      - label
-      - wert
 
   ###########################################
   ### Globale Typen fuer Request+Response ###
