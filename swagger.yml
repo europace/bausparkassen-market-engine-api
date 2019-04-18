@@ -571,7 +571,7 @@ definitions:
         $ref: '#/definitions/euro'
       kapitalvermoegen:
         $ref: '#/definitions/euro'
-        
+
   nebentaetigkeit:
     type: object
     properties:
@@ -580,7 +580,7 @@ definitions:
       beginn:
         type: string
         format: date
-        
+
   mietUndPachteinnahmen:
     type: object
     properties:
@@ -1077,7 +1077,7 @@ definitions:
         $ref: '#/definitions/unterlageReferenz'
     required:
       - text
-  
+
   unterlageReferenz:
     type: object
     properties:
@@ -1093,7 +1093,7 @@ definitions:
     type: string
     enum:
       - ANTRAGSTELLER
-      
+
   angebotsstatus:
     type: object
     properties:
@@ -1387,6 +1387,59 @@ definitions:
     required:
       - label
       - wert
+
+  ###########################################
+  ### Tilgungsplan                        ###
+  ###########################################
+
+  tilgungsplanBlock:
+    type: object
+    properties:
+      zeilen:
+        type: array
+        items:
+          $ref: '#/definitions/tilgungsplanZeile'
+
+  tilgungsplanTitelBlock:
+    allOf:
+      - $ref: '#/definitions/block'
+      - type: object
+        properties:
+          titel:
+            type: string
+          innerBlock:
+            $ref: '#/definitions/tilgungsplanInnerBlock'
+
+  tilgungsplanInnerBlock:
+    allOf:
+      - $ref: '#/definitions/tilgungsplanBlock'
+      - type: object
+        properties:
+          hervorgehoben:
+            type: boolean
+
+  tilgungsplanZeile:
+    type: object
+    properties:
+      hervorgehoben:
+        type: boolean
+      zellen:
+        type: array
+        items:
+          $ref: '#/definitions/tilgungsplanZelle'
+    required:
+      - zellen
+
+  tilgungsplanZelle:
+    type: object
+    properties:
+      typ:
+        type: string
+        enum: [LABEL, EURO]
+      label:
+        type: string
+      euro:
+        $ref: '#/definitions/euro'
 
   ###########################################
   ### Globale Typen fuer Request+Response ###
