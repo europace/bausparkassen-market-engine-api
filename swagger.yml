@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.1.0
+  version: 1.0.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1141,6 +1141,8 @@ definitions:
       - effektivzinssatz
       - sollzinssatz
       - gesamtbetrag
+      - nettokreditbetrag
+      - auszahlungsbetrag
       - laufzeitInMonaten
       - rateProMonat
       - provisionsbetrag
