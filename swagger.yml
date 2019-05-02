@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.1
+  version: 0.1.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1122,6 +1122,12 @@ definitions:
         $ref: '#/definitions/prozent'
       gesamtbetrag:
         description: Auszahlungsbetrag + Versicherungsprämie + Kreditzinsen + ggf Bausparzinsen
+        $ref: '#/definitions/euro'
+      nettokreditbetrag:
+        description: Auszahlungsbetrag + Versicherungsprämie
+        $ref: '#/definitions/euro'
+      auszahlungsbetrag:
+        description: Kreditbetrag
         $ref: '#/definitions/euro'
       laufzeitInMonaten:
         type: integer
