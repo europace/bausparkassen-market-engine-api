@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1027,6 +1027,7 @@ definitions:
     type: object
     properties:
       produktanbieter:
+        description: ID eines Produktanbieters wie in der Anfrage unter handelsbeziehung.produktanbieter angegeben. Ordnet das Angebot dem angefragtem Produktanbieter zu.
         type: string
       referenznummerProduktanbieter:
         type: string
