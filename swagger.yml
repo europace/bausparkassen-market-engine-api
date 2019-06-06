@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.0.1
+  version: 2.0.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1240,7 +1240,7 @@ definitions:
         $ref: '#/definitions/euro'
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
-      jahresentgeld:
+      jahresentgelt:
         $ref: '#/definitions/euro'
       abschlussgebuehr:
         $ref: '#/definitions/euro'
@@ -1255,7 +1255,7 @@ definitions:
       - zuteilungsZeitpunkt
       - provision
       - basisbetragFuerDieProvisionsermittlung
-      - jahresentgeld
+      - jahresentgelt
       - abschlussgebuehr
       - sparphase
       - darlehensphase
