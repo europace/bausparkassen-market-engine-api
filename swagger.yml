@@ -1269,10 +1269,13 @@ definitions:
         type: integer
       guthabenBeiZuteilung:
         $ref: '#/definitions/euro'
+      guthabenZinssatz:
+        $ref: '#/definitions/prozent'
     required:
       - sparbeitragMonatlich
       - dauerInMonaten
       - guthabenBeiZuteilung
+      - guthabenZinssatz
 
   darlehensphase:
     type: object
@@ -1287,12 +1290,15 @@ definitions:
         $ref: '#/definitions/prozent'
       effektivzinsSatz:
         $ref: '#/definitions/prozent'
+      letzteRate:
+        $ref: '#/definitions/euro'
     required:
       - darlehenssumme
       - rateMonatlich
       - dauerInMonaten
       - sollzinsSatz
       - effektivzinsSatz
+      - letzteRate
 
   meldung:
     type: object
