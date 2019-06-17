@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 3.0.0
+  version: 4.0.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1035,6 +1035,8 @@ definitions:
         type: string
       produktbezeichnung:
         type: string
+      produktart:
+        $ref: '#/definitions/produktart'
       angebotsvariantentyp:
         description: Token, dass dazu dient die bei der Ermittlung berechnete AngebotsVariante bei der Annahme identifizieren zu können. Format ist frei wählbar - der Inhalt wird von Europace nicht semantisch interpretiert. Kann z.B. enthalten - Produktanbieter, Produkt-ID.
         type: string
@@ -1061,11 +1063,20 @@ definitions:
     required:
       - produktanbieter
       - produktbezeichnung
+      - produktart
       - angebotsvariantentyp
       - gesamtkonditionen
       - kredit
       - status
       - bonitaetscheck
+
+  produktart:
+    type: string
+    enum:
+      - RATENKREDIT
+      - AUTOKREDIT
+      - MODERNISIERUNGSKREDIT
+      - BUSINESSKREDIT
 
   unterlage:
     type: object
@@ -1292,6 +1303,8 @@ definitions:
         $ref: '#/definitions/prozent'
       letzteRate:
         $ref: '#/definitions/euro'
+      tilgungsende:
+        type: string
     required:
       - darlehenssumme
       - rateMonatlich
@@ -1299,6 +1312,7 @@ definitions:
       - sollzinsSatz
       - effektivzinsSatz
       - letzteRate
+      - tilgungsende
 
   meldung:
     type: object
