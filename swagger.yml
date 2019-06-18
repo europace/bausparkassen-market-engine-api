@@ -1149,7 +1149,7 @@ definitions:
         $ref: '#/definitions/euro'
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
-      vertragsbesginn:
+      vertragsbeginn:
         type: string
         format: date
     required:
