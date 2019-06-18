@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 4.0.0
+  version: 5.0.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1149,6 +1149,9 @@ definitions:
         $ref: '#/definitions/euro'
       basisbetragFuerDieProvisionsermittlung:
         $ref: '#/definitions/euro'
+      vertragsbesginn:
+        type: string
+        format: date
     required:
       - effektivzinssatz
       - sollzinssatz
@@ -1159,6 +1162,7 @@ definitions:
       - rateProMonat
       - provisionsbetrag
       - basisbetragFuerDieProvisionsermittlung
+      - vertragsbesginn
 
   kredit:
     type: object
@@ -1190,6 +1194,8 @@ definitions:
         $ref: '#/definitions/euro'
       versicherung:
         $ref: '#/definitions/versicherung'
+      summeZinsen:
+        $ref: '#/definitions/euro'
     required:
       - effektivzinssatz
       - sollzinssatz
@@ -1202,6 +1208,7 @@ definitions:
       - provisionsbetrag
       - basisbetragFuerDieProvisionsermittlung
       - vorlaufzinsenProTag
+      - summeZinsen
 
   versicherung:
     type: object
