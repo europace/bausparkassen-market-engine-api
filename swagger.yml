@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 5.0.0
+  version: 6.0.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1145,10 +1145,6 @@ definitions:
         type: integer
       rateProMonat:
         $ref: '#/definitions/euro'
-      provisionsbetrag:
-        $ref: '#/definitions/euro'
-      basisbetragFuerDieProvisionsermittlung:
-        $ref: '#/definitions/euro'
       vertragsbeginn:
         type: string
         format: date
@@ -1160,8 +1156,6 @@ definitions:
       - auszahlungsbetrag
       - laufzeitInMonaten
       - rateProMonat
-      - provisionsbetrag
-      - basisbetragFuerDieProvisionsermittlung
       - vertragsbeginn
 
   kredit:
