@@ -1405,7 +1405,7 @@ definitions:
   tilgungsplanBausparvertragMitVorausdarlehenBasisEintrag:
     type: object
     properties:
-      rateGesamt:
+      gesamtrate:
         $ref: '#/definitions/euro'
       vorausdarlehenSollzinsen:
         $ref: '#/definitions/euro'
