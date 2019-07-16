@@ -73,3 +73,75 @@ Dies ist ein einfaches Beispiel, wie eine Haushaltsrechnung in der API aussehen 
     ]
   }
   ```
+
+## Beispiel `tilgungsplanBausparvertragMitVorausdarlehen`
+
+Dies ist ein einfaches Beispiel (gekürzte Version), wie ein Tilgungsplan von Vorausdarlehen und Bausparvertrag in der API aussehen kann.
+
+```
+  "tilgungsplanBausparvertragMitVorausdarlehen": {
+    "sparphase": {
+      "eintraege": [
+        {
+          "monat": 9,
+          "jahr": 2019,
+          "gesamtrate": 100,
+          "vorausdarlehenSollzinsen": 100,
+          "vorausdarlehenSaldo": -30000
+        },
+        {
+          "monat": 10,
+          "jahr": 2019,
+          "gesamtrate": 1428.30,
+          "vorausdarlehenSollzinsen": -598.50,
+          "vorausdarlehenSaldo": -29170.20,
+          "bausparvertragEinzahlungen": 829.80,
+          "bausparvertragGuthabenzinsen": 0.12,
+          "bausparvertragGebuehren": -487.5,
+          "bausparvertragSaldo": 342.42
+        },
+        ...
+        {
+          "jahr": 2027,
+          "gesamtrate": 1666.35,
+          "vorausdarlehenSollzinsen": -237.65,
+          "bausparvertragEinzahlungen": 968.10,
+          "bausparvertragGuthabenzinsen": 18.23,
+          "bausparvertragGebuehren": -15
+        }
+      ],
+      "summe": {
+        "gesamtrate": 23090.85,
+        "vorausdarlehenSollzinsen": 9675.75,
+        "vorausdarlehenSaldo": -30000,
+        "bausparvertragEinzahlungen": 13415.10,
+        "bausparvertragGuthabenzinsen": 126.67,
+        "bausparvertragGebuehren": 607.50,
+        "bausparvertragSaldo": 12934.27
+      }
+    },
+    "darlehensphase": {
+      "eintraege": [
+        {
+          "jahr": 2027,
+          "gesamtrate": 1190.25,
+          "bausparvertragTilgung": 1190.25,
+          "bausparvertragSollzinsen": -171.05,
+          "bausparvertragSaldo": -16046.53
+        },
+        ...
+        {
+          "jahr": 2034,
+          "gesamtrate": 130.89,
+          "bausparvertragTilgung": 130.89
+        }
+      ],
+      "summe": {
+        "gesamtrate": 18460.74,
+        "bausparvertragTilgung": 17236.78,
+        "bausparvertragSollzinsen": -1395.01,
+        "bausparvertragSaldo": 0
+      }
+    }
+  }
+```
