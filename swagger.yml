@@ -1380,11 +1380,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenEintrag'
-      summe:
+      werteBeiPhasenEnde:
         $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenBasisEintrag'
     required:
       - eintraege
-      - summe
+      - werteBeiPhasenEnde
 
   tilgungsplanBausparvertragMitVorausdarlehenEintrag:
     allOf:

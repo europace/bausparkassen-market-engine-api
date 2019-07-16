@@ -76,7 +76,7 @@ Dies ist ein einfaches Beispiel, wie eine Haushaltsrechnung in der API aussehen 
 
 ## Beispiel `tilgungsplanBausparvertragMitVorausdarlehen`
 
-Dies ist ein einfaches Beispiel (gekürzte Version), wie ein Tilgungsplan von Vorausdarlehen und Bausparvertrag in der API aussehen kann.
+Dies ist ein einfaches Beispiel (gekürzte Version mit fiktiven Zahlen), wie ein Tilgungsplan von Vorausdarlehen und Bausparvertrag in der API aussehen kann.
 
 ```
   "tilgungsplanBausparvertragMitVorausdarlehen": {
@@ -85,20 +85,18 @@ Dies ist ein einfaches Beispiel (gekürzte Version), wie ein Tilgungsplan von Vo
         {
           "monat": 9,
           "jahr": 2019,
-          "gesamtrate": 100,
-          "vorausdarlehenSollzinsen": 100,
           "vorausdarlehenSaldo": -30000
         },
         {
           "monat": 10,
           "jahr": 2019,
-          "gesamtrate": 1428.30,
-          "vorausdarlehenSollzinsen": -598.50,
-          "vorausdarlehenSaldo": -29170.20,
-          "bausparvertragEinzahlungen": 829.80,
+          "gesamtrate": 119.02,
+          "vorausdarlehenSollzinsen": -49.87,
+          "vorausdarlehenSaldo": -2930.85,
+          "bausparvertragEinzahlungen": 69.15,
           "bausparvertragGuthabenzinsen": 0.12,
           "bausparvertragGebuehren": -487.5,
-          "bausparvertragSaldo": 342.42
+          "bausparvertragSaldo": -418.23
         },
         ...
         {
@@ -110,7 +108,7 @@ Dies ist ein einfaches Beispiel (gekürzte Version), wie ein Tilgungsplan von Vo
           "bausparvertragGebuehren": -15
         }
       ],
-      "summe": {
+      "werteBeiPhasenEnde": {
         "gesamtrate": 23090.85,
         "vorausdarlehenSollzinsen": 9675.75,
         "vorausdarlehenSaldo": -30000,
@@ -136,7 +134,7 @@ Dies ist ein einfaches Beispiel (gekürzte Version), wie ein Tilgungsplan von Vo
           "bausparvertragTilgung": 130.89
         }
       ],
-      "summe": {
+      "werteBeiPhasenEnde": {
         "gesamtrate": 18460.74,
         "bausparvertragTilgung": 17236.78,
         "bausparvertragSollzinsen": -1395.01,
