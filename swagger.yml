@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 6.0.0
+  version: 6.1.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1058,6 +1058,8 @@ definitions:
           $ref: '#/definitions/unterlage'
       bonitaetscheck:
         $ref: '#/definitions/bonitaetscheck'
+      tilgungsplanBausparvertragMitVorausdarlehen:
+        $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehen'
       maximalerAuszahlungsbetrag:
         $ref: '#/definitions/euro'
     required:
@@ -1359,6 +1361,68 @@ definitions:
         type: boolean
       sichtbarFuerProduktanbieter:
         type: boolean
+
+  tilgungsplanBausparvertragMitVorausdarlehen:
+    type: object
+    properties:
+      sparphase:
+        $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenPhase'
+      darlehensphase:
+        $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenPhase'
+    required:
+      - sparphase
+      - darlehensphase
+
+  tilgungsplanBausparvertragMitVorausdarlehenPhase:
+    type: object
+    properties:
+      eintraege:
+        type: array
+        items:
+          $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenEintrag'
+      werteBeiPhasenEnde:
+        $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenBasisEintrag'
+    required:
+      - eintraege
+      - werteBeiPhasenEnde
+
+  tilgungsplanBausparvertragMitVorausdarlehenEintrag:
+    allOf:
+      - $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehenBasisEintrag'
+      - type: object
+        properties:
+          jahr:
+            type: integer
+            minimum: 2000
+            maximum: 2100
+          monat:
+            type: integer
+            minimum: 1
+            maximum: 12
+        required:
+          - jahr
+
+  tilgungsplanBausparvertragMitVorausdarlehenBasisEintrag:
+    type: object
+    properties:
+      gesamtrate:
+        $ref: '#/definitions/euro'
+      vorausdarlehenSollzinsen:
+        $ref: '#/definitions/euro'
+      vorausdarlehenSaldo:
+        $ref: '#/definitions/euro'
+      bausparvertragEinzahlungen:
+        $ref: '#/definitions/euro'
+      bausparvertragGuthabenzinsen:
+        $ref: '#/definitions/euro'
+      bausparvertragGebuehren:
+        $ref: '#/definitions/euro'
+      bausparvertragTilgung:
+        $ref: '#/definitions/euro'
+      bausparvertragSollzinsen:
+        $ref: '#/definitions/euro'
+      bausparvertragSaldo:
+        $ref: '#/definitions/euro'
 
   bonitaetscheck:
     type: object
