@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 6.1.0
+  version: 7.0.0
   title: Market Engine-API für Privatkredite des Deutschen Rings
 basePath: /v1
 schemes:
@@ -1247,6 +1247,7 @@ definitions:
         type: integer
       zuteilungsZeitpunkt:
         type: string
+        format: date
       provision:
         $ref: '#/definitions/euro'
       basisbetragFuerDieProvisionsermittlung:
@@ -1305,6 +1306,7 @@ definitions:
         $ref: '#/definitions/euro'
       tilgungsende:
         type: string
+        format: date
     required:
       - darlehenssumme
       - rateMonatlich
