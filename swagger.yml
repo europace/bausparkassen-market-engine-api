@@ -254,7 +254,7 @@ definitions:
         type: string
       telefonGeschaeftlich:
         type: string
-      eMail:
+      email:
         type: string
         format: email
 
