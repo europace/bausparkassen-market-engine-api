@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 8.0.1
+  version: 9.0.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -1328,7 +1328,6 @@ definitions:
     required:
       - kategorie
       - text
-      - code
 
   meldungskategorie:
     type: string
