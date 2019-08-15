@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 9.0.0
+  version: 9.0.1
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -19,6 +19,8 @@ paths:
           description: Ermittlung erfolgreich
           schema:
             $ref: '#/definitions/ermittlungsResponse'
+        '500':
+          description: Bei der Ermittlung ist ein technischer Feher aufgetreten
       parameters:
         - in: 'body'
           name: 'body'
@@ -37,6 +39,8 @@ paths:
           description: Annahme erfolgreich
           schema:
             $ref: '#/definitions/annahmeResponse'
+        '500':
+          description: Bei der Annahme ist ein technischer Feher aufgetreten
       parameters:
         - in: 'body'
           name: 'body'
