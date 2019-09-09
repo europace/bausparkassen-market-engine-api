@@ -40,7 +40,7 @@ paths:
           schema:
             $ref: '#/definitions/annahmeResponse'
         '500':
-          description: Bei der Annahme ist ein technischer Feher aufgetreten
+          description: Bei der Annahme ist ein technischer Fehler aufgetreten
       parameters:
         - in: 'body'
           name: 'body'
