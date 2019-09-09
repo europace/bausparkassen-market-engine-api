@@ -20,7 +20,7 @@ paths:
           schema:
             $ref: '#/definitions/ermittlungsResponse'
         '500':
-          description: Bei der Ermittlung ist ein technischer Feher aufgetreten
+          description: Bei der Ermittlung ist ein technischer Fehler aufgetreten
       parameters:
         - in: 'body'
           name: 'body'
