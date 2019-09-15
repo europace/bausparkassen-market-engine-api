@@ -22,7 +22,7 @@ Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/eu
 Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 
 <details><summary>Request</summary>
-<p>
+<br/>
 
 ```json
 {
@@ -140,7 +140,6 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
 </details>
 
 <details><summary>Response</summary>
