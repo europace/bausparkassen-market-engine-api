@@ -15,15 +15,11 @@ und ist in der [Swagger Definition](https://github.com/europace-privatkredit/bau
 
 Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/europace-privatkredit/bausparkassen-me-api/releases) zu finden.
 
-## Beispiel `bonitaetscheck`
+## Beispiele
 
 ### Minimales Angebot
 
-Angabe von
-- Kreditbetrag
-- Laufzeit
-- Wohnart (im eigenen Haus)
-- Einkommen
+Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 
 <details><summary>Request</summary>
 <p>
