@@ -21,9 +21,11 @@ Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/eu
 
 <details><summary>Request</summary>
 <p>
+
 ```json
 {"foo":  "bar"}
 ```
+
 </p>
 </details>
 
