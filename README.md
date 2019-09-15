@@ -22,7 +22,6 @@ Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/eu
 Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 
 <details><summary>Request</summary>
-<p>
 
 ```json
 {
@@ -47,7 +46,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       },
       "kontakt": {},
       "herkunft": {},
-      "rentenversicherung": {
+      "rentenversicherung": { 
         "anschrift": {}
       },
       "bonitaetsangaben": {
@@ -140,11 +139,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
 </details>
 
 <details><summary>Response</summary>
-<p>
 
 ```json
 {
@@ -1428,7 +1425,6 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
 </details>
 
 ### Vollständiges Angebot (ein Antragsteller)
