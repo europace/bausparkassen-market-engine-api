@@ -28,7 +28,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 {
   "antragsteller": [
     {
-      "id": "...",
+      "id": "68c346d6-58fc-4e3d-ab13-d39c4bcf00f0",
       "persoenlicheAngaben": {},
       "derzeitigeBeschaeftigung": {
         "beschaeftigungsverhaeltnis": "ANGESTELLT",
