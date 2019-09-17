@@ -124,17 +124,12 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
     "traceId": "ks-abc01234",
     "vorgangsnummer": "AB01234"
   },
-  "featureToggles": [
-    {
-      "id": "MOD_DARLEHEN",
-      "aktiv": true
-    }
-  ],
+  "featureToggles": [],
   "handelsbeziehungen": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
-      "kreditProvisionswunsch": 0.02,
-      "vertriebsgruppe": "creditfair"
+      "produktanbieter": "BEISPIEL_BANK",
+      "kreditProvisionswunsch": 0.0123,
+      "vertriebsgruppe": "Beispielgruppe"
     }
   ]
 }
@@ -151,58 +146,58 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   "supportMeldung": null,
   "angebote": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
+      "produktanbieter": "BEISPIEL_BANK",
       "referenznummerProduktanbieter": null,
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
       "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 33000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 187,
-        "rateProMonat": 177.83,
+        "rateProMonat": 180.0,
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 33000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 94,
-        "rateProMonat": 64.58,
-        "letzteRate": 64.58,
-        "provisionsbetrag": 375.0,
+        "rateProMonat": 60.0,
+        "letzteRate": 60.0,
+        "provisionsbetrag": 400.0,
         "basisbetragFuerDieProvisionsermittlung": 25000.0,
         "vorlaufzinsenProTag": 0.0,
         "versicherung": null
       },
       "bausparvertrag": {
-        "tarifname": "AL_Neo Klassik (1.6 %)",
+        "tarifname": "Beispieltarif",
         "bausparsumme": 25000.0,
         "gesamtlaufzeitInMonaten": 187,
         "zuteilungsZeitpunkt": "2027-07-31",
-        "provision": 450.0,
+        "provision": 500.0,
         "basisbetragFuerDieProvisionsermittlung": 25000.0,
         "jahresentgelt": 15.0,
         "abschlussgebuehr": 400.0,
         "sparphase": {
-          "sparbeitragMonatlich": 113.25,
+          "sparbeitragMonatlich": 100.0,
           "dauerInMonaten": 94,
-          "guthabenBeiZuteilung": 10088.01,
-          "guthabenZinssatz": 0.002
+          "guthabenBeiZuteilung": 10000.0,
+          "guthabenZinssatz": 0.0123
         },
         "darlehensphase": {
-          "darlehenssumme": 14911.99,
-          "rateMonatlich": 177.83,
+          "darlehenssumme": 15000.0,
+          "rateMonatlich": 180.0,
           "dauerInMonaten": 93,
-          "sollzinsSatz": 0.0245,
-          "effektivzinsSatz": 0.0292,
-          "letzteRate": 12.24,
+          "sollzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0123,
+          "letzteRate": 12.0,
           "tilgungsende": "2035-04-30"
         }
       },
@@ -213,146 +208,29 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "meldungen": [
         {
           "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Vorname] Für den Antragsteller ohne Namen ist der Vorname zu erfassen.",
-          "code": null
+          "text": "[Vorname] Für den Antragsteller ohne Namen ist der Vorname zu erfassen."
         },
         {
           "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Nachname] Für den Antragsteller ohne Namen ist der Nachname zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Anrede] Für den Antragsteller ohne Namen ist die Anrede zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Staatsangehörigkeit] Für den Antragsteller ohne Namen ist die Staatsangehörigkeit zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Familienstand] Für den Antragsteller ohne Namen ist der Familienstand zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Geburtsort] Für den Antragsteller ohne Namen ist der Geburtsort zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Geburtsdatum] Für den Antragsteller ohne Namen ist das Geburtsdatum zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Anschrift] Für den Antragsteller ohne Namen ist die komplette Anschrift (Strasse, PLZ, Ort) zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Branche] Für den Antragsteller ohne Namen ist die Branche vollständig zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Arbeitgeberland / Land Firmensitz] Für den Antragsteller ohne Namen ist das Arbeitgeberland, bei Selbständigen das Land des Firmensitzes zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Datum der Beschäftigung] Bitte erfassen Sie den Beginn der Beschäftigung, bei Rentnern das Renteneintrittstdatum und bei Selbständigen den Beginn der Selbstständigkeit.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Dauer des Vertragsverhältnisses] Für den Antragsteller ohne Namen ist die Dauer der Beschäftigungsstatus zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Anzahl Personen im Haushalt] Für jeden Haushalt ist die Anzahl der Personen zu erfassen.",
-          "code": null
-        },
-        {
-          "kategorie": "VOLLSTAENDIGKEIT",
-          "text": "[Anzahl unterhaltsberechtigter Kinder] Für den Antragsteller ohne Namen ist die Anzahl unterhaltsberechtigter Kinder zu erfassen.",
-          "code": null
+          "text": "[Nachname] Für den Antragsteller ohne Namen ist der Nachname zu erfassen."
         },
         {
           "kategorie": "ANPASSUNG",
-          "text": "Der Provisionswunsch wurde angepasst.",
-          "code": null
-        },
-        {
-          "kategorie": "ANPASSUNG",
-          "text": "Die Laufzeit wurde angepasst.",
-          "code": null
+          "text": "Die Laufzeit wurde angepasst."
         }
       ],
       "unterlagen": [
         {
-          "code": null,
-          "text": "Baufinanzierungsvertrag von allen unterzeichnet zurück",
-          "referenz": null
+          "text": "Unterzeichneter Baufinanzierungsvertrag"
         },
         {
-          "code": null,
-          "text": "Unterzeichneter, vollständiger Darlehensantrag",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Auszahlungsanweisung inkl. ausgefülltes und vom Kontoinhaber unterschriebenes SEPA-Lastschriftmandat",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Abschluss des entsprechenden Bausparvertrages im Tarif AL_Neo Klassik in Höhe des Vorausdarlehens",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollwirksame Verpfändung für diesen Bausparvertrag, d.h. vom Sicherungsgeber unterzeichnetes Formular zurück",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollmacht zur Einholung eines Grundbuchauszuges durch die ALTE LEIPZIGER Bauspar AG",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Kopien der Personalausweise oder Reisepässe aller Darlehensnehmer (Vorder- und Rückseite)",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Letzte Gehaltsabrechnung sowie Dezember Gehaltsabrechnung des Vorjahres mit kumulierten Jahreswerten bzw. Nachweise über Renteneinkünfte aller Darlehensnehmer",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollständige Legitimationsprüfung aller Darlehensnehmer auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Bestätigung der wohnwirtschaftlichen Verwendung des Darlehens auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vorlage der Darlehensverträge für Ratenkredite und für Immobiliardarlehen, soweit vorhanden",
-          "referenz": null
+          "text": "Unterzeichneter Darlehensantrag"
         }
       ],
       "bonitaetscheck": {
         "name": "Haushaltsrechnung",
-        "ueberschrift": "Alte Leipziger Bauspar AG",
-        "ueberschuss": 1622.17,
+        "ueberschrift": "Beispielbank",
+        "ueberschuss": 1500.0,
         "bloecke": [
           {
             "zeilen": [
@@ -384,7 +262,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               {
                 "hervorgehoben": false,
                 "label": "Rate der Finanzierung",
-                "wert": 177.83
+                "wert": 180.0
               }
             ],
             "titel": "Ausgaben",
@@ -393,7 +271,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Summe Ausgaben",
-                  "wert": 1377.83
+                  "wert": 1400.0
                 }
               ],
               "hervorgehoben": true
@@ -407,7 +285,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Überschuss",
-                  "wert": 1622.17
+                  "wert": 1600.0
                 }
               ],
               "hervorgehoben": true
@@ -421,141 +299,37 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
             {
               "jahr": 2019,
               "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 180.0,
+              "vorausdarlehenSollzinsen": -60.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 110.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": -400.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -286.75
+              "bausparvertragSaldo": -290.0
             },
             {
               "jahr": 2019,
               "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 180.0,
+              "vorausdarlehenSollzinsen": -60.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 110.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": 0.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -173.5
-            },
-            {
-              "jahr": 2019,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
-              "bausparvertragGuthabenzinsen": 0.0,
-              "bausparvertragGebuehren": 0.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -60.25
-            },
-            {
-              "jahr": 2020,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 1.14,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 1284.89
-            },
-            {
-              "jahr": 2021,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 3.79,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 2632.68
-            },
-            {
-              "jahr": 2022,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 6.48,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 3983.16
-            },
-            {
-              "jahr": 2023,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 9.18,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 5336.34
-            },
-            {
-              "jahr": 2024,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 11.89,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 6692.23
-            },
-            {
-              "jahr": 2025,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 14.6,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 8050.83
-            },
-            {
-              "jahr": 2026,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 17.32,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 9412.15
+              "bausparvertragSaldo": -170.0
             },
             {
               "jahr": 2027,
               "monat": null,
-              "gesamtrate": 1131.56,
-              "vorausdarlehenSollzinsen": -452.06,
+              "gesamtrate": 1000.0,
+              "vorausdarlehenSollzinsen": -450.0,
               "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": 679.5,
-              "bausparvertragGuthabenzinsen": 11.36,
+              "bausparvertragEinzahlungen": 650.0,
+              "bausparvertragGuthabenzinsen": 10.0,
               "bausparvertragGebuehren": -15.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
@@ -563,15 +337,15 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16602.77,
-            "vorausdarlehenSollzinsen": -6070.52,
+            "gesamtrate": 16000.0,
+            "vorausdarlehenSollzinsen": -6000.0,
             "vorausdarlehenSaldo": -25000.0,
-            "bausparvertragEinzahlungen": 10532.25,
-            "bausparvertragGuthabenzinsen": 75.76,
-            "bausparvertragGebuehren": -520.0,
+            "bausparvertragEinzahlungen": 10000.0,
+            "bausparvertragGuthabenzinsen": 70.0,
+            "bausparvertragGebuehren": -500.0,
             "bausparvertragTilgung": null,
             "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": 10088.01
+            "bausparvertragSaldo": 10000.0
           }
         },
         "darlehensphase": {
@@ -587,187 +361,44 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               "bausparvertragGebuehren": null,
               "bausparvertragTilgung": 0.0,
               "bausparvertragSollzinsen": 0.0,
-              "bausparvertragSaldo": -14911.99
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2027,
               "monat": 8,
-              "gesamtrate": 177.83,
+              "gesamtrate": 180.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.38,
-              "bausparvertragSollzinsen": -30.45,
-              "bausparvertragSaldo": -14764.61
-            },
-            {
-              "jahr": 2027,
-              "monat": 9,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.69,
-              "bausparvertragSollzinsen": -30.14,
-              "bausparvertragSaldo": -14616.92
-            },
-            {
-              "jahr": 2027,
-              "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.99,
-              "bausparvertragSollzinsen": -29.84,
-              "bausparvertragSaldo": -14468.93
-            },
-            {
-              "jahr": 2027,
-              "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.29,
-              "bausparvertragSollzinsen": -29.54,
-              "bausparvertragSaldo": -14320.64
-            },
-            {
-              "jahr": 2027,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.59,
-              "bausparvertragSollzinsen": -29.24,
-              "bausparvertragSaldo": -14172.05
-            },
-            {
-              "jahr": 2028,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1806.94,
-              "bausparvertragSollzinsen": -327.02,
-              "bausparvertragSaldo": -12365.11
-            },
-            {
-              "jahr": 2029,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1851.71,
-              "bausparvertragSollzinsen": -282.25,
-              "bausparvertragSaldo": -10513.4
-            },
-            {
-              "jahr": 2030,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1897.59,
-              "bausparvertragSollzinsen": -236.37,
-              "bausparvertragSaldo": -8615.81
-            },
-            {
-              "jahr": 2031,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1944.61,
-              "bausparvertragSollzinsen": -189.35,
-              "bausparvertragSaldo": -6671.2
-            },
-            {
-              "jahr": 2032,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1992.78,
-              "bausparvertragSollzinsen": -141.18,
-              "bausparvertragSaldo": -4678.42
-            },
-            {
-              "jahr": 2033,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2042.19,
-              "bausparvertragSollzinsen": -91.77,
-              "bausparvertragSaldo": -2636.23
-            },
-            {
-              "jahr": 2034,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2092.77,
-              "bausparvertragSollzinsen": -41.19,
-              "bausparvertragSaldo": -543.46
+              "bausparvertragTilgung": 150.0,
+              "bausparvertragSollzinsen": -30.0,
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2035,
               "monat": null,
-              "gesamtrate": 545.73,
+              "gesamtrate": 550.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 543.46,
-              "bausparvertragSollzinsen": -2.27,
+              "bausparvertragTilgung": 540.0,
+              "bausparvertragSollzinsen": -5.0,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16372.6,
+            "gesamtrate": 16000.0,
             "vorausdarlehenSollzinsen": null,
             "vorausdarlehenSaldo": null,
             "bausparvertragEinzahlungen": null,
             "bausparvertragGuthabenzinsen": null,
             "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 14911.99,
-            "bausparvertragSollzinsen": -1460.61,
+            "bausparvertragTilgung": 15000.0,
+            "bausparvertragSollzinsen": -1400.0,
             "bausparvertragSaldo": 0.0
           }
         }
@@ -916,17 +547,12 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
     "traceId": "ks-55f5f45b",
     "vorgangsnummer": "Q32CU4"
   },
-  "featureToggles": [
-    {
-      "id": "MOD_DARLEHEN",
-      "aktiv": true
-    }
-  ],
+  "featureToggles": [],
   "handelsbeziehungen": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
-      "kreditProvisionswunsch": 0.02,
-      "vertriebsgruppe": "creditfair"
+      "produktanbieter": "BEISPIEL_BANK",
+      "kreditProvisionswunsch": 0.0123,
+      "vertriebsgruppe": "Beispielgruppe"
     }
   ]
 }
@@ -944,38 +570,38 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   "supportMeldung": null,
   "angebote": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
+      "produktanbieter": "BEISPIEL_BANK",
       "referenznummerProduktanbieter": null,
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
       "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 3000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
-        "laufzeitInMonaten": 187,
-        "rateProMonat": 177.83,
+        "laufzeitInMonaten": 180,
+        "rateProMonat": 180.0,
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 3000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 94,
-        "rateProMonat": 64.58,
-        "letzteRate": 64.58,
-        "provisionsbetrag": 375.0,
+        "rateProMonat": 70.0,
+        "letzteRate": 70.0,
+        "provisionsbetrag": 370.0,
         "basisbetragFuerDieProvisionsermittlung": 25000.0,
         "vorlaufzinsenProTag": 0.0,
         "versicherung": null
       },
       "bausparvertrag": {
-        "tarifname": "AL_Neo Klassik (1.6 %)",
+        "tarifname": "Beispieltarif",
         "bausparsumme": 25000.0,
         "gesamtlaufzeitInMonaten": 187,
         "zuteilungsZeitpunkt": "2027-07-31",
@@ -984,18 +610,18 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "jahresentgelt": 15.0,
         "abschlussgebuehr": 400.0,
         "sparphase": {
-          "sparbeitragMonatlich": 113.25,
+          "sparbeitragMonatlich": 100.0,
           "dauerInMonaten": 94,
-          "guthabenBeiZuteilung": 10088.01,
-          "guthabenZinssatz": 0.002
+          "guthabenBeiZuteilung": 10000.0,
+          "guthabenZinssatz": 0.0123
         },
         "darlehensphase": {
-          "darlehenssumme": 14911.99,
-          "rateMonatlich": 177.83,
+          "darlehenssumme": 15000.0,
+          "rateMonatlich": 150.0,
           "dauerInMonaten": 93,
-          "sollzinsSatz": 0.0245,
-          "effektivzinsSatz": 0.0292,
-          "letzteRate": 12.24,
+          "sollzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0123,
+          "letzteRate": 10.0,
           "tilgungsende": "2035-04-30"
         }
       },
@@ -1018,64 +644,19 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "unterlagen": [
         {
           "code": null,
-          "text": "Baufinanzierungsvertrag von allen unterzeichnet zurück",
+          "text": "Unterzeichneter Baufinanzierungsvertrag",
           "referenz": null
         },
         {
           "code": null,
-          "text": "Unterzeichneter, vollständiger Darlehensantrag",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Auszahlungsanweisung inkl. ausgefülltes und vom Kontoinhaber unterschriebenes SEPA-Lastschriftmandat",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Abschluss des entsprechenden Bausparvertrages im Tarif AL_Neo Klassik in Höhe des Vorausdarlehens",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollwirksame Verpfändung für diesen Bausparvertrag, d.h. vom Sicherungsgeber unterzeichnetes Formular zurück",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollmacht zur Einholung eines Grundbuchauszuges durch die ALTE LEIPZIGER Bauspar AG",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Kopien der Personalausweise oder Reisepässe aller Darlehensnehmer (Vorder- und Rückseite)",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Letzte Gehaltsabrechnung sowie Dezember Gehaltsabrechnung des Vorjahres mit kumulierten Jahreswerten bzw. Nachweise über Renteneinkünfte aller Darlehensnehmer",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollständige Legitimationsprüfung aller Darlehensnehmer auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Bestätigung der wohnwirtschaftlichen Verwendung des Darlehens auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vorlage der Darlehensverträge für Ratenkredite und für Immobiliardarlehen, soweit vorhanden",
+          "text": "Unterzeichneter Darlehensantrag",
           "referenz": null
         }
       ],
       "bonitaetscheck": {
         "name": "Haushaltsrechnung",
-        "ueberschrift": "Alte Leipziger Bauspar AG",
-        "ueberschuss": 1622.17,
+        "ueberschrift": "Beispielbank",
+        "ueberschuss": 1500.0,
         "bloecke": [
           {
             "zeilen": [
@@ -1107,7 +688,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               {
                 "hervorgehoben": false,
                 "label": "Rate der Finanzierung",
-                "wert": 177.83
+                "wert": 150.0
               }
             ],
             "titel": "Ausgaben",
@@ -1116,7 +697,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Summe Ausgaben",
-                  "wert": 1377.83
+                  "wert": 1500.0
                 }
               ],
               "hervorgehoben": true
@@ -1130,7 +711,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Überschuss",
-                  "wert": 1622.17
+                  "wert": 1500.0
                 }
               ],
               "hervorgehoben": true
@@ -1144,157 +725,53 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
             {
               "jahr": 2019,
               "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 150.0,
+              "vorausdarlehenSollzinsen": -60.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 100.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": -400.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -286.75
+              "bausparvertragSaldo": -250.0
             },
             {
               "jahr": 2019,
               "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 150.0,
+              "vorausdarlehenSollzinsen": -60.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 100.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": 0.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -173.5
-            },
-            {
-              "jahr": 2019,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
-              "bausparvertragGuthabenzinsen": 0.0,
-              "bausparvertragGebuehren": 0.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -60.25
-            },
-            {
-              "jahr": 2020,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 1.14,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 1284.89
-            },
-            {
-              "jahr": 2021,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 3.79,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 2632.68
-            },
-            {
-              "jahr": 2022,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 6.48,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 3983.16
-            },
-            {
-              "jahr": 2023,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 9.18,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 5336.34
-            },
-            {
-              "jahr": 2024,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 11.89,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 6692.23
-            },
-            {
-              "jahr": 2025,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 14.6,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 8050.83
-            },
-            {
-              "jahr": 2026,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 17.32,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 9412.15
+              "bausparvertragSaldo": -150.0
             },
             {
               "jahr": 2027,
               "monat": null,
-              "gesamtrate": 1131.56,
-              "vorausdarlehenSollzinsen": -452.06,
+              "gesamtrate": 1000.0,
+              "vorausdarlehenSollzinsen": -450.0,
               "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": 679.5,
-              "bausparvertragGuthabenzinsen": 11.36,
-              "bausparvertragGebuehren": -15.0,
+              "bausparvertragEinzahlungen": 650.0,
+              "bausparvertragGuthabenzinsen": 10.0,
+              "bausparvertragGebuehren": -10.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16602.77,
-            "vorausdarlehenSollzinsen": -6070.52,
+            "gesamtrate": 15000.0,
+            "vorausdarlehenSollzinsen": -5000.0,
             "vorausdarlehenSaldo": -25000.0,
-            "bausparvertragEinzahlungen": 10532.25,
-            "bausparvertragGuthabenzinsen": 75.76,
-            "bausparvertragGebuehren": -520.0,
+            "bausparvertragEinzahlungen": 10000.0,
+            "bausparvertragGuthabenzinsen": 70.0,
+            "bausparvertragGebuehren": -500.0,
             "bausparvertragTilgung": null,
             "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": 10088.01
+            "bausparvertragSaldo": 10000.00
           }
         },
         "darlehensphase": {
@@ -1310,187 +787,44 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               "bausparvertragGebuehren": null,
               "bausparvertragTilgung": 0.0,
               "bausparvertragSollzinsen": 0.0,
-              "bausparvertragSaldo": -14911.99
+              "bausparvertragSaldo": -14000.0
             },
             {
               "jahr": 2027,
               "monat": 8,
-              "gesamtrate": 177.83,
+              "gesamtrate": 150.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.38,
-              "bausparvertragSollzinsen": -30.45,
-              "bausparvertragSaldo": -14764.61
-            },
-            {
-              "jahr": 2027,
-              "monat": 9,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.69,
-              "bausparvertragSollzinsen": -30.14,
-              "bausparvertragSaldo": -14616.92
-            },
-            {
-              "jahr": 2027,
-              "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.99,
-              "bausparvertragSollzinsen": -29.84,
-              "bausparvertragSaldo": -14468.93
-            },
-            {
-              "jahr": 2027,
-              "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.29,
-              "bausparvertragSollzinsen": -29.54,
-              "bausparvertragSaldo": -14320.64
-            },
-            {
-              "jahr": 2027,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.59,
-              "bausparvertragSollzinsen": -29.24,
-              "bausparvertragSaldo": -14172.05
-            },
-            {
-              "jahr": 2028,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1806.94,
-              "bausparvertragSollzinsen": -327.02,
-              "bausparvertragSaldo": -12365.11
-            },
-            {
-              "jahr": 2029,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1851.71,
-              "bausparvertragSollzinsen": -282.25,
-              "bausparvertragSaldo": -10513.4
-            },
-            {
-              "jahr": 2030,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1897.59,
-              "bausparvertragSollzinsen": -236.37,
-              "bausparvertragSaldo": -8615.81
-            },
-            {
-              "jahr": 2031,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1944.61,
-              "bausparvertragSollzinsen": -189.35,
-              "bausparvertragSaldo": -6671.2
-            },
-            {
-              "jahr": 2032,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1992.78,
-              "bausparvertragSollzinsen": -141.18,
-              "bausparvertragSaldo": -4678.42
-            },
-            {
-              "jahr": 2033,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2042.19,
-              "bausparvertragSollzinsen": -91.77,
-              "bausparvertragSaldo": -2636.23
-            },
-            {
-              "jahr": 2034,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2092.77,
-              "bausparvertragSollzinsen": -41.19,
-              "bausparvertragSaldo": -543.46
+              "bausparvertragTilgung": 150.0,
+              "bausparvertragSollzinsen": -30.0,
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2035,
               "monat": null,
-              "gesamtrate": 545.73,
+              "gesamtrate": 500.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 543.46,
-              "bausparvertragSollzinsen": -2.27,
+              "bausparvertragTilgung": 500.0,
+              "bausparvertragSollzinsen": -5.0,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16372.6,
+            "gesamtrate": 16000.0,
             "vorausdarlehenSollzinsen": null,
             "vorausdarlehenSaldo": null,
             "bausparvertragEinzahlungen": null,
             "bausparvertragGuthabenzinsen": null,
             "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 14911.99,
-            "bausparvertragSollzinsen": -1460.61,
+            "bausparvertragTilgung": 1500.0,
+            "bausparvertragSollzinsen": -1500.0,
             "bausparvertragSaldo": 0.0
           }
         }
@@ -1744,17 +1078,12 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
     "traceId": "ks-84d56ccf",
     "vorgangsnummer": "Q32CU4"
   },
-  "featureToggles": [
-    {
-      "id": "MOD_DARLEHEN",
-      "aktiv": true
-    }
-  ],
+  "featureToggles": [],
   "handelsbeziehungen": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
-      "kreditProvisionswunsch": 0.02,
-      "vertriebsgruppe": "creditfair"
+      "produktanbieter": "BEISPIEL_BANK",
+      "kreditProvisionswunsch": 0.0123,
+      "vertriebsgruppe": "Beispielgruppe"
     }
   ]
 }
@@ -1771,58 +1100,58 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   "supportMeldung": null,
   "angebote": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
+      "produktanbieter": "BEISPIEL_BANK",
       "referenznummerProduktanbieter": null,
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
       "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 187,
-        "rateProMonat": 177.83,
+        "rateProMonat": 150.0,
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 94,
-        "rateProMonat": 64.58,
-        "letzteRate": 64.58,
-        "provisionsbetrag": 375.0,
+        "rateProMonat": 60.0,
+        "letzteRate": 60.0,
+        "provisionsbetrag": 300.0,
         "basisbetragFuerDieProvisionsermittlung": 25000.0,
         "vorlaufzinsenProTag": 0.0,
         "versicherung": null
       },
       "bausparvertrag": {
-        "tarifname": "AL_Neo Klassik (1.6 %)",
+        "tarifname": "Beispieltarif",
         "bausparsumme": 25000.0,
         "gesamtlaufzeitInMonaten": 187,
         "zuteilungsZeitpunkt": "2027-07-31",
-        "provision": 450.0,
+        "provision": 400.0,
         "basisbetragFuerDieProvisionsermittlung": 25000.0,
         "jahresentgelt": 15.0,
         "abschlussgebuehr": 400.0,
         "sparphase": {
-          "sparbeitragMonatlich": 113.25,
+          "sparbeitragMonatlich": 100.0,
           "dauerInMonaten": 94,
-          "guthabenBeiZuteilung": 10088.01,
-          "guthabenZinssatz": 0.002
+          "guthabenBeiZuteilung": 10000.0,
+          "guthabenZinssatz": 0.0123
         },
         "darlehensphase": {
-          "darlehenssumme": 14911.99,
-          "rateMonatlich": 177.83,
+          "darlehenssumme": 15000.0,
+          "rateMonatlich": 170.0,
           "dauerInMonaten": 93,
-          "sollzinsSatz": 0.0245,
-          "effektivzinsSatz": 0.0292,
-          "letzteRate": 12.24,
+          "sollzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0123,
+          "letzteRate": 10.0,
           "tilgungsende": "2035-04-30"
         }
       },
@@ -1845,64 +1174,19 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "unterlagen": [
         {
           "code": null,
-          "text": "Baufinanzierungsvertrag von allen unterzeichnet zurück",
+          "text": "Unterzeichneter Baufinanzierungsvertrag",
           "referenz": null
         },
         {
           "code": null,
-          "text": "Unterzeichneter, vollständiger Darlehensantrag",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Auszahlungsanweisung inkl. ausgefülltes und vom Kontoinhaber unterschriebenes SEPA-Lastschriftmandat",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Abschluss des entsprechenden Bausparvertrages im Tarif AL_Neo Klassik in Höhe des Vorausdarlehens",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollwirksame Verpfändung für diesen Bausparvertrag, d.h. vom Sicherungsgeber unterzeichnetes Formular zurück",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollmacht zur Einholung eines Grundbuchauszuges durch die ALTE LEIPZIGER Bauspar AG",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Kopien der Personalausweise oder Reisepässe aller Darlehensnehmer (Vorder- und Rückseite)",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Letzte Gehaltsabrechnung sowie Dezember Gehaltsabrechnung des Vorjahres mit kumulierten Jahreswerten bzw. Nachweise über Renteneinkünfte aller Darlehensnehmer",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollständige Legitimationsprüfung aller Darlehensnehmer auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Bestätigung der wohnwirtschaftlichen Verwendung des Darlehens auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vorlage der Darlehensverträge für Ratenkredite und für Immobiliardarlehen, soweit vorhanden",
+          "text": "Unterzeichneter Darlehensantrag",
           "referenz": null
         }
       ],
       "bonitaetscheck": {
         "name": "Haushaltsrechnung",
-        "ueberschrift": "Alte Leipziger Bauspar AG",
-        "ueberschuss": 3422.17,
+        "ueberschrift": "Beispielbank",
+        "ueberschuss": 3500.0,
         "bloecke": [
           {
             "zeilen": [
@@ -1934,7 +1218,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               {
                 "hervorgehoben": false,
                 "label": "Rate der Finanzierung",
-                "wert": 177.83
+                "wert": 150.0
               }
             ],
             "titel": "Ausgaben",
@@ -1943,7 +1227,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Summe Ausgaben",
-                  "wert": 2577.83
+                  "wert": 2500.0
                 }
               ],
               "hervorgehoben": true
@@ -1957,7 +1241,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Überschuss",
-                  "wert": 3422.17
+                  "wert": 3000.0
                 }
               ],
               "hervorgehoben": true
@@ -1971,157 +1255,53 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
             {
               "jahr": 2019,
               "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 150.0,
+              "vorausdarlehenSollzinsen": -50.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 100.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": -400.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -286.75
+              "bausparvertragSaldo": -300.0
             },
             {
               "jahr": 2019,
               "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 150.0,
+              "vorausdarlehenSollzinsen": -50.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 100.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": 0.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -173.5
-            },
-            {
-              "jahr": 2019,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
-              "bausparvertragGuthabenzinsen": 0.0,
-              "bausparvertragGebuehren": 0.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -60.25
-            },
-            {
-              "jahr": 2020,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 1.14,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 1284.89
-            },
-            {
-              "jahr": 2021,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 3.79,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 2632.68
-            },
-            {
-              "jahr": 2022,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 6.48,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 3983.16
-            },
-            {
-              "jahr": 2023,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 9.18,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 5336.34
-            },
-            {
-              "jahr": 2024,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 11.89,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 6692.23
-            },
-            {
-              "jahr": 2025,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 14.6,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 8050.83
-            },
-            {
-              "jahr": 2026,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 17.32,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 9412.15
+              "bausparvertragSaldo": -150.0
             },
             {
               "jahr": 2027,
               "monat": null,
-              "gesamtrate": 1131.56,
-              "vorausdarlehenSollzinsen": -452.06,
+              "gesamtrate": 1000.0,
+              "vorausdarlehenSollzinsen": -450.0,
               "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": 679.5,
-              "bausparvertragGuthabenzinsen": 11.36,
-              "bausparvertragGebuehren": -15.0,
+              "bausparvertragEinzahlungen": 700.0,
+              "bausparvertragGuthabenzinsen": 10.0,
+              "bausparvertragGebuehren": -10.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16602.77,
-            "vorausdarlehenSollzinsen": -6070.52,
+            "gesamtrate": 15000.0,
+            "vorausdarlehenSollzinsen": -6000.0,
             "vorausdarlehenSaldo": -25000.0,
-            "bausparvertragEinzahlungen": 10532.25,
-            "bausparvertragGuthabenzinsen": 75.76,
-            "bausparvertragGebuehren": -520.0,
+            "bausparvertragEinzahlungen": 10000.0,
+            "bausparvertragGuthabenzinsen": 70.0,
+            "bausparvertragGebuehren": -500.0,
             "bausparvertragTilgung": null,
             "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": 10088.01
+            "bausparvertragSaldo": 10000.0
           }
         },
         "darlehensphase": {
@@ -2137,187 +1317,44 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               "bausparvertragGebuehren": null,
               "bausparvertragTilgung": 0.0,
               "bausparvertragSollzinsen": 0.0,
-              "bausparvertragSaldo": -14911.99
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2027,
               "monat": 8,
-              "gesamtrate": 177.83,
+              "gesamtrate": 150.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.38,
-              "bausparvertragSollzinsen": -30.45,
-              "bausparvertragSaldo": -14764.61
-            },
-            {
-              "jahr": 2027,
-              "monat": 9,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.69,
-              "bausparvertragSollzinsen": -30.14,
-              "bausparvertragSaldo": -14616.92
-            },
-            {
-              "jahr": 2027,
-              "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.99,
-              "bausparvertragSollzinsen": -29.84,
-              "bausparvertragSaldo": -14468.93
-            },
-            {
-              "jahr": 2027,
-              "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.29,
-              "bausparvertragSollzinsen": -29.54,
-              "bausparvertragSaldo": -14320.64
-            },
-            {
-              "jahr": 2027,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.59,
-              "bausparvertragSollzinsen": -29.24,
-              "bausparvertragSaldo": -14172.05
-            },
-            {
-              "jahr": 2028,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1806.94,
-              "bausparvertragSollzinsen": -327.02,
-              "bausparvertragSaldo": -12365.11
-            },
-            {
-              "jahr": 2029,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1851.71,
-              "bausparvertragSollzinsen": -282.25,
-              "bausparvertragSaldo": -10513.4
-            },
-            {
-              "jahr": 2030,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1897.59,
-              "bausparvertragSollzinsen": -236.37,
-              "bausparvertragSaldo": -8615.81
-            },
-            {
-              "jahr": 2031,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1944.61,
-              "bausparvertragSollzinsen": -189.35,
-              "bausparvertragSaldo": -6671.2
-            },
-            {
-              "jahr": 2032,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1992.78,
-              "bausparvertragSollzinsen": -141.18,
-              "bausparvertragSaldo": -4678.42
-            },
-            {
-              "jahr": 2033,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2042.19,
-              "bausparvertragSollzinsen": -91.77,
-              "bausparvertragSaldo": -2636.23
-            },
-            {
-              "jahr": 2034,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2092.77,
-              "bausparvertragSollzinsen": -41.19,
-              "bausparvertragSaldo": -543.46
+              "bausparvertragTilgung": 150.0,
+              "bausparvertragSollzinsen": -30.0,
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2035,
               "monat": null,
-              "gesamtrate": 545.73,
+              "gesamtrate": 50.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 543.46,
-              "bausparvertragSollzinsen": -2.27,
+              "bausparvertragTilgung": 550.0,
+              "bausparvertragSollzinsen": -2.0,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16372.6,
+            "gesamtrate": 15000.0,
             "vorausdarlehenSollzinsen": null,
             "vorausdarlehenSaldo": null,
             "bausparvertragEinzahlungen": null,
             "bausparvertragGuthabenzinsen": null,
             "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 14911.99,
-            "bausparvertragSollzinsen": -1460.61,
+            "bausparvertragTilgung": 15000.0,
+            "bausparvertragSollzinsen": -1500.0,
             "bausparvertragSaldo": 0.0
           }
         }
@@ -2570,17 +1607,12 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
     "traceId": "ks-194ecf3e",
     "vorgangsnummer": "Q32CU4"
   },
-  "featureToggles": [
-    {
-      "id": "MOD_DARLEHEN",
-      "aktiv": true
-    }
-  ],
+  "featureToggles": [],
   "handelsbeziehungen": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
-      "kreditProvisionswunsch": 0.02,
-      "vertriebsgruppe": "creditfair"
+      "produktanbieter": "BEISPIEL_BANK",
+      "kreditProvisionswunsch": 0.0123,
+      "vertriebsgruppe": "Beispielgruppe"
     }
   ]
 }
@@ -2597,38 +1629,38 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   "supportMeldung": null,
   "angebote": [
     {
-      "produktanbieter": "ALTE_LEIPZIGER_BAUSPAR",
+      "produktanbieter": "BEISPIEL_BANK",
       "referenznummerProduktanbieter": null,
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
       "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 187,
-        "rateProMonat": 177.83,
+        "rateProMonat": 200.0,
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.038,
-        "sollzinssatz": 0.031,
-        "gesamtbetrag": 32975.37,
+        "effektivzinssatz": 0.0123,
+        "sollzinssatz": 0.0123,
+        "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
         "auszahlungsbetrag": 25000.0,
         "laufzeitInMonaten": 94,
-        "rateProMonat": 64.58,
-        "letzteRate": 64.58,
-        "provisionsbetrag": 375.0,
+        "rateProMonat": 60.0,
+        "letzteRate": 60.0,
+        "provisionsbetrag": 400.0,
         "basisbetragFuerDieProvisionsermittlung": 25000.0,
         "vorlaufzinsenProTag": 0.0,
         "versicherung": null
       },
       "bausparvertrag": {
-        "tarifname": "AL_Neo Klassik (1.6 %)",
+        "tarifname": "Beispieltarif",
         "bausparsumme": 25000.0,
         "gesamtlaufzeitInMonaten": 187,
         "zuteilungsZeitpunkt": "2027-07-31",
@@ -2637,18 +1669,18 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "jahresentgelt": 15.0,
         "abschlussgebuehr": 400.0,
         "sparphase": {
-          "sparbeitragMonatlich": 113.25,
+          "sparbeitragMonatlich": 100.0,
           "dauerInMonaten": 94,
-          "guthabenBeiZuteilung": 10088.01,
-          "guthabenZinssatz": 0.002
+          "guthabenBeiZuteilung": 10000.0,
+          "guthabenZinssatz": 0.0123
         },
         "darlehensphase": {
-          "darlehenssumme": 14911.99,
-          "rateMonatlich": 177.83,
+          "darlehenssumme": 15000.0,
+          "rateMonatlich": 200.0,
           "dauerInMonaten": 93,
-          "sollzinsSatz": 0.0245,
-          "effektivzinsSatz": 0.0292,
-          "letzteRate": 12.24,
+          "sollzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0123,
+          "letzteRate": 10.0,
           "tilgungsende": "2035-04-30"
         }
       },
@@ -2676,63 +1708,18 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "unterlagen": [
         {
           "code": null,
-          "text": "Baufinanzierungsvertrag von allen unterzeichnet zurück",
+          "text": "Unterzeichneter Baufinanzierungsvertrag",
           "referenz": null
         },
         {
           "code": null,
-          "text": "Unterzeichneter, vollständiger Darlehensantrag",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Auszahlungsanweisung inkl. ausgefülltes und vom Kontoinhaber unterschriebenes SEPA-Lastschriftmandat",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Abschluss des entsprechenden Bausparvertrages im Tarif AL_Neo Klassik in Höhe des Vorausdarlehens",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollwirksame Verpfändung für diesen Bausparvertrag, d.h. vom Sicherungsgeber unterzeichnetes Formular zurück",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollmacht zur Einholung eines Grundbuchauszuges durch die ALTE LEIPZIGER Bauspar AG",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Kopien der Personalausweise oder Reisepässe aller Darlehensnehmer (Vorder- und Rückseite)",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Letzte Gehaltsabrechnung sowie Dezember Gehaltsabrechnung des Vorjahres mit kumulierten Jahreswerten bzw. Nachweise über Renteneinkünfte aller Darlehensnehmer",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vollständige Legitimationsprüfung aller Darlehensnehmer auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Bestätigung der wohnwirtschaftlichen Verwendung des Darlehens auf beiliegendem Formular durch den Geschäftspartner",
-          "referenz": null
-        },
-        {
-          "code": null,
-          "text": "Vorlage der Darlehensverträge für Ratenkredite und für Immobiliardarlehen, soweit vorhanden",
+          "text": "Unterzeichneter Darlehensantrag",
           "referenz": null
         }
       ],
       "bonitaetscheck": {
         "name": "Haushaltsrechnung",
-        "ueberschrift": "Alte Leipziger Bauspar AG",
+        "ueberschrift": "Beispielbank",
         "ueberschuss": 3422.17,
         "bloecke": [
           {
@@ -2765,7 +1752,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               {
                 "hervorgehoben": false,
                 "label": "Rate der Finanzierung",
-                "wert": 177.83
+                "wert": 200.0
               }
             ],
             "titel": "Ausgaben",
@@ -2774,7 +1761,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Summe Ausgaben",
-                  "wert": 2577.83
+                  "wert": 2600.0
                 }
               ],
               "hervorgehoben": true
@@ -2788,7 +1775,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
                 {
                   "hervorgehoben": true,
                   "label": "Überschuss",
-                  "wert": 3422.17
+                  "wert": 3500.0
                 }
               ],
               "hervorgehoben": true
@@ -2802,157 +1789,53 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
             {
               "jahr": 2019,
               "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 200.0,
+              "vorausdarlehenSollzinsen": -50.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 100.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": -400.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -286.75
+              "bausparvertragSaldo": -300.0
             },
             {
               "jahr": 2019,
               "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
+              "gesamtrate": 200.0,
+              "vorausdarlehenSollzinsen": -60.0,
               "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
+              "bausparvertragEinzahlungen": 100.0,
               "bausparvertragGuthabenzinsen": 0.0,
               "bausparvertragGebuehren": 0.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -173.5
-            },
-            {
-              "jahr": 2019,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": -64.58,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 113.25,
-              "bausparvertragGuthabenzinsen": 0.0,
-              "bausparvertragGebuehren": 0.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": -60.25
-            },
-            {
-              "jahr": 2020,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 1.14,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 1284.89
-            },
-            {
-              "jahr": 2021,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 3.79,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 2632.68
-            },
-            {
-              "jahr": 2022,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 6.48,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 3983.16
-            },
-            {
-              "jahr": 2023,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 9.18,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 5336.34
-            },
-            {
-              "jahr": 2024,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 11.89,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 6692.23
-            },
-            {
-              "jahr": 2025,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 14.6,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 8050.83
-            },
-            {
-              "jahr": 2026,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": -774.96,
-              "vorausdarlehenSaldo": -25000.0,
-              "bausparvertragEinzahlungen": 1359.0,
-              "bausparvertragGuthabenzinsen": 17.32,
-              "bausparvertragGebuehren": -15.0,
-              "bausparvertragTilgung": null,
-              "bausparvertragSollzinsen": null,
-              "bausparvertragSaldo": 9412.15
+              "bausparvertragSaldo": -150.0
             },
             {
               "jahr": 2027,
               "monat": null,
-              "gesamtrate": 1131.56,
-              "vorausdarlehenSollzinsen": -452.06,
+              "gesamtrate": 1000.0,
+              "vorausdarlehenSollzinsen": -500.0,
               "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": 679.5,
-              "bausparvertragGuthabenzinsen": 11.36,
-              "bausparvertragGebuehren": -15.0,
+              "bausparvertragEinzahlungen": 700.0,
+              "bausparvertragGuthabenzinsen": 10.0,
+              "bausparvertragGebuehren": -20.0,
               "bausparvertragTilgung": null,
               "bausparvertragSollzinsen": null,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16602.77,
-            "vorausdarlehenSollzinsen": -6070.52,
+            "gesamtrate": 15000.0,
+            "vorausdarlehenSollzinsen": -5000.0,
             "vorausdarlehenSaldo": -25000.0,
-            "bausparvertragEinzahlungen": 10532.25,
-            "bausparvertragGuthabenzinsen": 75.76,
-            "bausparvertragGebuehren": -520.0,
+            "bausparvertragEinzahlungen": 10000.0,
+            "bausparvertragGuthabenzinsen": 80.0,
+            "bausparvertragGebuehren": -500.0,
             "bausparvertragTilgung": null,
             "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": 10088.01
+            "bausparvertragSaldo": 10000.0
           }
         },
         "darlehensphase": {
@@ -2968,187 +1851,44 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
               "bausparvertragGebuehren": null,
               "bausparvertragTilgung": 0.0,
               "bausparvertragSollzinsen": 0.0,
-              "bausparvertragSaldo": -14911.99
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2027,
               "monat": 8,
-              "gesamtrate": 177.83,
+              "gesamtrate": 200.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.38,
-              "bausparvertragSollzinsen": -30.45,
-              "bausparvertragSaldo": -14764.61
-            },
-            {
-              "jahr": 2027,
-              "monat": 9,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.69,
-              "bausparvertragSollzinsen": -30.14,
-              "bausparvertragSaldo": -14616.92
-            },
-            {
-              "jahr": 2027,
-              "monat": 10,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 147.99,
-              "bausparvertragSollzinsen": -29.84,
-              "bausparvertragSaldo": -14468.93
-            },
-            {
-              "jahr": 2027,
-              "monat": 11,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.29,
-              "bausparvertragSollzinsen": -29.54,
-              "bausparvertragSaldo": -14320.64
-            },
-            {
-              "jahr": 2027,
-              "monat": 12,
-              "gesamtrate": 177.83,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 148.59,
-              "bausparvertragSollzinsen": -29.24,
-              "bausparvertragSaldo": -14172.05
-            },
-            {
-              "jahr": 2028,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1806.94,
-              "bausparvertragSollzinsen": -327.02,
-              "bausparvertragSaldo": -12365.11
-            },
-            {
-              "jahr": 2029,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1851.71,
-              "bausparvertragSollzinsen": -282.25,
-              "bausparvertragSaldo": -10513.4
-            },
-            {
-              "jahr": 2030,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1897.59,
-              "bausparvertragSollzinsen": -236.37,
-              "bausparvertragSaldo": -8615.81
-            },
-            {
-              "jahr": 2031,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1944.61,
-              "bausparvertragSollzinsen": -189.35,
-              "bausparvertragSaldo": -6671.2
-            },
-            {
-              "jahr": 2032,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 1992.78,
-              "bausparvertragSollzinsen": -141.18,
-              "bausparvertragSaldo": -4678.42
-            },
-            {
-              "jahr": 2033,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2042.19,
-              "bausparvertragSollzinsen": -91.77,
-              "bausparvertragSaldo": -2636.23
-            },
-            {
-              "jahr": 2034,
-              "monat": null,
-              "gesamtrate": 2133.96,
-              "vorausdarlehenSollzinsen": null,
-              "vorausdarlehenSaldo": null,
-              "bausparvertragEinzahlungen": null,
-              "bausparvertragGuthabenzinsen": null,
-              "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 2092.77,
-              "bausparvertragSollzinsen": -41.19,
-              "bausparvertragSaldo": -543.46
+              "bausparvertragTilgung": 150.0,
+              "bausparvertragSollzinsen": -30.0,
+              "bausparvertragSaldo": -15000.0
             },
             {
               "jahr": 2035,
               "monat": null,
-              "gesamtrate": 545.73,
+              "gesamtrate": 500.0,
               "vorausdarlehenSollzinsen": null,
               "vorausdarlehenSaldo": null,
               "bausparvertragEinzahlungen": null,
               "bausparvertragGuthabenzinsen": null,
               "bausparvertragGebuehren": null,
-              "bausparvertragTilgung": 543.46,
-              "bausparvertragSollzinsen": -2.27,
+              "bausparvertragTilgung": 500.0,
+              "bausparvertragSollzinsen": -2.0,
               "bausparvertragSaldo": null
             }
           ],
           "werteBeiPhasenEnde": {
-            "gesamtrate": 16372.6,
+            "gesamtrate": 15000.0,
             "vorausdarlehenSollzinsen": null,
             "vorausdarlehenSaldo": null,
             "bausparvertragEinzahlungen": null,
             "bausparvertragGuthabenzinsen": null,
             "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 14911.99,
-            "bausparvertragSollzinsen": -1460.61,
+            "bausparvertragTilgung": 15000.0,
+            "bausparvertragSollzinsen": -1500.0,
             "bausparvertragSaldo": 0.0
           }
         }
