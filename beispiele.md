@@ -5,8 +5,8 @@ Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständn
 Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.   
 
 Anmerkung zum Tilgungsplan:
-- idR. wird das erste Jahr monatsweise aufgelistet
-- idR. werden alle weiteren Jahre zu einen einzelnen Eintrag aggregiert
+- i.d.R. wird das erste Jahr monatsweise aufgelistet
+- i.d.R. werden alle weiteren Jahre jeweils zu einem einzelnen Eintrag pro Jahr aggregiert
 - die Beispielantworten enthalten lediglich die ersten beiden und den letzten Eintrag - die Dazwischenliegenden wurden entfernt  
 
 ### Minimales Angebot
