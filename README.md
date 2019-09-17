@@ -17,8 +17,8 @@ Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/eu
 
 ## Beispiele
 
-* [Anfrage mit minimalen Angaben](beispiele.md#anfrage-mit-minimales-angaben)
+* [Anfrage mit minimalen Angaben](beispiele.md#anfrage-mit-minimalen-angaben)
 * [Anfrage mit vollständigen Angaben (ein Antragsteller)](beispiele.md#anfrage-mit-vollständigen-angaben-ein-antragsteller)
 * [Anfrage mit vollständigen Angaben (mehrere Antragsteller im gemeinsamen Haushalt)](beispiele.md#anfrage-mit-vollständigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt)
-* [Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)](beispiele.md#anfrage-mit-vollständigen-angebot-mehrere-antragsteller-in-getrennten-haushalten)
+* [Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)](beispiele.md#anfrage-mit-vollständigen-angaben-mehrere-antragsteller-in-getrennten-haushalten)
 * [Annahme mit vollständigen Angaben (ein Antragsteller)](beispiele.md#annahme-mit-vollständigen-angaben-ein-antragsteller)

@@ -807,7 +807,7 @@ Angabe von Kreditbetrag und Laufzeit
 }
 ```
 
-### Anfrage mit vollständigen Angebot (mehrere Antragsteller im gemeinsamen Haushalt)
+### Anfrage mit vollständigen Angaben (mehrere Antragsteller im gemeinsamen Haushalt)
 
 #### Request
 
