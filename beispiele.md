@@ -4,6 +4,11 @@ Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständn
 
 Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.   
 
+Anmerkung zum Tilgungsplan:
+- idR. wird das erste Jahr monatsweise aufgelistet
+- idR. werden alle weiteren Jahre zu einen einzelnen Eintrag aggregiert
+- die Beispielantworten enthalten lediglich die ersten beiden und den letzten Eintrag - die Dazwischenliegenden wurden entfernt  
+
 ### Minimales Angebot
 
 Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
@@ -133,9 +138,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
-      "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
+      "angebotsvariantentyp": "Beispielvariante",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 33000.0,
         "nettokreditbetrag": 25000.0,
@@ -145,7 +150,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 33000.0,
         "nettokreditbetrag": 25000.0,
@@ -178,7 +183,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
           "rateMonatlich": 180.0,
           "dauerInMonaten": 93,
           "sollzinsSatz": 0.0123,
-          "effektivzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0132,
           "letzteRate": 12.0,
           "tilgungsende": "2035-04-30"
         }
@@ -548,9 +553,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
-      "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
+      "angebotsvariantentyp": "Beispielvariante",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 3000.0,
         "nettokreditbetrag": 25000.0,
@@ -560,7 +565,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 3000.0,
         "nettokreditbetrag": 25000.0,
@@ -593,7 +598,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
           "rateMonatlich": 150.0,
           "dauerInMonaten": 93,
           "sollzinsSatz": 0.0123,
-          "effektivzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0132,
           "letzteRate": 10.0,
           "tilgungsende": "2035-04-30"
         }
@@ -1070,9 +1075,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
-      "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
+      "angebotsvariantentyp": "Beispielvariante",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
@@ -1082,7 +1087,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
@@ -1115,7 +1120,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
           "rateMonatlich": 170.0,
           "dauerInMonaten": 93,
           "sollzinsSatz": 0.0123,
-          "effektivzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0132,
           "letzteRate": 10.0,
           "tilgungsende": "2035-04-30"
         }
@@ -1591,9 +1596,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
       "referenznummerDienstleister": null,
       "produktbezeichnung": "Modernisierungsdarlehen",
       "produktart": "MODERNISIERUNGSKREDIT",
-      "angebotsvariantentyp": "ZinsGarant15_Mod_Neo_16",
+      "angebotsvariantentyp": "Beispielvariante",
       "gesamtkonditionen": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
@@ -1603,7 +1608,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "vertragsbeginn": "2019-10-01"
       },
       "kredit": {
-        "effektivzinssatz": 0.0123,
+        "effektivzinssatz": 0.0132,
         "sollzinssatz": 0.0123,
         "gesamtbetrag": 30000.0,
         "nettokreditbetrag": 25000.0,
@@ -1636,7 +1641,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
           "rateMonatlich": 200.0,
           "dauerInMonaten": 93,
           "sollzinsSatz": 0.0123,
-          "effektivzinsSatz": 0.0123,
+          "effektivzinsSatz": 0.0132,
           "letzteRate": 10.0,
           "tilgungsende": "2035-04-30"
         }
