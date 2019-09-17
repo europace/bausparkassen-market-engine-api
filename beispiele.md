@@ -4,8 +4,7 @@
 
 Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 
-<details><summary>Request</summary>
-<p>
+#### Request
 
 ```json
 {
@@ -118,11 +117,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
-<details><summary>Response</summary>
-<p>
+#### Response
 
 ```json
 {
@@ -392,13 +387,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
 ### Vollständiges Angebot (ein Antragsteller)
 
-<details><summary>Request</summary>
-<p>
+#### Request
 
 ```json
 {
@@ -541,12 +532,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
-
-<details><summary>Response</summary>
-<p>
+#### Response
 
 ```json
 {
@@ -818,13 +804,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
 ### Vollständiges Angebot (mehrere Antragsteller im gemeinsamen Haushalt)
 
-<details><summary>Request</summary>
-<p>
+#### Request
 
 ```json
 {
@@ -1072,11 +1054,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
-<details><summary>Response</summary>
-<p>
+#### Response
 
 ```json
 {
@@ -1348,13 +1326,9 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
 ### Vollständiges Angebot (mehrere Antragsteller in getrennten Haushalten)
 
-<details><summary>Request</summary>
-<p>
+#### Request
 
 ```json
 {
@@ -1601,11 +1575,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 }
 ```
 
-</p>
-</details>
-
-<details><summary>Response</summary>
-<p>
+#### Response
 
 ```json
 {
@@ -1881,6 +1851,3 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   ]
 }
 ```
-
-</p>
-</details>
