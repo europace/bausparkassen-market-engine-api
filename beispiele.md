@@ -11,27 +11,19 @@ Anmerkung zum Tilgungsplan:
 
 ### Minimales Angebot
 
-Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
-
 #### Request
 
+Angabe von Kreditbetrag und Laufzeit
+ 
 ```json
 {
   "antragsteller": [
     {
-      "id": "68c346d6-58fc-4e3d-ab13-d39c4bcf00f0",
+      "id": "f7de4f47-340e-4b1d-9e6f-45fc22fcc06e",
       "persoenlicheAngaben": {},
-      "derzeitigeBeschaeftigung": {
-        "beschaeftigungsverhaeltnis": "ANGESTELLT",
-        "beruf": "Angestellter",
-        "anschrift": {}
-      },
-      "vorherigeBeschaeftigung": {
-        "anschrift": {}
-      },
+      "derzeitigeBeschaeftigung": {},
+      "vorherigeBeschaeftigung": {},
       "derzeitigeWohnsituation": {
-        "wohnart": "IM_EIGENEN_HAUS",
-        "wohnhaftSeit": "2000-01-01",
         "anschrift": {
           "land": "DE"
         }
@@ -45,7 +37,6 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
         "ausgaben": {},
         "einnahmen": {
           "monatlicheEinnahmen": {
-            "regelmaessigesUnselbstaendigesEinkommen": 3000,
             "mietUndPachteinnahmen": {}
           },
           "jaehrlicheEinnahmen": {
@@ -77,7 +68,6 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   },
   "finanzierungswunsch": {
     "kreditwunsch": {
-      "finanzierungszweck": "MODERNISIERUNG_UND_WOHNEN",
       "auszahlungsbetrag": 25000,
       "ratenzahlungstermin": "ULTIMO",
       "laufzeitInMonaten": 60
@@ -112,8 +102,8 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
     "anrede": "HERR"
   },
   "metadaten": {
-    "traceId": "ks-abc01234",
-    "vorgangsnummer": "AB01234"
+    "traceId": "ks-107bf09f",
+    "vorgangsnummer": "AB1234"
   },
   "featureToggles": [],
   "handelsbeziehungen": [
@@ -127,6 +117,8 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 ```
 
 #### Response
+
+:warning: Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.
 
 ```json
 {
@@ -528,7 +520,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   },
   "metadaten": {
     "traceId": "ks-55f5f45b",
-    "vorgangsnummer": "Q32CU4"
+    "vorgangsnummer": "AB1234"
   },
   "featureToggles": [],
   "handelsbeziehungen": [
@@ -542,6 +534,8 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 ```
 
 #### Response
+
+:warning: Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.
 
 ```json
 {
@@ -1050,7 +1044,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   },
   "metadaten": {
     "traceId": "ks-84d56ccf",
-    "vorgangsnummer": "Q32CU4"
+    "vorgangsnummer": "AB1234"
   },
   "featureToggles": [],
   "handelsbeziehungen": [
@@ -1064,6 +1058,8 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 ```
 
 #### Response
+
+:warning: Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.
 
 ```json
 {
@@ -1571,7 +1567,7 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
   },
   "metadaten": {
     "traceId": "ks-194ecf3e",
-    "vorgangsnummer": "Q32CU4"
+    "vorgangsnummer": "AB1234"
   },
   "featureToggles": [],
   "handelsbeziehungen": [
@@ -1585,6 +1581,8 @@ Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
 ```
 
 #### Response
+
+:warning: Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.
 
 ```json
 {
