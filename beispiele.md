@@ -9,7 +9,7 @@ Anmerkung zum Tilgungsplan:
 - i.d.R. werden alle weiteren Jahre jeweils zu einem einzelnen Eintrag pro Jahr aggregiert
 - die Beispielantworten enthalten lediglich die ersten beiden und den letzten Eintrag - die Dazwischenliegenden wurden entfernt  
 
-### Minimales Angebot
+### Anfrage mit minimalen Angaben
 
 #### Request
 
@@ -388,7 +388,7 @@ Angabe von Kreditbetrag und Laufzeit
 }
 ```
 
-### Vollständiges Angebot (ein Antragsteller)
+### Anfrage mit vollständigen Angaben (ein Antragsteller)
 
 #### Request
 
@@ -807,7 +807,7 @@ Angabe von Kreditbetrag und Laufzeit
 }
 ```
 
-### Vollständiges Angebot (mehrere Antragsteller im gemeinsamen Haushalt)
+### Anfrage mit vollständigen Angebot (mehrere Antragsteller im gemeinsamen Haushalt)
 
 #### Request
 
@@ -1331,7 +1331,7 @@ Angabe von Kreditbetrag und Laufzeit
 }
 ```
 
-### Vollständiges Angebot (mehrere Antragsteller in getrennten Haushalten)
+### Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)
 
 #### Request
 
