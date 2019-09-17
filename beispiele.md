@@ -1,5 +1,9 @@
 ## Beispiele
 
+Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständnis der API. 
+
+Die Beispieantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.   
+
 ### Minimales Angebot
 
 Angabe von Kreditbetrag, Laufzeit, Wohnart (im eigenen Haus), Einkommen
