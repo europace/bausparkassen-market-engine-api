@@ -18,6 +18,6 @@ Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/eu
 ## Beispiele
 
 * [Minimales Angebot](beispiele.md#minimales-angebot)
-* [Vollständiges Angebot (ein Antragsteller)](beispiele.md##vollständiges-angebot-ein-antragsteller)
+* [Vollständiges Angebot (ein Antragsteller)](beispiele.md#vollständiges-angebot-ein-antragsteller)
 * [Vollständiges Angebot (mehrere Antragsteller im gemeinsamen Haushalt)](beispiele.md#vollständiges-angebot-mehrere-antragsteller-im-gemeinsamen-haushalt)
 * [Vollständiges Angebot (mehrere Antragsteller in getrennten Haushalten)](beispiele.md#vollständiges-angebot-mehrere-antragsteller-in-getrennten-haushalten)
