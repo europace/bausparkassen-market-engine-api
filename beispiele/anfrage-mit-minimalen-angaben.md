@@ -1,4 +1,4 @@
-### Anfrage mit minimalen Angaben
+## Anfrage mit minimalen Angaben
 
 Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständnis der API. 
 
@@ -9,7 +9,7 @@ Anmerkung zum Tilgungsplan:
 - i.d.R. werden alle weiteren Jahre jeweils zu einem einzelnen Eintrag pro Jahr aggregiert
 - die Beispielantworten enthalten lediglich die ersten beiden und den letzten Eintrag - die Dazwischenliegenden wurden entfernt  
 
-#### Request
+### Request
 
 Angabe von Kreditbetrag und Laufzeit
  
@@ -114,7 +114,7 @@ Angabe von Kreditbetrag und Laufzeit
 }
 ```
 
-#### Response
+### Response
 
 :warning: Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.
 

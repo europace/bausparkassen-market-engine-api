@@ -1,4 +1,4 @@
-### Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)
+## Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)
 
 Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständnis der API. 
 
@@ -9,7 +9,7 @@ Anmerkung zum Tilgungsplan:
 - i.d.R. werden alle weiteren Jahre jeweils zu einem einzelnen Eintrag pro Jahr aggregiert
 - die Beispielantworten enthalten lediglich die ersten beiden und den letzten Eintrag - die Dazwischenliegenden wurden entfernt  
 
-#### Request
+### Request
 
 ```json
 {
@@ -256,7 +256,7 @@ Anmerkung zum Tilgungsplan:
 }
 ```
 
-#### Response
+### Response
 
 :warning: Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.
 
