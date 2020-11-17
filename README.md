@@ -55,7 +55,7 @@ Services, die die API implementieren, erwarten einen POST-Request mit einem JSON
 Antworten werden als JSON im Body der Response erwartet.
 
 Grundsätzlich wird eine Antwort mit HTTP-Statuscode **200 SUCCESS** erwartet. Werden keine Angebote gefunden, wird eine leere Liste zurückgegeben. Im Falle eines technischen Fehlers wird eine Antwort mit HTTP-Statuscode 500 erwartet. 
-Die Antwort muss als supportMeldung einen Hinweis auf die Fehlerursache enthalten. 
+Die Antwort sollte als supportMeldung einen Hinweis auf die Fehlerursache enthalten. 
 
 Bei unvollständigen Anfragen werden Angebote mit Machbarkeitsstatus **NICHT_MACHBAR** erwartet. Es sind Vollständigkeitsmeldungen vorhanden, die auf die fehlenden Angaben hinweisen.
 
@@ -107,7 +107,8 @@ Die Art und Weise der Authentifizierung wird zwischen dem Produktanbieter und Eu
 
 ## Performance
 
-Wir erwarten die Ermittlungsantwort innerhalb von 4 Sekunden, die Annahme-Antwort innerhalb von 20 Sekunden. 
+Die Ermittlungsantwort muss innerhalb von 4 Sekunden erfolgen, langsamere Antworten werden verworfen. Die Annahme-Antwort sollte innerhalb von 20 Sekunden erfolgen,
+jedoch können Antworten hier bei gewissen Überschreitungen noch verarbeitet werden.
 Bei einem deutlich höherem Wert, verschlechtert sich die Funktionalität unserer Plattform für andere Partner, z.B. Vertriebe.
 
 ## Beispiele
