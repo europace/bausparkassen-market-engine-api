@@ -26,19 +26,19 @@ Die Version der API orientiert sich am [Semantic Versioning](https://semver.org/
 
 `MAJOR.MINOR.PATCH`
 
-und ist in der [Swagger Definition](https://github.com/europace-privatkredit/bausparkassen-me-api/blob/master/swagger.yml) enthalten (`info.version`).
+und ist in der [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml) enthalten (`info.version`).
 
 1. die `MAJOR` Version wird erhöht bei API inkompatiblen Änderungen (z.B. neue Pflichtangaben)
 2. die `MINOR` Version wird erhöht bei abwärtskompatiblen API Änderungen (z.B. neue optionale Angaben)
 3. die `PATCH` Version wird erhöht, wenn die API gleich bleibt, jedoch die Swagger Definition angepasst wird (z.B. Erweiterung oder Anpassung von Beschreibungen in der API)
 
-Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/europace-privatkredit/bausparkassen-me-api/releases) zu finden.
+Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/europace/bausparkassen-market-engine-api/releases) zu finden.
 
 ## Dokumentation
 
 ### API Spezifikation
 
-Requests und Responses sind in der [Swagger Definition](https://github.com/europace-privatkredit/bausparkassen-me-api/blob/master/swagger.yml) dokumentiert.
+Requests und Responses sind in der [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml) dokumentiert.
 
 ### API Referenz
 
