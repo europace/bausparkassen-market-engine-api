@@ -113,11 +113,11 @@ Bei einem deutlich höherem Wert, verschlechtert sich die Funktionalität unsere
 
 ## Beispiele
 
-* [Anfrage mit minimalen Angaben](beispiele/anfrage-mit-minimalen-angaben.md)
-* [Anfrage mit vollständigen Angaben (ein Antragsteller)](beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
-* [Anfrage mit vollständigen Angaben (mehrere Antragsteller im gemeinsamen Haushalt)](beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
-* [Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)](beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
-* [Annahme mit vollständigen Angaben (ein Antragsteller)](beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
+* [Anfrage mit minimalen Angaben](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-minimalen-angaben.md)
+* [Anfrage mit vollständigen Angaben (ein Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
+* [Anfrage mit vollständigen Angaben (mehrere Antragsteller im gemeinsamen Haushalt)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
+* [Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
+* [Annahme mit vollständigen Angaben (ein Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
 
 ## Nutzungsbedingungen
 Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt
