@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 9.0.1
+  version: 10.0.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -1224,15 +1224,20 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/versicherungsrisiken'
-      versicherer:
-        type: string
+      versichererIds:
+        description: IDs der Versicherer. Gültige Ausprägungen erhalten Sie von ihrem Ansprechpartner bei Europace.
+        type: array
+        items:
+          type: string
+        minItems: 1
+        uniqueItems: true
     required:
       - basisFuerDieProvisionsermittlung
       - provisionsbetrag
       - praemieBrutto
       - praemieNetto
       - risiken
-      - versicherer
+      - versichererIds
 
   basisFuerDieVersicherungsprovisionsermittlung:
     type: string
