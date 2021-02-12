@@ -423,7 +423,11 @@ Anmerkung zum Tilgungsplan:
         }
       }
     },
-    "maximalerAuszahlungsbetrag": null
+    "maximalerAuszahlungsbetrag": null,
+    "alternative": {
+      "bezeichnung": "Alternative: Downsell",
+      "typ": "DOWNSELL"
+    }
   },
   "dokumente": [
     {
