@@ -1,13 +1,17 @@
-## Annahme mit vollständigen Angaben (ein Antragsteller)
+## Annahme mit Downselling
+
+Führt die Haushaltsrechnung zu einer Haushaltsunterdeckung, kann ein Downselling erfolgen. Dazu wird entweder die Laufzeit verlängert und oder der Kreditbetrag verringert, um die monatliche Belastung zu reduzieren. 
+Wenn ein Downselling erfolgt, muss das Angebot in der Antwort den Block 
+```
+    "alternative": {
+      "typ": "DOWNSELL"
+    }
+```
+enthalten. Die Bezeichnung ist optional.
 
 Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständnis der API. 
 
 Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nicht mit dem Tilgungsplan übereinstimmen.   
-
-Anmerkung zum Tilgungsplan:
-- i.d.R. wird das erste Jahr monatsweise aufgelistet
-- i.d.R. werden alle weiteren Jahre jeweils zu einem einzelnen Eintrag pro Jahr aggregiert
-- die Beispielantworten enthalten lediglich die ersten beiden und den letzten Eintrag - die Dazwischenliegenden wurden entfernt  
 
 ### Request
 
@@ -104,9 +108,9 @@ Anmerkung zum Tilgungsplan:
   "finanzierungswunsch": {
     "kreditwunsch": {
       "finanzierungszweck": "MODERNISIERUNG_UND_WOHNEN",
-      "auszahlungsbetrag": 25000.0,
+      "auszahlungsbetrag": 35000.0,
       "ratenzahlungstermin": "ULTIMO",
-      "laufzeitInMonaten": 92
+      "laufzeitInMonaten": 72
     },
     "versicherungsWunsch": [],
     "konto": {
@@ -226,25 +230,23 @@ Anmerkung zum Tilgungsplan:
     "meldungen": [
       {
         "kategorie": "ANPASSUNG",
-        "text": "Der Provisionswunsch wurde angepasst.",
-        "code": null
+        "text": "Der Provisionswunsch wurde angepasst."
       },
       {
         "kategorie": "ANPASSUNG",
-        "text": "Die Laufzeit wurde angepasst.",
-        "code": null
+        "text": "Der Auszahlungsbetrag wurde angepasst."
+      },
+      {
+        "kategorie": "ANPASSUNG",
+        "text": "Die Laufzeit wurde angepasst."
       }
     ],
     "unterlagen": [
       {
-        "code": null,
-        "text": "Unterzeichneter Baufinanzierungsvertrag",
-        "referenz": null
+        "text": "Unterzeichneter Baufinanzierungsvertrag"
       },
       {
-        "code": null,
-        "text": "Unterzeichneter Darlehensantrag",
-        "referenz": null
+        "text": "Unterzeichneter Darlehensantrag"
       }
     ],
     "bonitaetscheck": {
@@ -313,117 +315,10 @@ Anmerkung zum Tilgungsplan:
         }
       ]
     },
-    "tilgungsplanBausparvertragMitVorausdarlehen": {
-      "sparphase": {
-        "eintraege": [
-          {
-            "jahr": 2019,
-            "monat": 10,
-            "gesamtrate": 150.0,
-            "vorausdarlehenSollzinsen": -60.0,
-            "vorausdarlehenSaldo": -25000.0,
-            "bausparvertragEinzahlungen": 100.0,
-            "bausparvertragGuthabenzinsen": 0.0,
-            "bausparvertragGebuehren": -400.0,
-            "bausparvertragTilgung": null,
-            "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": -250.0
-          },
-          {
-            "jahr": 2019,
-            "monat": 11,
-            "gesamtrate": 150.0,
-            "vorausdarlehenSollzinsen": -60.0,
-            "vorausdarlehenSaldo": -25000.0,
-            "bausparvertragEinzahlungen": 100.0,
-            "bausparvertragGuthabenzinsen": 0.0,
-            "bausparvertragGebuehren": 0.0,
-            "bausparvertragTilgung": null,
-            "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": -150.0
-          },
-          {
-            "jahr": 2027,
-            "monat": null,
-            "gesamtrate": 1000.0,
-            "vorausdarlehenSollzinsen": -450.9,
-            "vorausdarlehenSaldo": null,
-            "bausparvertragEinzahlungen": 650.0,
-            "bausparvertragGuthabenzinsen": 10.0,
-            "bausparvertragGebuehren": -10.0,
-            "bausparvertragTilgung": null,
-            "bausparvertragSollzinsen": null,
-            "bausparvertragSaldo": null
-          }
-        ],
-        "werteBeiPhasenEnde": {
-          "gesamtrate": 15000.0,
-          "vorausdarlehenSollzinsen": -5000.0,
-          "vorausdarlehenSaldo": -25000.0,
-          "bausparvertragEinzahlungen": 10000.0,
-          "bausparvertragGuthabenzinsen": 70.0,
-          "bausparvertragGebuehren": -500.0,
-          "bausparvertragTilgung": null,
-          "bausparvertragSollzinsen": null,
-          "bausparvertragSaldo": 10000.0
-        }
-      },
-      "darlehensphase": {
-        "eintraege": [
-          {
-            "jahr": 2027,
-            "monat": 7,
-            "gesamtrate": 0.0,
-            "vorausdarlehenSollzinsen": null,
-            "vorausdarlehenSaldo": null,
-            "bausparvertragEinzahlungen": null,
-            "bausparvertragGuthabenzinsen": null,
-            "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 0.0,
-            "bausparvertragSollzinsen": 0.0,
-            "bausparvertragSaldo": -14000.0
-          },
-          {
-            "jahr": 2027,
-            "monat": 8,
-            "gesamtrate": 150.0,
-            "vorausdarlehenSollzinsen": null,
-            "vorausdarlehenSaldo": null,
-            "bausparvertragEinzahlungen": null,
-            "bausparvertragGuthabenzinsen": null,
-            "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 150.0,
-            "bausparvertragSollzinsen": -30.0,
-            "bausparvertragSaldo": -15000.0
-          },
-          {
-            "jahr": 2035,
-            "monat": null,
-            "gesamtrate": 500.0,
-            "vorausdarlehenSollzinsen": null,
-            "vorausdarlehenSaldo": null,
-            "bausparvertragEinzahlungen": null,
-            "bausparvertragGuthabenzinsen": null,
-            "bausparvertragGebuehren": null,
-            "bausparvertragTilgung": 500.0,
-            "bausparvertragSollzinsen": -5.0,
-            "bausparvertragSaldo": null
-          }
-        ],
-        "werteBeiPhasenEnde": {
-          "gesamtrate": 16466.44,
-          "vorausdarlehenSollzinsen": null,
-          "vorausdarlehenSaldo": null,
-          "bausparvertragEinzahlungen": null,
-          "bausparvertragGuthabenzinsen": null,
-          "bausparvertragGebuehren": null,
-          "bausparvertragTilgung": 14989.63,
-          "bausparvertragSollzinsen": -1476.81,
-          "bausparvertragSaldo": 0.0
-        }
-      }
-    },
-    "maximalerAuszahlungsbetrag": null
+    "maximalerAuszahlungsbetrag": null,
+    "alternative": {
+      "typ": "DOWNSELL"
+    }
   },
   "dokumente": [
     {

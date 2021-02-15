@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 10.0.0
+  version: 10.1.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -575,7 +575,7 @@ definitions:
         $ref: '#/definitions/euro'
       kapitalvermoegen:
         $ref: '#/definitions/euro'
-        
+
   nebentaetigkeit:
     type: object
     properties:
@@ -584,7 +584,7 @@ definitions:
       beginn:
         type: string
         format: date
-        
+
   mietUndPachteinnahmen:
     type: object
     properties:
@@ -1066,6 +1066,9 @@ definitions:
         $ref: '#/definitions/tilgungsplanBausparvertragMitVorausdarlehen'
       maximalerAuszahlungsbetrag:
         $ref: '#/definitions/euro'
+      alternative:
+        description: Pflichtfeld wenn sich das Angebot um ein Downsell-Angebot handelt. Ein Downsell liegt vor, wenn die gwwünschte Laufzeit verlängert und oder der gewünschte Kreditbetrag verringert wird, um eine nagtive Haushaltsrechnung auszugleichen. In diesem Falle ist zusätzlich mindestens eine Anpassungsmeldung zu liefern.
+        $ref: '#/definitions/angebotAlternative'
     required:
       - produktanbieter
       - produktbezeichnung
@@ -1095,7 +1098,7 @@ definitions:
         $ref: '#/definitions/unterlageReferenz'
     required:
       - text
-  
+
   unterlageReferenz:
     type: object
     properties:
@@ -1111,7 +1114,7 @@ definitions:
     type: string
     enum:
       - ANTRAGSTELLER
-      
+
   angebotsstatus:
     type: object
     properties:
@@ -1433,6 +1436,24 @@ definitions:
         $ref: '#/definitions/euro'
       bausparvertragSaldo:
         $ref: '#/definitions/euro'
+
+  angebotAlternative:
+    type: object
+    properties:
+      bezeichnung:
+        description: "Bezeichnung des alternativen Angebots. Bei fehlender Angabe wird die Standard-Bezeichung `Alternative: Downsell` verwendet"
+        type: string
+        maxLength: 30
+      typ:
+        description: Aktuell wird nur DOWNSELL als Typ des alternativen Angebotes unterstützt
+        $ref: '#/definitions/angebotAlternativeTyp'
+    required:
+      - typ
+
+  angebotAlternativeTyp:
+    type: string
+    enum:
+      - DOWNSELL
 
   bonitaetscheck:
     type: object
