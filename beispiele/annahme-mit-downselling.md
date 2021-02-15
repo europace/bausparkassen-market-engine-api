@@ -4,7 +4,6 @@ Führt die Haushaltsrechnung zu einer Haushaltsunterdeckung, kann ein Downsellin
 Wenn ein Downselling erfolgt, muss das Angebot in der Antwort den Block 
 ```
     "alternative": {
-      "bezeichnung": "Alternative: Downsell",
       "typ": "DOWNSELL"
     }
 ```
@@ -318,7 +317,6 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
     },
     "maximalerAuszahlungsbetrag": null,
     "alternative": {
-      "bezeichnung": "Alternative: Downsell",
       "typ": "DOWNSELL"
     }
   },
