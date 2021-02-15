@@ -1067,7 +1067,7 @@ definitions:
       maximalerAuszahlungsbetrag:
         $ref: '#/definitions/euro'
       alternative:
-        description: Pflichtfeld wenn sich das Angebot um ein Downsell handelt, also entweder die Laufzeit verlängert und oder der Kreditbetrag verringert wurde. In diesem Falle ist zusätzlich mindestens eine Anpassungsmeldung zu liefern.
+        description: Pflichtfeld wenn sich das Angebot um ein Downsell-Angebot handelt. Ein Downsell liegt vor, wenn die gwwünschte Laufzeit verlängert und oder der gewünschte Kreditbetrag verringert wird, um eine nagtive Haushaltsrechnung auszugleichen. In diesem Falle ist zusätzlich mindestens eine Anpassungsmeldung zu liefern.
         $ref: '#/definitions/angebotAlternative'
     required:
       - produktanbieter
@@ -1441,14 +1441,13 @@ definitions:
     type: object
     properties:
       bezeichnung:
-        description: "Beispiel: Alternative: Downsell"
+        description: "Bezeichnung des alternativen Angebots. Bei fehlender Angabe wird die Standard-Bezeichung `Alternative: Downsell` verwendet"
         type: string
         maxLength: 30
       typ:
         description: Aktuell wird nur DOWNSELL als Typ des alternativen Angebotes unterstützt
         $ref: '#/definitions/angebotAlternativeTyp'
     required:
-      - bezeichnung
       - typ
 
   angebotAlternativeTyp:
