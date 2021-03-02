@@ -427,7 +427,6 @@ Anmerkung zum Tilgungsplan:
   },
   "dokumente": [
     {
-      "bezeichnung": "Bausparantrag",
       "dateiname": "Bausparantrag.pdf",
       "base64pdf": "(pdf-als-base64)",
       "sichtbarkeit": {
@@ -436,7 +435,6 @@ Anmerkung zum Tilgungsplan:
       }
     },
     {
-      "bezeichnung": "Darlehensvertrag",
       "dateiname": "Darlehensvertrag.pdf",
       "base64pdf": "(pdf-als-base64)",
       "sichtbarkeit": {

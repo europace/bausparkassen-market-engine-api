@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 10.1.0
+  version: 10.2.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -1352,8 +1352,6 @@ definitions:
   dokument:
     type: object
     properties:
-      bezeichnung:
-        type: string
       dateiname:
         type: string
       base64pdf:
@@ -1362,7 +1360,6 @@ definitions:
       sichtbarkeit:
         $ref: '#/definitions/dokumentsichtbarkeit'
     required:
-      - bezeichnung
       - dateiname
       - base64pdf
       - sichtbarkeit

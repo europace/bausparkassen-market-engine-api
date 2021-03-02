@@ -322,7 +322,6 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
   },
   "dokumente": [
     {
-      "bezeichnung": "Bausparantrag",
       "dateiname": "Bausparantrag.pdf",
       "base64pdf": "(pdf-als-base64)",
       "sichtbarkeit": {
@@ -331,7 +330,6 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
       }
     },
     {
-      "bezeichnung": "Darlehensvertrag",
       "dateiname": "Darlehensvertrag.pdf",
       "base64pdf": "(pdf-als-base64)",
       "sichtbarkeit": {
