@@ -1,25 +1,6 @@
 # Bausparkassen Market Engine API
 Die API ermöglicht es Bausparkassen im Ratenkreditgeschäft, ihr Kreditangebot über Services mit standardisierten Schnittstellen an die Europace Plattform anzubinden.
 
-# Inhaltsverzeichnis
-
-* [API Version](#api-version)
-* [Dokumentation](#dokumentation)
-  * [API Spezifikation](#api-spezifikation)
-  * [API Referenz](#api-referenz)
-    * [Ermittlung](#ermittlung)
-      * [Request](#request)
-      * [Response](#response)
-    * [Annahme](#annahme)
-      * [Request](#request-1)
-      * [Response](#response-1)
-    * [Meldungskategorie](#meldungskategorie)
-    * [Machbarkeitsstatus](#machbarkeitsstatus)
-* [Authentifizierung](#authentifizierung)
-* [Performance](#performance)
-* [Beispiele](#beispiele)
-* [Nutzungsbedingungen](#nutzungsbedingungen)
-
 ## API Version
 
 Die Version der API orientiert sich am [Semantic Versioning](https://semver.org/) und hat das Format
@@ -120,4 +101,4 @@ Bei einem deutlich höherem Wert, verschlechtert sich die Funktionalität unsere
 * [Annahme mit vollständigen Angaben (ein Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
 
 ## Nutzungsbedingungen
-Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt
+Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
