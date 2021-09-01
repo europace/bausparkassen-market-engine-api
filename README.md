@@ -26,7 +26,7 @@ Requests und Responses sind in der [Swagger Definition](https://github.com/europ
 Die implementierte Schnittstelle akzeptiert Daten mit Content-Type **application/json**.  
 
 ### Ermittlung
-Die Ermittlung dient der Erzeugung von 1..n Angeboten. 
+Die Ermittlung dient der Erzeugung von Angeboten. 
 
 Dabei werden die im Vorgang erfassten Daten zum Finanzierungswunsch sowie die Antragstellerdaten an den Produktanbieter übermittelt.
 
