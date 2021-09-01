@@ -68,6 +68,9 @@ definitions:
         $ref: '#/definitions/finanzierungswunsch'
       kundenbetreuer:
         $ref: '#/definitions/kundenbetreuer'
+      vertriebskanal:
+        description: Zur Aussteuerung der Dokumentegenerierung. Erlaubte Auspraegungen siehe '#/definitions/vertriebskanal'
+        type: string
       metadaten:
         $ref: '#/definitions/metadaten'
       featureToggles:
@@ -121,7 +124,7 @@ definitions:
   ###
 
   metadaten:
-    description: Dient der Identifikation von Reqests und Vorgängen.
+    description: Dient der Identifikation von Requests und Vorgängen.
     type: object
     properties:
       traceId:
@@ -146,7 +149,7 @@ definitions:
         type: boolean
 
   ###
-  ### Kundenbetreuer, Bearbeiter und Handelsbeziehung
+  ### Kundenbetreuer, Bearbeiter, Vertriebskanal und Handelsbeziehung
   ###
 
   kundenbetreuer:
@@ -203,6 +206,12 @@ definitions:
     type: object
     additionalProperties:
       type: object
+
+  vertriebskanal:
+    type: string
+    enum:
+      - B2B
+      - B2B2C
 
   ###
   ### Antragsteller
