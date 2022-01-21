@@ -1,159 +1,158 @@
 # Bausparkassen Market Engine API
-Die API ermöglicht es Bausparkassen im Ratenkreditgeschäft, ihr Kreditangebot über Services mit standardisierten Schnittstellen an die Europace Plattform anzubinden.
+
+> ⚠️ You'll find German domain-specific terms in the documentation, for translations and further explanations please refer to our [glossary](https://docs.api.europace.de/common/glossary/)
+
+This API enables building societies within consumer loans to connect their loan offering to the Europace platform via services with standardized interfaces.
+
+> ⚠️ This API is continuously developed. Therefore we expect
+> all users to align with the "[Tolerant Reader Pattern](https://martinfowler.com/bliki/TolerantReader.html)", which requires clients to be
+> tolerant towards compatible API changes when reading and processing the data. This means:
+>
+> 1. unknown properties must not result in errors
+>
+> 2. Strings with a restricted set of values (Enums) must support new unknown values
+>
+> 3. sensible usage of HTTP status codes, even if they are not explicitly documented
+>
+
+<!-- https://opensource.zalando.com/restful-api-guidelines/#108 -->
 
 ## API Version
 
-Die Version der API orientiert sich am [Semantic Versioning](https://semver.org/) und hat das Format
+The version of the API is based on [Semantic Versioning](https://semver.org/) and has the format
 
 `MAJOR.MINOR.PATCH`
 
-und ist in der [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml) enthalten (`info.version`).
+and is part of the [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml) (`info.version`).
 
-1. die `MAJOR` Version wird erhöht bei API inkompatiblen Änderungen (z.B. neue Pflichtangaben)
-2. die `MINOR` Version wird erhöht bei abwärtskompatiblen API Änderungen (z.B. neue optionale Angaben)
-3. die `PATCH` Version wird erhöht, wenn die API gleich bleibt, jedoch die Swagger Definition angepasst wird (z.B. Erweiterung oder Anpassung von Beschreibungen in der API)
+1. The `MAJOR` version is incremented in case of API incompatible changes (e.g. new mandatory data)
+2. The `MINOR` version is incremented for backward compatible API changes (e.g. new optional specifications)
+3. The `PATCH` version is incremented if the API remains the same, but the Swagger definition is adapted (e.g. extension or adaptation of descriptions in the API)
 
-Die aktuelle Version der API ist jeweils in den [Releases](https://github.com/europace/bausparkassen-market-engine-api/releases) zu finden.
+You will find the current version of the API within the [Releases](https://github.com/europace/bausparkassen-market-engine-api/releases).
 
-## API Spezifikation
+## API specification
 
-Requests und Responses sind in der [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml) dokumentiert.
+Requests and responses are defined in the [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml).
 
-## Dokumentation
+## Documentation
 
-### API Referenz
+### Calculation
 
-Die implementierte Schnittstelle akzeptiert Daten mit Content-Type **application/json**.  
+The calculation serves to generate offers.
 
-### Ermittlung
-Die Ermittlung dient der Erzeugung von Angeboten. 
+In the process, the data entered in the Vorgang regarding the Finanzierungswunsch as well as the applicant data are transmitted to the product provider.
 
-Dabei werden die im Vorgang erfassten Daten zum Finanzierungswunsch sowie die Antragstellerdaten an den Produktanbieter übermittelt.
-
-Der Produktanbieter 
-- prüft die Vollständigkeit des Vorgangs
-- prüft die Machbarkeit des Wunsches 
-- nimmt gegebenenfalls Anpassungen am Wunsch vor
-- ermittelt die (2/3-) Konditionen. 
-
-##### Anpassung des Kundenwunsches
-
-- Ist die Herausgabe eines Angebots zu den gewünschten Finanzierungskriterien nicht möglich, sollte eine Anpassung erfolgen, um ein machbares Angebot zu erzeugen
-- Folgende Vorgaben können angepasst werden
-    - Laufzeitvorgabe
-    - Ratenvorgabe
-    - Kreditbeträge
-    - Versicherungskombinationen
-    - Provisionen
-- Zu jeder Anpassung muss eine Anpassungsmeldung generiert werden, um den Vermittler über die Anpassung zu informieren.
-- siehe Felder <code>status.angepasst</code> und <code>meldungen</code>
-
-#### Request
-
-Services, die die API implementieren, erwarten einen POST-Request mit einem JSON-Dokument als Request-Body.
-
-#### Response
-
-Antworten werden als JSON im Body der Response erwartet.
-
-Grundsätzlich wird eine Antwort mit HTTP-Statuscode **200 SUCCESS** erwartet. Werden keine Angebote gefunden, wird eine leere Liste zurückgegeben. Im Falle eines technischen Fehlers wird eine Antwort mit HTTP-Statuscode 500 erwartet. 
-Die Antwort sollte als <code>supportMeldung</code> einen Hinweis auf die Fehlerursache enthalten. 
-
-Bei unvollständigen Anfragen werden Angebote mit Machbarkeitsstatus **NICHT_MACHBAR** erwartet. Es sind Vollständigkeitsmeldungen vorhanden, die auf die fehlenden Angaben hinweisen.
+The Produktanbieter 
+- Checks the Vollständigkeit of the Vorgang
+- Checks the Machbarkeit of the request 
+- May adjusts the request
+- Calculates the 2/3 - conditions. 
 
 ### Annahme
-Wenn alle notwendigen Daten vorhanden sind und die Vorprüfung im Rahmen der Ermittlung erfolgreich war, kann die Annahme des Vorgangs erfolgen. Dabei werden die vom Vermittler <b>erfassten (nicht
-angepassten)</b> Daten zum Finanzierungswunsch sowie die Antragstellerdaten an den Produktanbieter übermittelt.
+If all the necessary data is available and the preliminary check was successful, the acceptance of the Vorgang can take place. In this process, the <b>customer's request</b>, i.e. the <b>recorded (but unadjusted)</b> data of the Finanzierungswunsch by the broker, as well as the applicant data are transmitted to the Produktanbieter.
 
-Der Produktanbieter führt dann seinerseits alle für die Annahme des Angebots notwendigen Schritte durch:
+The Produktanbieter shall then in turn carry out all steps necessary for the acceptance of the offer:
 
-#### Vollständigkeitsprüfung
-- Während der Angebotsermittlung wird bereits sichergestellt, dass die Antragsdaten vollständig sind. Dessen ungeachtet muss der Service mit fehlenden Daten umgehen können. Sie dürfen nicht zu einem technischen Fehler führen.
+#### Adaptation of the customer's request
 
-#### Anpassung des Kundenwunsches
-- Ist die Herausgabe eines Angebots zu den gewünschten Finanzierungskriterien nicht möglich, sollte eine Anpassung analog der Ermittlung erfolgen.
+- If it is not possible to issue an offer on the desired financing criteria, an adjustment should be made to generate a feasible offer
+- The following specifications can be adjusted
+    - Duration specification
+    - Monthly payment specification
+    - Loan amount specification
+    - Insurance combinations
+    - Commission
+- An adjustment message must be generated for each adjustment to inform the broker of the adjustment.
+- See fields <code>status.angepasst</code> and <code>meldungen</code>
 
-#### Bonitätsprüfung der Antragsteller
+#### Credit assessment of the Antragssteller
 
-- inklusive Übersicht der angerechneten Einnahmen sowie Ausgaben und des ermittelten Überschusses/Unterdeckung
-- siehe Feld <code>bonitaetscheck</code>
+- Including an overview of the accounted income and expenses and the calculated surplus/shortfall
+- See field <code>bonitaetscheck</code>
 
-#### Ermittlung der finalen Konditionen
+#### Calculation of final conditions
 
-- inklusive Tilgungsplan
-- siehe Felder <code>kredit</code>, <code>bausparvertrag</code> und <code>tilgungsplanBausparvertragMitVorausdarlehen</code>
+- Including redemption schedule
+- See fields <code>kredit</code>, <code>bausparvertrag</code> and <code>tilgungsplanBausparvertragMitVorausdarlehen</code>
 
-#### Votum über die Machbarkeit des Antrags
+#### Vote on the feasibility of the application
 
-- inklusive Berücksichtigung der Scorings externer Anbieter z.B. Schufa
-- Im Falle der Ablehnung, generierung einer Meldung mit Ablehnungsgrund
-- siehe Felder <code>status</code> und <code>meldungen</code>
+- Including consideration of the scores of external providers e.g. Schufa
+- In case of rejection, generating a message with reason for rejection
+- See fields <code>status</code> and <code>meldungen</code>
 
-#### Ermittlung einzureichender Unterlagen
-- siehe Feld <code>unterlagen</code>
+#### Identification of documents to be submitted
+- See field <code>unterlagen</code>
 
-#### Erstellung der Vertragsdokumente
-- siehe Feld <code>dokumente</code>
+#### Creation of the contract documents
+- See field <code>dokumente</code>
+
+### API reference
+
+The implemented interface accepts data with content-type **application/json**.  
 
 #### Request
 
-Services, die die API implementieren, erwarten einen POST-Request mit einem JSON-Dokument als Request-Body.
+Services that implement the API expect a POST-request with a JSON-document as request-body.
+
+During the offer calculation, it is already ensured that the application data is complete. Notwithstanding this, the service must be able to deal with missing data. This should not lead to a technical error.
 
 #### Response
 
-Antworten werden als JSON im Body der Response erwartet.
+The response will be expected as JSON within the response body. 
 
-Grundsätzlich wird eine Antwort mit einem vollständigen Angebot und HTTP-Statuscode **200 SUCCESS** erwartet. Wenn das Angebot **MACHBAR** ist, wird mindestens ein Dokument erwartet.
-Im Falle eines technischen Fehlers wird eine Antwort mit HTTP-Statuscode 500 erwartet. Die Antwort muss kein Angebot enthalten, aber einen Hinweis auf die Fehlerursache als supportMeldung.
+In general a response with a complete offer and HTTP status code **200 SUCCESS** is expected. If the offer is **MACHBAR**, at least one document is expected.
 
-Es wird ein vollständiges Angebot ohne Dokument(e) erwartet. Der Machbarkeitsstatus ist **NICHT_MACHBAR**. Es sind Vollständigkeitsmeldungen vorhanden, die auf die fehlenden Angaben hinweisen.
+In case of a technical error a response with HTTP status code **500** is expected. The response must not contain an offer, but should give an indication of the cause of the error as <code>supportMeldung</code>.
 
-Ist der Antrag aufgrund einer Haushaltsunterdeckung nicht machbar, erfolgt im Idealfall eine Verlängerung der Laufzeit. Ist dies nicht möglich, kann ein Downselling des Auszahlungsbetrags erfolgen.
+##### Handling incomplete requests
 
-Führt das Downselling zu einem machbaren Angebot, wird dieses als angepasst = true markiert und enthält entsprechende Anpassungsmeldungen, um den Vermittler über die Anpassung zu informieren. 
+A complete offer without document(s) is expected. The Machbarkeitsstatus is **NICHT_MACHBAR**. Vollständigkeitsmeldungen must be available, that point out the missing data.
 
-Ist ein Downselling nicht möglich, wird ein Angebot ohne Dokument(e) mit dem Status **NICHT_MACHBAR** und mindestens einer entsprechenden Machbarkeitsmeldung erwartet. Laufzeit und Kreditbetrag sollten in diesem Fall der ursprünglichen Anfrage entsprechen.
+##### Handling shortfall in the Haushaltsrechnung
 
-#### Meldungen
+If the application is not feasible due to a shortfall in the Haushaltsrechnung, in best case the duration will be extended. If this is not possible, a downselling of the loan amount can take place.
 
-Meldungen werden erzeugt, um den Vermittler Hinweise zur Durchführung und Machbarkeit des Antrags zu geben. Es werden folgende Kategorien unterschieden.
+If a downselling results in a feasible offer, this is marked as <code>"angepasst": true</code> and contains appropriate adjustment messages to inform the broker of the adjustment.
 
-##### <code>meldungskategorie</code>
+If a downselling is not possible, an offer without document(s) with the status **NICHT_MACHBAR** and at least one corresponding feasibility message is expected. Duration and loan amount should in this case correspond to the original request.
 
-| Meldungskategorie  | Beschreibung | <code>machbarkeitsstatus</code>| <code>angepasst</code> |
+#### Messages
+
+Messages are generated to provide guidance to the broker on the excecution and feasibility of the application. The following categories are distinguished.
+
+| Message category  | Description | <code>machbarkeitsstatus</code>| <code>angepasst</code> |
 |--------|--------|--------|--------|
-| <code>MACHBARKEIT</code> | Der Antrag wird abgelehnt. | NICHT_MACHBAR| <i>kein Einfluß<i> |
-| <code>VOLLSTAENDIGKEIT</code> | Der Antrag ist unvollständig und muss zur abschließenden Prüfung um fehlende Angaben ergänzt werden. | NICHT_MACHBAR| <i>kein Einfluß<i> | 
-| <code>HINWEIS</code> | Hinweis an den Vermittler. | <i>kein Einfluß<i> | <i>kein Einfluß<i>|
-| <code>ANPASSUNG</code> | Information über eine Anpassung des Kundenwunsches, z.B. Rate, Auszahlungsbetrag oder Versicherungswunsch. | MACHBAR | true | 
+| <code>MACHBARKEIT</code> | The application will be rejected. | NICHT_MACHBAR| <i>no influence<i> |
+| <code>VOLLSTAENDIGKEIT</code> | The application is incomplete and must be completed with missing data. | NICHT_MACHBAR| <i>no influence<i> | 
+| <code>HINWEIS</code> | Note to the broker. | <i>no influence<i> | <i>no influence<i>|
+| <code>ANPASSUNG</code> | Not to adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | MACHBAR | true | 
 
 #### Status
 
-##### <code>machbarkeitsstatus</code>
-
-| Machbarkeitsstatus  | Beschreibung |
+| Machbarkeitsstatus  | Description |
 |--------|--------|
-| MACHBAR | Dem Antrag kann entsprochen werden. |
-| MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER | Der Antrag konnte nicht abschließend geprüft werden. Produktanbieter und Vermittler müssen den Antrag nachverhandeln.| 
-| NICHT_MACHBAR | Der Antrag wurde abgelehnt. |
+| MACHBAR | The application is accepted. |
+| MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER | The application could not be finally examined. Produktanbieter and broker need to renegotiate.| 
+| NICHT_MACHBAR | The application is rejected. |
 
-## Authentifizierung
+## Authentication
 
-Die Art und Weise der Authentifizierung wird zwischen dem Produktanbieter und Europace abgestimmt. 
-
+The method of authentication is agreed between the Produktanbieter and Europace.
+    
 ## Performance
 
-Die Ermittlungsantwort muss innerhalb von 4 Sekunden erfolgen, langsamere Antworten werden verworfen. Die Annahme-Antwort sollte innerhalb von 20 Sekunden erfolgen,
-jedoch können Antworten hier bei gewissen Überschreitungen noch verarbeitet werden.
-Bei einem deutlich höherem Wert, verschlechtert sich die Funktionalität unserer Plattform für andere Partner, z.B. Vertriebe.
+The calculation response must be within 4 seconds, slower responses will be discarded. The acceptance response should be within 20 seconds, but responses here may still be processed if certain overruns occur. If the response time is significantly higher, the functionality of our platform deteriorates for other partners, e.g. brokers.
 
-## Beispiele
+## Examples
 
-* [Anfrage mit minimalen Angaben](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-minimalen-angaben.md)
-* [Anfrage mit vollständigen Angaben (ein Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
-* [Anfrage mit vollständigen Angaben (mehrere Antragsteller im gemeinsamen Haushalt)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
-* [Anfrage mit vollständigen Angaben (mehrere Antragsteller in getrennten Haushalten)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
-* [Annahme mit vollständigen Angaben (ein Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
+* [Request with minimal data](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-minimalen-angaben.md)
+* [Request with complete data (one Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
+* [Request with complete data (two Antragsteller with joint household)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
+* [Request with complete data (two Antragsteller with separate household)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
+* [Annahme with complete data (one Antragsteller)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
 
-## Nutzungsbedingungen
-Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
+## Terms of use
+
+The APIs are made available under the following [Terms of Use](https://docs.api.europace.de/terms/)
