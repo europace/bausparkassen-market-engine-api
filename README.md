@@ -42,16 +42,17 @@ The calculation serves to generate offers.
 
 In the process, the data provided for the Finanzierungswunsch as well as the applicant data are transmitted to the product provider.
 
-The Produktanbieter 
+The product provider: 
 - Checks the Vollständigkeit of the Vorgang
 - Checks the Machbarkeit of the request 
 - May adjusts the request
-- Calculates the 2/3 - conditions. 
+- Calculates the 2/3 - conditions 
 
-### Annahme
-If all the necessary data is available and the preliminary check was successful, the acceptance of the Vorgang can take place. In this process, the customer's request, i.e. the provided data of the Finanzierungswunsch, as well as the applicant data are transmitted to the Produktanbieter.
+### Accepting
 
-The Produktanbieter should then, in turn, carry out all steps necessary for the acceptance of the offer:
+If all the necessary data is available and the preliminary check was successful, the accepting of the case can take place. In this process, the customer's request, i.e. the provided data of the Finanzierungswunsch, as well as the applicant data are transmitted to the product provider.
+
+The product provider should then, in turn, carry out all steps necessary for accepting the offer:
 
 #### Adaptation of the customer's request
 
@@ -65,14 +66,14 @@ The Produktanbieter should then, in turn, carry out all steps necessary for the 
 - An adjustment message must be generated for each adjustment to inform the broker of the adjustment.
 - See fields <code>status.angepasst</code> and <code>meldungen</code>
 
-#### Credit assessment of the Antragssteller
+#### Credit assessment of the applicant
 
 - Including an overview of the accounted income and expenses and the calculated surplus/shortfall
 - See field <code>bonitaetscheck</code>
 
 #### Calculation of final conditions
 
-- Including redemption schedule
+- Including repayment plan
 - See fields <code>kredit</code>, <code>bausparvertrag</code> and <code>tilgungsplanBausparvertragMitVorausdarlehen</code>
 
 #### Vote on the feasibility of the application
@@ -107,7 +108,7 @@ In case of a technical error a response with HTTP status code **500** is expecte
 
 ##### Handling incomplete requests
 
-A complete offer without document(s) is expected. The Machbarkeitsstatus is **NICHT_MACHBAR**. Vollständigkeitsmeldungen, that point out the missing data, must be available.
+A complete offer without document(s) is expected. The feasibilty status is **NICHT_MACHBAR**. Completeness messages, that point out the missing data, must be available.
 
 ##### Handling shortfall in the Haushaltsrechnung
 
@@ -117,7 +118,7 @@ If a downselling results in a feasible offer, this is marked as <code>"angepasst
 
 If a downselling is not possible, an offer without document(s) with the status **NICHT_MACHBAR** and at least one corresponding feasibility message is expected. Duration and loan amount should in this case correspond to the original request.
 
-#### Messages
+### Messages
 
 Messages are generated to provide guidance to the broker on the excecution and feasibility of the application. The following categories are distinguished.
 
@@ -128,12 +129,12 @@ Messages are generated to provide guidance to the broker on the excecution and f
 | <code>HINWEIS</code> | Note to the broker. | <i>no influence<i> | <i>no influence<i>|
 | <code>ANPASSUNG</code> | Information about adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | MACHBAR | true | 
 
-#### Status
+### Status
 
 | Machbarkeitsstatus  | Description |
 |--------|--------|
 | MACHBAR | The application is accepted. |
-| MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER | The application could not be examined conclusively. Produktanbieter and broker need to renegotiate.| 
+| MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER | The application could not be examined conclusively. Product provider and broker need to renegotiate.| 
 | NICHT_MACHBAR | The application is rejected. |
 
 ## Authentication
