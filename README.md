@@ -118,7 +118,7 @@ If a downselling results in a feasible offer, this is marked as <code>"angepasst
 
 If a downselling is not possible, an offer without document(s) with the status **NICHT_MACHBAR** and at least one corresponding feasibility message is expected. Duration and loan amount should in this case correspond to the original request.
 
-### Messages
+##### Messages
 
 Messages are generated to provide guidance to the broker on the excecution and feasibility of the application. The following categories are distinguished.
 
@@ -129,7 +129,7 @@ Messages are generated to provide guidance to the broker on the excecution and f
 | <code>HINWEIS</code> | Note to the broker. | <i>no influence<i> | <i>no influence<i>|
 | <code>ANPASSUNG</code> | Information about adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | MACHBAR | true | 
 
-### Status
+##### Status
 
 | Machbarkeitsstatus  | Description |
 |--------|--------|
