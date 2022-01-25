@@ -43,14 +43,14 @@ The calculation serves to generate offers.
 In the process, the data provided for the Finanzierungswunsch as well as the applicant data are transmitted to the product provider.
 
 The product provider: 
-- Checks the Vollständigkeit of the Vorgang
-- Checks the Machbarkeit of the request 
+- Checks the feasibility of the Vorgang
+- Checks the completness of the request 
 - May adjusts the request
 - Calculates the 2/3 - conditions 
 
-### Accepting
+### Acceptance
 
-If all the necessary data is available and the preliminary check was successful, the accepting of the case can take place. In this process, the customer's request, i.e. the provided data of the Finanzierungswunsch, as well as the applicant data are transmitted to the product provider.
+If all the necessary data is available and the preliminary check was successful, the case can be accepted. In this process, the customer's request, i.e. the provided data of the Finanzierungswunsch, as well as the applicant data are transmitted to the product provider.
 
 The product provider should then, in turn, carry out all steps necessary for accepting the offer:
 
@@ -79,7 +79,7 @@ The product provider should then, in turn, carry out all steps necessary for acc
 #### Vote on the feasibility of the application
 
 - Including consideration of the scores of external providers e.g. Schufa
-- In case of rejection, generating a message with reason for rejection
+- In case of rejection, generating a message with the reason for rejection
 - See fields <code>status</code> and <code>meldungen</code>
 
 #### Identification of documents to be submitted
@@ -102,13 +102,13 @@ During the offer calculation, it is already ensured that the application data is
 
 The response will be expected as JSON within the response body. 
 
-In general a response with a complete offer and HTTP status code **200 SUCCESS** is expected. If the offer is **MACHBAR**, at least one document is expected.
+In general a response with a complete offer and HTTP status code **200 SUCCESS** is expected. If the offer is `MACHBAR`, at least one document is expected.
 
 In case of a technical error a response with HTTP status code **500** is expected. The response must not contain an offer, but should give an indication of the cause of the error as <code>supportMeldung</code>.
 
 ##### Handling incomplete requests
 
-A complete offer without document(s) is expected. The feasibilty status is **NICHT_MACHBAR**. Completeness messages, that point out the missing data, must be available.
+A complete offer without document(s) is expected. The feasibilty status is `NICHT_MACHBAR`. Completeness messages, that point out the missing data, must be available.
 
 ##### Handling shortfall in the Haushaltsrechnung
 
@@ -116,7 +116,7 @@ If the application is not feasible due to a shortfall in the Haushaltsrechnung, 
 
 If a downselling results in a feasible offer, this is marked as <code>"angepasst": true</code> and contains appropriate adjustment messages to inform the broker of the adjustment.
 
-If a downselling is not possible, an offer without document(s) with the status **NICHT_MACHBAR** and at least one corresponding feasibility message is expected. Duration and loan amount should in this case correspond to the original request.
+If a downselling is not possible, an offer without document(s) with the status `NICHT_MACHBAR` and at least one corresponding feasibility message is expected. Duration and loan amount should in this case correspond to the original request.
 
 ##### Messages
 
@@ -124,18 +124,18 @@ Messages are generated to provide guidance to the broker on the excecution and f
 
 | Message category  | Description | <code>machbarkeitsstatus</code>| <code>angepasst</code> |
 |--------|--------|--------|--------|
-| <code>MACHBARKEIT</code> | The application will be rejected. | NICHT_MACHBAR| <i>no influence<i> |
-| <code>VOLLSTAENDIGKEIT</code> | The application is incomplete and must be completed with missing data. | NICHT_MACHBAR| <i>no influence<i> | 
+| <code>MACHBARKEIT</code> | The application will be rejected. | `NICHT_MACHBAR`| <i>no influence<i> |
+| <code>VOLLSTAENDIGKEIT</code> | The application is incomplete and must be completed with missing data. | `NICHT_MACHBAR`| <i>no influence<i> | 
 | <code>HINWEIS</code> | Note to the broker. | <i>no influence<i> | <i>no influence<i>|
-| <code>ANPASSUNG</code> | Information about adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | MACHBAR | true | 
+| <code>ANPASSUNG</code> | Information about adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | `MACHBAR` | `true` | 
 
 ##### Status
 
 | Machbarkeitsstatus  | Description |
 |--------|--------|
-| MACHBAR | The application is accepted. |
-| MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER | The application could not be examined conclusively. Product provider and broker need to renegotiate.| 
-| NICHT_MACHBAR | The application is rejected. |
+| `MACHBAR` | The application is accepted. |
+| `MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER` | The application could not be examined conclusively. Product provider and broker need to renegotiate.| 
+| `NICHT_MACHBAR` | The application is rejected. |
 
 ## Authentication
 
