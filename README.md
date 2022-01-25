@@ -131,7 +131,7 @@ Messages are generated to provide guidance to the broker on the excecution and f
 
 ##### Status
 
-| Machbarkeitsstatus  | Description |
+| Feasibility status  | Description |
 |--------|--------|
 | `MACHBAR` | The application is accepted. |
 | `MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER` | The application could not be examined conclusively. Product provider and broker need to renegotiate.| 
