@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: rk-bausparkassen-market-engine-api
+  description: bausparkassen market engine api
+  annotations:
+    github.com/project-slug: europace/bausparkassen-market-engine-api
+    github.com/team-slug: europace/pku-kitt
+    backstage.io/techdocs-ref: dir:./
+spec:
+  type: openapi
+  lifecycle: production
+  owner: pku-kitt
+  system: ratenkredit
+  definition:
+    $text: ./swagger.yml
