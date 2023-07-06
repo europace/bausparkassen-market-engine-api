@@ -95,9 +95,7 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
           "leasings": [],
           "kreditkarten": [],
           "dispositionskredite": [],
-          "immobiliendarlehen": [],
-          "geschaeftskredite": [],
-          "kontokorrentkredite": []
+          "immobiliendarlehen": []
         }
       }
     }
@@ -120,8 +118,7 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
       "ratenkredite": [],
       "sonstigeVerbindlichkeiten": [],
       "kreditkarten": [],
-      "dispositionskredite": [],
-      "geschaeftskredite": []
+      "dispositionskredite": []
     },
     "fahrzeug": {}
   },
