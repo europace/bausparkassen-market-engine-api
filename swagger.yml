@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 10.3.0
+  version: 11.0.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -582,8 +582,6 @@ definitions:
         $ref: '#/definitions/mietUndPachteinnahmen'
       sonstige:
         $ref: '#/definitions/euro'
-      kapitalvermoegen:
-        $ref: '#/definitions/euro'
 
   nebentaetigkeit:
     type: object
@@ -639,20 +637,10 @@ definitions:
   vermoegen:
     type: object
     properties:
-      rueckkaufswertLebensversicherung:
-        $ref: '#/definitions/euro'
-      bausparguthaben:
-        $ref: '#/definitions/euro'
       immobilien:
         type: array
         items:
           $ref: '#/definitions/immobilie'
-      depot:
-        $ref: '#/definitions/euro'
-      bankUndSparguthaben:
-        $ref: '#/definitions/euro'
-      sonstiges:
-        $ref: '#/definitions/euro'
 
   immobilie:
     type: object
@@ -704,14 +692,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/immobiliendarlehen'
-      geschaeftskredite:
-        type: array
-        items:
-          $ref: '#/definitions/geschaeftskredit'
-      kontokorrentkredite:
-        type: array
-        items:
-          $ref: '#/definitions/kontokorrentkredit'
 
   ratenkredit:
     type: object
@@ -802,37 +782,6 @@ definitions:
       restschuld:
         $ref: '#/definitions/euro'
 
-  geschaeftskredit:
-    type: object
-    properties:
-      id:
-        type: string
-      monatlicheRate:
-        $ref: '#/definitions/euro'
-      letzteRate:
-        $ref: '#/definitions/euro'
-      datumLetzteRate:
-        type: string
-        format: date
-      restschuld:
-        $ref: '#/definitions/euro'
-      glaeubiger:
-        type: string
-
-  kontokorrentkredit:
-    type: object
-    properties:
-      id:
-        type: string
-      verfuegungsrahmen:
-        $ref: '#/definitions/euro'
-      beanspruchterBetrag:
-        $ref: '#/definitions/euro'
-      zinssatz:
-        $ref: '#/definitions/prozent'
-      glaeubiger:
-        type: string
-
   ###
   ### Finanzierungswunsch
   ###
@@ -894,10 +843,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/abzuloesenderDispositionskredit'
-      geschaeftskredite:
-        type: array
-        items:
-          $ref: '#/definitions/abzuloesenderGeschaeftskredit'
 
   finanzierungszweck:
     description: Verwendungszweck
@@ -953,19 +898,6 @@ definitions:
     properties:
       id:
         type: string
-      konto:
-        $ref: '#/definitions/konto'
-
-  abzuloesenderGeschaeftskredit:
-    type: object
-    properties:
-      id:
-        type: string
-      datumErsteRate:
-        type: string
-        format: date
-      urspruenglicherBetrag:
-        $ref: '#/definitions/euro'
       konto:
         $ref: '#/definitions/konto'
 

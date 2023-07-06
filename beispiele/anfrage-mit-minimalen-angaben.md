@@ -54,9 +54,7 @@ Angabe von Kreditbetrag und Laufzeit
           "leasings": [],
           "kreditkarten": [],
           "dispositionskredite": [],
-          "immobiliendarlehen": [],
-          "geschaeftskredite": [],
-          "kontokorrentkredite": []
+          "immobiliendarlehen": []
         }
       }
     }
@@ -78,8 +76,7 @@ Angabe von Kreditbetrag und Laufzeit
       "ratenkredite": [],
       "sonstigeVerbindlichkeiten": [],
       "kreditkarten": [],
-      "dispositionskredite": [],
-      "geschaeftskredite": []
+      "dispositionskredite": []
     },
     "fahrzeug": {}
   },

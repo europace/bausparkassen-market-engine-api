@@ -92,9 +92,7 @@ Anmerkung zum Tilgungsplan:
           "leasings": [],
           "kreditkarten": [],
           "dispositionskredite": [],
-          "immobiliendarlehen": [],
-          "geschaeftskredite": [],
-          "kontokorrentkredite": []
+          "immobiliendarlehen": []
         }
       }
     },
@@ -175,9 +173,7 @@ Anmerkung zum Tilgungsplan:
           "leasings": [],
           "kreditkarten": [],
           "dispositionskredite": [],
-          "immobiliendarlehen": [],
-          "geschaeftskredite": [],
-          "kontokorrentkredite": []
+          "immobiliendarlehen": []
         }
       }
     }
@@ -199,9 +195,7 @@ Anmerkung zum Tilgungsplan:
         "leasings": [],
         "kreditkarten": [],
         "dispositionskredite": [],
-        "immobiliendarlehen": [],
-        "geschaeftskredite": [],
-        "kontokorrentkredite": []
+        "immobiliendarlehen": []
       }
     },
     "kinder": []
@@ -221,8 +215,7 @@ Anmerkung zum Tilgungsplan:
       "ratenkredite": [],
       "sonstigeVerbindlichkeiten": [],
       "kreditkarten": [],
-      "dispositionskredite": [],
-      "geschaeftskredite": []
+      "dispositionskredite": []
     },
     "fahrzeug": {}
   },
