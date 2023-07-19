@@ -120,7 +120,8 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
       "kreditkarten": [],
       "dispositionskredite": []
     },
-    "fahrzeug": {}
+    "fahrzeug": {},
+    "modernisierung": {}
   },
   "kundenbetreuer": {
     "partnerId": "ABC12",

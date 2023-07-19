@@ -78,7 +78,8 @@ Angabe von Kreditbetrag und Laufzeit
       "kreditkarten": [],
       "dispositionskredite": []
     },
-    "fahrzeug": {}
+    "fahrzeug": {},
+    "modernisierung": {}
   },
   "kundenbetreuer": {
     "partnerId": "ABC12",
