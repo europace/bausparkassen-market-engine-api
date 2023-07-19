@@ -116,7 +116,8 @@ Anmerkung zum Tilgungsplan:
       "kreditkarten": [],
       "dispositionskredite": []
     },
-    "fahrzeug": {}
+    "fahrzeug": {},
+    "modernisierung": {}
   },
   "kundenbetreuer": {
     "partnerId": "ABC12",
