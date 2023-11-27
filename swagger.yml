@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 11.1.0
+  version: 11.2.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -933,6 +933,7 @@ definitions:
     enum:
       - HERR
       - FRAU
+      - DIVERS
 
   adresse:
     type: object
