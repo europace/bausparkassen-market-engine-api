@@ -4,7 +4,7 @@
 
 This API enables building societies within consumer loans to connect their loan offering to the Europace platform via services with standardized interfaces.
 
-> ⚠️ This API is continuously developed. Therefore we expect
+> ⚠️ This API is continuously developed. Therefore, we expect
 > all users to align with the "[Tolerant Reader Pattern](https://martinfowler.com/bliki/TolerantReader.html)", which requires clients to be
 > tolerant towards compatible API changes when reading and processing the data. This means:
 >
@@ -122,20 +122,20 @@ If a downselling is not possible, an offer without document(s) with the status `
 
 Messages are generated to provide guidance to the agent on the excecution and feasibility of the application. The following categories are distinguished.
 
-| Message category  | Description | <code>machbarkeitsstatus</code>| <code>angepasst</code> |
-|--------|--------|--------|--------|
-| <code>MACHBARKEIT</code> | The application will be rejected. | `NICHT_MACHBAR`| <i>no influence<i> |
-| <code>VOLLSTAENDIGKEIT</code> | The application is incomplete and must be completed with missing data. | `NICHT_MACHBAR`| <i>no influence<i> | 
-| <code>HINWEIS</code> | Note to the agent. | <i>no influence<i> | <i>no influence<i>|
-| <code>ANPASSUNG</code> | Information about adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | `MACHBAR` | `true` | 
+| Message category              | Description                                                                                                | <code>machbarkeitsstatus</code> | <code>angepasst</code> |
+|-------------------------------|------------------------------------------------------------------------------------------------------------|---------------------------------|------------------------|
+| <code>MACHBARKEIT</code>      | The application will be rejected.                                                                          | `NICHT_MACHBAR`                 | <i>no influence<i>     |
+| <code>VOLLSTAENDIGKEIT</code> | The application is incomplete and must be completed with missing data.                                     | `NICHT_MACHBAR`                 | <i>no influence<i>     | 
+| <code>HINWEIS</code>          | Note to the agent.                                                                                         | <i>no influence<i>              | <i>no influence<i>     |
+| <code>ANPASSUNG</code>        | Information about adjustments of the customer's request, e.g. monthly payment, loan amount oder insurance. | `MACHBAR`                       | `true`                 | 
 
 ##### Status
 
-| Feasibility status  | Description |
-|--------|--------|
-| `MACHBAR` | The application is accepted. |
-| `MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER` | The application could not be examined conclusively. Product provider and agent need to renegotiate.| 
-| `NICHT_MACHBAR` | The application is rejected. |
+| Feasibility status                        | Description                                                                                         |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `MACHBAR`                                 | The application is accepted.                                                                        |
+| `MACHBAR_UNTER_VORBEHALT_PRODUKTANBIETER` | The application could not be examined conclusively. Product provider and agent need to renegotiate. | 
+| `NICHT_MACHBAR`                           | The application is rejected.                                                                        |
 
 ## Authentication
 
