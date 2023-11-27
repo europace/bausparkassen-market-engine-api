@@ -1387,7 +1387,7 @@ definitions:
     type: object
     properties:
       bezeichnung:
-        description: "Bezeichnung des alternativen Angebots. Bei fehlender Angabe wird die Standard-Bezeichung `Alternative: Downsell` verwendet"
+        description: "Bezeichnung des alternativen Angebots. Bei fehlender Angabe wird die Standard-Bezeichnung `Alternative: Downsell` verwendet"
         type: string
         maxLength: 30
       typ:
