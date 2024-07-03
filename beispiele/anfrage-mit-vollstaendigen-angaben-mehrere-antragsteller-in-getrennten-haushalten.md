@@ -197,7 +197,10 @@ Anmerkung zum Tilgungsplan:
         "immobiliendarlehen": []
       }
     },
-    "kinder": []
+    "kinder": [],
+    "ruecklastschrift": {
+      "ruecklastschriftWithinDays": 90
+    }
   },
   "finanzierungswunsch": {
     "kreditwunsch": {

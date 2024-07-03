@@ -97,7 +97,10 @@ Anmerkung zum Tilgungsplan:
     }
   ],
   "gemeinsameAntragstellerangaben": {
-    "bonitaetsangaben": {}
+    "bonitaetsangaben": {},
+    "ruecklastschrift": {
+      "ruecklastschriftWithinDays": 30
+    }
   },
   "finanzierungswunsch": {
     "kreditwunsch": {
