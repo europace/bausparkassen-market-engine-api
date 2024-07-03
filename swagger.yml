@@ -226,6 +226,17 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/kind'
+      ruecklastschrift:
+        description: is null if there are no ruecklastschriften.
+        $ref: '#/definitions/ruecklastschrift'
+
+  ruecklastschrift:
+    type: object
+    properties:
+      ruecklastschriftWithinDays:
+        type: integer
+    required:
+      - ruecklastschriftWithinDays
 
   antragsteller:
     type: object
