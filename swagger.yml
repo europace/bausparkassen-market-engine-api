@@ -92,6 +92,11 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/handelsbeziehung'
+          a2aKonten:
+            description: Liste der verfügbaren A2A-Konten mit zugehörigen AntragstellerIds und Metadaten
+            type: array
+            items:
+              $ref: "#/definitions/a2aKonto"
 
   annahmeRequest:
     allOf:
@@ -107,6 +112,11 @@ definitions:
             type: string
           beratungsart:
             $ref: '#/definitions/beratungsart'
+          a2aKontenWithKontoumsaetze:
+            description: Liste mit Kontoumsatzdaten und zugehörigen AntragstellerIds und Metdaten
+            type: array
+            items:
+              $ref: "#/definitions/a2aKontoMitUmsaetzen"
         required:
           - angebotsvariantentyp
           - handelsbeziehung
@@ -118,6 +128,46 @@ definitions:
       - PRAESENZ_GESCHAEFT
       - FERN_ABSATZ_GESCHAEFT
       - AUSSER_GESCHAEFTSRAUM_VERTRAG
+
+  a2aKonto:
+    type: object
+    properties:
+      id:
+        type: string
+      iban:
+        type: string
+      gemeinschaftskonto:
+        type: boolean
+      antragsteller:
+        type: array
+        items:
+          $ref: "#/definitions/a2aKontoAntragsteller"
+    required:
+      - id
+      - iban
+
+  a2aKontoMitUmsaetzen:
+    allOf:
+      - $ref: '#/definitions/a2aKonto'
+      - type: object
+        properties:
+          umsatzdaten:
+            type: string
+            description: Base64 kodierte Kontoumsatzdaten
+            format: byte
+        required:
+          - umsatzdaten
+
+  a2aKontoAntragsteller:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Referenziert die ID des Antragstellers.
+      hauptbankverbindung:
+        type: boolean
+    required:
+      - id
 
   ###
   ### Meta
@@ -1030,6 +1080,9 @@ definitions:
       alternative:
         description: Pflichtfeld wenn sich das Angebot um ein Downsell-Angebot handelt. Ein Downsell liegt vor, wenn die gwwünschte Laufzeit verlängert und oder der gewünschte Kreditbetrag verringert wird, um eine nagtive Haushaltsrechnung auszugleichen. In diesem Falle ist zusätzlich mindestens eine Anpassungsmeldung zu liefern.
         $ref: '#/definitions/angebotAlternative'
+      angeforderteA2aKonten:
+        description: Liste der ID's der A2A-Konten, deren Umsatzdaten der Produktanbieter verwenden möchte. Die Lieferung der A2A-Daten erfolgt nur nach Absprache mit der Europace Ratenkredit GmbH.
+        $ref: '#/definitions/angeforderteA2aKonten'
     required:
       - produktanbieter
       - produktbezeichnung
@@ -1407,6 +1460,34 @@ definitions:
         $ref: '#/definitions/angebotAlternativeTyp'
     required:
       - typ
+
+  angeforderteA2aKonten:
+    type: object
+    properties:
+      konten:
+        type: array
+        $ref: '#/definitions/angefordertesA2aKonto'
+      format:
+        $ref: '#/definitions/a2aKontoFormat'
+    required:
+      - konten
+      - format
+
+  angefordertesA2aKonto:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Referenziert a2aKonto.id
+    required:
+      - id
+
+  a2aKontoFormat:
+    type: string
+    description: Gibt an ob Kontoumsätze kategorisiert oder im Rohformat geliefert werden sollen.
+    enum:
+      - RAW
+      - CATEGORIZED
 
   angebotAlternativeTyp:
     type: string
