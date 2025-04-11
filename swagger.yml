@@ -134,12 +134,16 @@ definitions:
     properties:
       id:
         type: string
+        description: ID dient zur Referenzierung des A2A-Kontos in der Repsonse
       iban:
         type: string
+        description: IBAN des A2A-Kontos
       gemeinschaftskonto:
         type: boolean
+        description: Ist true wenn es sich beim A2A-Konto um ein Gemeinschaftskonto handelt, andernfalls false
       antragsteller:
         type: array
+        description: Referenziert die Antragsteller aus dem Request welche Kontoinhaber des A2A-Kontos sind
         items:
           $ref: "#/definitions/a2aKontoAntragsteller"
     required:
