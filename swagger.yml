@@ -1466,7 +1466,8 @@ definitions:
     properties:
       konten:
         type: array
-        $ref: '#/definitions/angefordertesA2aKonto'
+        items:
+          $ref: '#/definitions/angefordertesA2aKonto'
       format:
         $ref: '#/definitions/a2aKontoFormat'
     required:
