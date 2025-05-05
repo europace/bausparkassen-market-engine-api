@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 11.2.1
+  version: 11.3.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -92,6 +92,11 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/handelsbeziehung'
+          a2aKonten:
+            description: Liste der verfügbaren A2A-Konten mit zugehörigen AntragstellerIds und Metadaten
+            type: array
+            items:
+              $ref: "#/definitions/a2aKonto"
 
   annahmeRequest:
     allOf:
@@ -107,6 +112,11 @@ definitions:
             type: string
           beratungsart:
             $ref: '#/definitions/beratungsart'
+          a2aKontenMitUmsaetzen:
+            description: Liste mit Kontoumsatzdaten und zugehörigen AntragstellerIds und Metdaten
+            type: array
+            items:
+              $ref: "#/definitions/a2aKontoMitUmsaetzen"
         required:
           - angebotsvariantentyp
           - handelsbeziehung
@@ -118,6 +128,47 @@ definitions:
       - PRAESENZ_GESCHAEFT
       - FERN_ABSATZ_GESCHAEFT
       - AUSSER_GESCHAEFTSRAUM_VERTRAG
+
+  a2aKonto:
+    type: object
+    properties:
+      iban:
+        type: string
+        description: IBAN des A2A-Kontos
+      gemeinschaftskonto:
+        type: boolean
+        description: Ist true, wenn es sich beim A2A-Konto um ein Gemeinschaftskonto handelt, andernfalls false
+      antragsteller:
+        type: array
+        description: Referenziert die Antragsteller aus dem Request, welche Kontoinhaber des A2A-Kontos sind
+        items:
+          $ref: "#/definitions/a2aKontoAntragsteller"
+    required:
+      - iban
+
+  a2aKontoMitUmsaetzen:
+    allOf:
+      - $ref: '#/definitions/a2aKonto'
+      - type: object
+        properties:
+          umsatzdaten:
+            type: string
+            description: Base64 kodierte Kontoumsatzdaten
+            format: byte
+        required:
+          - umsatzdaten
+
+  a2aKontoAntragsteller:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Referenziert die ID des Antragstellers.
+      hauptbankverbindung:
+        type: boolean
+        description: Beschreibt, ob es sich um das Hauptkonto des Antragstellers mit Gehaltseingängen, Miete, etc. handelt.
+    required:
+      - id
 
   ###
   ### Meta
@@ -1030,6 +1081,12 @@ definitions:
       alternative:
         description: Pflichtfeld wenn sich das Angebot um ein Downsell-Angebot handelt. Ein Downsell liegt vor, wenn die gwwünschte Laufzeit verlängert und oder der gewünschte Kreditbetrag verringert wird, um eine nagtive Haushaltsrechnung auszugleichen. In diesem Falle ist zusätzlich mindestens eine Anpassungsmeldung zu liefern.
         $ref: '#/definitions/angebotAlternative'
+      angeforderteA2aKonten:
+        description: Liste der IDs der A2A-Konten, deren Umsatzdaten der Produktanbieter verwenden möchte. Die Lieferung der A2A-Daten erfolgt nur nach Absprache mit der Europace Ratenkredit GmbH.
+        type: array
+        items:
+          $ref: '#/definitions/angefordertesA2aKonto'
+
     required:
       - produktanbieter
       - produktbezeichnung
@@ -1407,6 +1464,15 @@ definitions:
         $ref: '#/definitions/angebotAlternativeTyp'
     required:
       - typ
+
+  angefordertesA2aKonto:
+    type: object
+    properties:
+      iban:
+        type: string
+        description: Referenziert a2aKonto.iban
+    required:
+      - iban
 
   angebotAlternativeTyp:
     type: string
