@@ -137,7 +137,7 @@ definitions:
         description: IBAN des A2A-Kontos
       gemeinschaftskonto:
         type: boolean
-        description: Ist true wenn es sich beim A2A-Konto um ein Gemeinschaftskonto handelt, andernfalls false
+        description: Ist true, wenn es sich beim A2A-Konto um ein Gemeinschaftskonto handelt, andernfalls false
       antragsteller:
         type: array
         description: Referenziert die Antragsteller aus dem Request, welche Kontoinhaber des A2A-Kontos sind
