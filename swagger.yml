@@ -112,7 +112,7 @@ definitions:
             type: string
           beratungsart:
             $ref: '#/definitions/beratungsart'
-          a2aKontenWithKontoumsaetze:
+          a2aKontenMitUmsaetzen:
             description: Liste mit Kontoumsatzdaten und zugehörigen AntragstellerIds und Metdaten
             type: array
             items:
