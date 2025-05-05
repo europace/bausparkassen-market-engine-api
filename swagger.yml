@@ -140,7 +140,7 @@ definitions:
         description: Ist true wenn es sich beim A2A-Konto um ein Gemeinschaftskonto handelt, andernfalls false
       antragsteller:
         type: array
-        description: Referenziert die Antragsteller aus dem Request welche Kontoinhaber des A2A-Kontos sind
+        description: Referenziert die Antragsteller aus dem Request, welche Kontoinhaber des A2A-Kontos sind
         items:
           $ref: "#/definitions/a2aKontoAntragsteller"
     required:
@@ -166,6 +166,7 @@ definitions:
         description: Referenziert die ID des Antragstellers.
       hauptbankverbindung:
         type: boolean
+        description: Beschreibt, ob es sich um das Hauptkonto des Antragstellers mit Gehaltseingängen, Miete, etc. handelt.
     required:
       - id
 
@@ -1081,7 +1082,7 @@ definitions:
         description: Pflichtfeld wenn sich das Angebot um ein Downsell-Angebot handelt. Ein Downsell liegt vor, wenn die gwwünschte Laufzeit verlängert und oder der gewünschte Kreditbetrag verringert wird, um eine nagtive Haushaltsrechnung auszugleichen. In diesem Falle ist zusätzlich mindestens eine Anpassungsmeldung zu liefern.
         $ref: '#/definitions/angebotAlternative'
       angeforderteA2aKonten:
-        description: Liste der ID's der A2A-Konten, deren Umsatzdaten der Produktanbieter verwenden möchte. Die Lieferung der A2A-Daten erfolgt nur nach Absprache mit der Europace Ratenkredit GmbH.
+        description: Liste der IDs der A2A-Konten, deren Umsatzdaten der Produktanbieter verwenden möchte. Die Lieferung der A2A-Daten erfolgt nur nach Absprache mit der Europace Ratenkredit GmbH.
         type: array
         items:
           $ref: '#/definitions/angefordertesA2aKonto'
