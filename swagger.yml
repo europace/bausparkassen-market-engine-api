@@ -132,9 +132,6 @@ definitions:
   a2aKonto:
     type: object
     properties:
-      id:
-        type: string
-        description: ID dient zur Referenzierung des A2A-Kontos in der Repsonse
       iban:
         type: string
         description: IBAN des A2A-Kontos
@@ -147,7 +144,6 @@ definitions:
         items:
           $ref: "#/definitions/a2aKontoAntragsteller"
     required:
-      - id
       - iban
 
   a2aKontoMitUmsaetzen:
@@ -1472,8 +1468,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/angefordertesA2aKonto'
-      format:
-        $ref: '#/definitions/a2aKontoFormat'
     required:
       - konten
       - format
@@ -1481,18 +1475,11 @@ definitions:
   angefordertesA2aKonto:
     type: object
     properties:
-      id:
+      iban:
         type: string
-        description: Referenziert a2aKonto.id
+        description: Referenziert a2aKonto.iban
     required:
-      - id
-
-  a2aKontoFormat:
-    type: string
-    description: Gibt an ob Kontoumsätze kategorisiert oder im Rohformat geliefert werden sollen.
-    enum:
-      - RAW
-      - CATEGORIZED
+      - iban
 
   angebotAlternativeTyp:
     type: string
