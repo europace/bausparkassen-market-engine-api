@@ -1082,7 +1082,10 @@ definitions:
         $ref: '#/definitions/angebotAlternative'
       angeforderteA2aKonten:
         description: Liste der ID's der A2A-Konten, deren Umsatzdaten der Produktanbieter verwenden möchte. Die Lieferung der A2A-Daten erfolgt nur nach Absprache mit der Europace Ratenkredit GmbH.
-        $ref: '#/definitions/angeforderteA2aKonten'
+        type: array
+        items:
+          $ref: '#/definitions/angefordertesA2aKonto'
+
     required:
       - produktanbieter
       - produktbezeichnung
@@ -1460,17 +1463,6 @@ definitions:
         $ref: '#/definitions/angebotAlternativeTyp'
     required:
       - typ
-
-  angeforderteA2aKonten:
-    type: object
-    properties:
-      konten:
-        type: array
-        items:
-          $ref: '#/definitions/angefordertesA2aKonto'
-    required:
-      - konten
-      - format
 
   angefordertesA2aKonto:
     type: object
