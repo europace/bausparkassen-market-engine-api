@@ -1,4 +1,4 @@
-## Annahme mit vollständigen Angaben (ein Antragsteller)
+## Annahme mit A2A Angaben
 
 Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständnis der API. 
 
