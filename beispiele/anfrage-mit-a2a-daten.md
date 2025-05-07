@@ -1,4 +1,4 @@
-## Anfrage mit vollständigen Angaben (mehrere Antragsteller im gemeinsamen Haushalt)
+## Anfrage mit A2A Angaben
 
 Die aufgelisteten Beispielanfragen und -antworten dienen zum besseren Verständnis der API. 
 
