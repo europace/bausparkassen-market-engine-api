@@ -566,7 +566,8 @@ Anmerkung zum Tilgungsplan:
         {
           "iban": "DE7510050000000000001"
         }
-      ]
+      ],
+      "kontocheckOption": "REQUIRED"
     }
   ]
 }

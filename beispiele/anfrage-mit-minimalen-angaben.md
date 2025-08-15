@@ -378,7 +378,8 @@ Angabe von Kreditbetrag und Laufzeit
           }
         }
       },
-      "maximalerAuszahlungsbetrag": null
+      "maximalerAuszahlungsbetrag": null,
+      "kontocheckOption": "NONE"
     }
   ]
 }

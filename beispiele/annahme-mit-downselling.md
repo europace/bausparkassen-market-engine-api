@@ -316,7 +316,8 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
     "maximalerAuszahlungsbetrag": null,
     "alternative": {
       "typ": "DOWNSELL"
-    }
+    },
+    "kontocheckOption": "OPTIONAL"
   },
   "dokumente": [
     {
