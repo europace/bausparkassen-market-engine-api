@@ -452,7 +452,8 @@ Anmerkung zum Tilgungsplan:
         }
       }
     },
-    "maximalerAuszahlungsbetrag": null
+    "maximalerAuszahlungsbetrag": null,
+    "kontocheckOption": "REQUIRED"
   },
   "dokumente": [
     {
