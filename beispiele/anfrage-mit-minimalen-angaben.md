@@ -20,7 +20,6 @@ Angabe von Kreditbetrag und Laufzeit
       "id": "f7de4f47-340e-4b1d-9e6f-45fc22fcc06e",
       "persoenlicheAngaben": {},
       "derzeitigeBeschaeftigung": {},
-      "vorherigeBeschaeftigung": {},
       "derzeitigeWohnsituation": {
         "anschrift": {
           "land": "DE"

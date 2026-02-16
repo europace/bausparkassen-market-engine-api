@@ -302,6 +302,7 @@ definitions:
       derzeitigeBeschaeftigung:
         $ref: '#/definitions/derzeitigeBeschaeftigung'
       vorherigeBeschaeftigung:
+        description: "deprecated, don't use"
         $ref: '#/definitions/vorherigeBeschaeftigung'
       derzeitigeWohnsituation:
         $ref: '#/definitions/derzeitigeWohnsituation'
@@ -443,6 +444,7 @@ definitions:
       - PROBEZEIT
 
   vorherigeBeschaeftigung:
+    description: "deprecated, don't use"
     properties:
       beschaeftigtSeit:
         type: string

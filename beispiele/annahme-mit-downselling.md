@@ -45,9 +45,6 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
         },
         "arbeitgebername": "Beispiel AG"
       },
-      "vorherigeBeschaeftigung": {
-        "anschrift": {}
-      },
       "derzeitigeWohnsituation": {
         "wohnart": "IM_EIGENEN_HAUS",
         "wohnhaftSeit": "2000-01-01",
