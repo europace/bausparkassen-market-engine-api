@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 11.4.1
+  version: 11.5.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -362,6 +362,10 @@ definitions:
         type: string
       staatsangehoerigkeit:
         $ref: '#/definitions/land'
+      weitereStaatsangehoerigkeiten:
+        type: array
+        items:
+          $ref: '#/definitions/land'
       familienstand:
         $ref: '#/definitions/familienstand'
       anzahlPersonenImHaushalt:
