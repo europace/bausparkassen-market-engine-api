@@ -23,6 +23,7 @@ Anmerkung zum Tilgungsplan:
         "nachname": "Beispiel Nachname",
         "geburtsdatum": "1970-01-01",
         "geburtsort": "Berlin",
+        "geburtsland": "DE",
         "staatsangehoerigkeit": "DE",
         "familienstand": "VERHEIRATET",
         "anzahlPersonenImHaushalt": 2
@@ -102,6 +103,7 @@ Anmerkung zum Tilgungsplan:
         "nachname": "Beispiel Nachname",
         "geburtsdatum": "1970-07-01",
         "geburtsort": "Berlin",
+        "geburtsland": "DE",
         "staatsangehoerigkeit": "DE",
         "familienstand": "VERHEIRATET"
       },

@@ -26,6 +26,7 @@ Die Beispielantworten sind fiktiv und gekürzt, sodass die Konditionen bspw. nic
         "nachname": "Beispiel Nachname",
         "geburtsdatum": "1970-01-01",
         "geburtsort": "Berlin",
+        "geburtsland": "DE",
         "staatsangehoerigkeit": "DE",
         "familienstand": "LEDIG",
         "anzahlPersonenImHaushalt": 1
