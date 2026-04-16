@@ -23,7 +23,7 @@ The version of the API is based on [Semantic Versioning](https://semver.org/) an
 
 `MAJOR.MINOR.PATCH`
 
-and is part of the [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml) (`info.version`).
+and is part of the [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/main/swagger.yml) (`info.version`).
 
 1. The `MAJOR` version is incremented in case of API incompatible changes (e.g. new mandatory data)
 2. The `MINOR` version is incremented for backward compatible API changes (e.g. new optional specifications)
@@ -33,7 +33,7 @@ You will find the current version of the API within the [Releases](https://githu
 
 ## API specification
 
-Requests and responses are defined in the [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/master/swagger.yml).
+Requests and responses are defined in the [Swagger Definition](https://github.com/europace/bausparkassen-market-engine-api/blob/main/swagger.yml).
 
 
 ### Calculation
@@ -147,13 +147,13 @@ The calculation response must be within 4 seconds, slower responses will be disc
 
 ## Examples
 
-* [Request with minimal data](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-minimalen-angaben.md)
-* [Request with complete data (one applicant)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
-* [Request with complete data (two applicants with joint household)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
-* [Request with complete data (two applicants with separate household)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
-* [Request with A2A data](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/anfrage-mit-a2a-daten.md)
-* [Accepting with complete data (one applicant)](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
-* [Accepting with A2A data](https://github.com/europace/bausparkassen-market-engine-api/blob/master/beispiele/annahme-mit-a2a-daten.md)
+* [Request with minimal data](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-minimalen-angaben.md)
+* [Request with complete data (one applicant)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
+* [Request with complete data (two applicants with joint household)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
+* [Request with complete data (two applicants with separate household)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
+* [Request with A2A data](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-a2a-daten.md)
+* [Accepting with complete data (one applicant)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
+* [Accepting with A2A data](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/annahme-mit-a2a-daten.md)
 
 ## Terms of use
 
