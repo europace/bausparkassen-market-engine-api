@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 11.5.0
+  version: 11.6.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -358,6 +358,8 @@ definitions:
         format: date
       geburtsort:
         type: string
+      geburtsland:
+        $ref: '#/definitions/land'
       geburtsname:
         type: string
       staatsangehoerigkeit:
