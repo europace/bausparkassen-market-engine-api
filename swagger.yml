@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 11.6.0
+  version: 12.0.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -301,9 +301,6 @@ definitions:
         $ref: '#/definitions/persoenlicheAngaben'
       derzeitigeBeschaeftigung:
         $ref: '#/definitions/derzeitigeBeschaeftigung'
-      vorherigeBeschaeftigung:
-        description: "deprecated, don't use"
-        $ref: '#/definitions/vorherigeBeschaeftigung'
       derzeitigeWohnsituation:
         $ref: '#/definitions/derzeitigeWohnsituation'
       vorherigeWohnsituation:
@@ -448,20 +445,6 @@ definitions:
       - UNBEFRISTET
       - BEFRISTET
       - PROBEZEIT
-
-  vorherigeBeschaeftigung:
-    description: "deprecated, don't use"
-    properties:
-      beschaeftigtSeit:
-        type: string
-        format: date
-      beschaeftigtBis:
-        type: string
-        format: date
-      anschrift:
-        $ref: '#/definitions/adresse'
-      arbeitgebername:
-        type: string
 
   derzeitigeWohnsituation:
     type: object
