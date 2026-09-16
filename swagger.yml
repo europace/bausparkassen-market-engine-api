@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 12.0.0
+  version: 12.1.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -227,6 +227,9 @@ definitions:
         type: string
       anrede:
         $ref: '#/definitions/anrede'
+      registrierungsnummer34k:
+        description: Registrierungsnummer des Vermittlers nach § 34k GewO (Gewerbeordnung). Wird im Europace-Partnermanagement gepflegt.
+        type: string
 
   bearbeiter:
     type: object
