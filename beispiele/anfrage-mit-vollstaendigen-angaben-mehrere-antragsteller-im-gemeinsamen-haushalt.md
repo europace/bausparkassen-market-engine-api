@@ -233,7 +233,8 @@ Anmerkung zum Tilgungsplan:
     "telefon": "030 123456",
     "email": "beispiel@beispiel.de",
     "iban": "DE75201207003100124444",
-    "anrede": "HERR"
+    "anrede": "HERR",
+    "registrierungsnummer34k": "12345678"
   },
   "metadaten": {
     "traceId": "ks-84d56ccf",
