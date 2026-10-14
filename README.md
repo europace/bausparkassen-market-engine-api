@@ -151,6 +151,7 @@ The calculation response must be within 4 seconds, slower responses will be disc
 * [Request with complete data (one applicant)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-vollstaendigen-angaben-ein-antragsteller.md)
 * [Request with complete data (two applicants with joint household)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-im-gemeinsamen-haushalt.md)
 * [Request with complete data (two applicants with separate household)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-vollstaendigen-angaben-mehrere-antragsteller-in-getrennten-haushalten.md)
+* [Request with communication preferences](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-kommunikationsangaben.md)
 * [Request with A2A data](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/anfrage-mit-a2a-daten.md)
 * [Accepting with complete data (one applicant)](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/annahme-mit-vollstaendigen-angaben-ein-antragsteller.md)
 * [Accepting with A2A data](https://github.com/europace/bausparkassen-market-engine-api/blob/main/beispiele/annahme-mit-a2a-daten.md)

@@ -89,7 +89,15 @@ Anmerkung zum Tilgungsplan:
           "leasings": [],
           "kreditkarten": [],
           "dispositionskredite": [],
-          "immobiliendarlehen": []
+          "immobiliendarlehen": [],
+          "ratenkaeufe": [
+            {
+              "id": "8f2b1c44-6a3e-4c71-9b12-5d7e0a3f8c91",
+              "monatlicheRate": 49.99,
+              "restschuld": 599.88,
+              "glaeubiger": "Beispiel Ratenkauf GmbH"
+            }
+          ]
         }
       }
     }

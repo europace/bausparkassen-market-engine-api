@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 12.1.0
+  version: 12.2.0
   title: MarketEngine-API für Bausparkassen
 basePath: /v1
 schemes:
@@ -322,6 +322,8 @@ definitions:
         $ref: '#/definitions/legitimation'
       bonitaetsangaben:
         $ref: '#/definitions/bonitaetsangaben'
+      kommunikationsangaben:
+        $ref: '#/definitions/kommunikationsangaben'
 
   kontakt:
     type: object
@@ -599,6 +601,37 @@ definitions:
       verbindlichkeiten:
         $ref: '#/definitions/verbindlichkeiten'
 
+  kommunikationsangaben:
+    description: Die vom Verbraucher gewählten Kommunikationswege gemäß Verbraucherkreditrichtlinie 2 (VKRL2 / CCD2).
+    type: object
+    properties:
+      bereitstellungswegSecci:
+        description: Wie soll die Bank-VVI (SECCI) zur Verfügung gestellt werden?
+        $ref: '#/definitions/bereitstellungsweg'
+      kommunikationswegNachVertragsschluss:
+        description: Wie soll die Kommunikation zu Änderungen nach Vertragsschluss erfolgen?
+        $ref: '#/definitions/kommunikationsweg'
+      kommunikationswegErinnerungWiderrufsrecht:
+        description: Wie soll die Erinnerung zum Ablauf der Widerrufsfrist zur Verfügung gestellt werden?
+        $ref: '#/definitions/kommunikationsweg'
+      kommunikationswegWiderruf:
+        description: Wie möchte der Verbraucher den Widerruf an den Produktanbieter richten?
+        $ref: '#/definitions/kommunikationsweg'
+
+  bereitstellungsweg:
+    description: Der vom Verbraucher gewählte Weg für die Bereitstellung von Dokumenten des Produktanbieters. DIGITAL = ausschließlich digitale Bereitstellung. DIGITAL_PAPIER = digitale Bereitstellung und zusätzliche Bereitstellung in Papierform.
+    type: string
+    enum:
+      - DIGITAL
+      - DIGITAL_PAPIER
+
+  kommunikationsweg:
+    description: Der vom Verbraucher gewählte Weg für die laufende Kommunikation mit dem Produktanbieter und für den Widerruf. DIGITAL = ausschließlich digital. PAPIER = ausschließlich in Papierform.
+    type: string
+    enum:
+      - DIGITAL
+      - PAPIER
+
   ausgaben:
     type: object
     properties:
@@ -754,6 +787,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/immobiliendarlehen'
+      ratenkaeufe:
+        type: array
+        items:
+          $ref: '#/definitions/ratenkauf'
 
   ratenkredit:
     type: object
@@ -843,6 +880,18 @@ definitions:
         $ref: '#/definitions/euro'
       restschuld:
         $ref: '#/definitions/euro'
+
+  ratenkauf:
+    type: object
+    properties:
+      id:
+        type: string
+      monatlicheRate:
+        $ref: '#/definitions/euro'
+      restschuld:
+        $ref: '#/definitions/euro'
+      glaeubiger:
+        type: string
 
   ###
   ### Finanzierungswunsch
