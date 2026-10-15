@@ -89,7 +89,8 @@ Anmerkung zum Tilgungsplan:
           "leasings": [],
           "kreditkarten": [],
           "dispositionskredite": [],
-          "immobiliendarlehen": []
+          "immobiliendarlehen": [],
+          "ratenkaeufe": []
         }
       }
     }
